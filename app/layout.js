@@ -1,19 +1,22 @@
 // import { Poppins } from 'next/font/google';
 import "./globals.css";
-import Sidebar from "./Sidebar.jsx/page";
-
-
+import { ThemeProvider } from "./context/ThemeContext";
 
 export const metadata = {
-  title: "MiDiT",
-  description: "",
+  title: "NodesIO",
+  description: "Smart waste management solution",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/images/nodesio.png" type="image/png" />
+      </head>
       <body>
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

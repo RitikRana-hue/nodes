@@ -1,16 +1,24 @@
+"use client";
+
 import Link from "next/link";
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { useTheme } from "../../context/ThemeContext";
 
 export default function Footer() {
+  const { theme } = useTheme();
   return (
     <footer className="bg-[#1a1a1a] text-white px-5 py-20">
       <div className="max-w-7xl mx-auto grid gap-16 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
         {/* Brand Section */}
         <div>
           <div className="flex items-center gap-2 mb-4">
-            <img src="M" alt="Logo" className="w-8 h-8" />
-            <span className="text-green-400 font-bold text-xl">MiDiT</span>
+            {theme === 'dark' ? (
+              <img src="/images/logo.png" alt="Logo" className="w-8 h-8 rounded-full" />
+            ) : (
+              <img src="/images/nodesio.png" alt="Logo" className="w-8 h-8 rounded-full" />
+            )}
+            <span className="text-green-400 font-bold text-xl">NodesIO</span>
           </div>
           <p className="text-gray-400 mb-6">
             Transforming waste management through innovative technology and sustainable solutions.
@@ -57,7 +65,7 @@ export default function Footer() {
           <h3 className="font-semibold text-white text-lg mb-6">Contact Us</h3>
           <ul className="space-y-4 text-gray-400">
             <li className="flex items-center gap-2"><FaPhone /> +1 234 567 890</li>
-            <li className="flex items-center gap-2"><FaEnvelope /> contact@ektros.com</li>
+            <li className="flex items-center gap-2"><FaEnvelope /> contact@nodesio.com</li>
             <li className="flex items-center gap-2"><FaMapMarkerAlt /> 123 Innovation Street, Tech City</li>
           </ul>
         </div>
@@ -65,7 +73,7 @@ export default function Footer() {
 
       {/* Footer Bottom */}
       <div className="text-center text-gray-400 mt-16 pt-8 border-t border-white/10">
-        <p>&copy; 2025 MiDiT. All rights reserved.</p>
+        <p>&copy; 2025 NodesIO. All rights reserved.</p>
       </div>
     </footer>
   );

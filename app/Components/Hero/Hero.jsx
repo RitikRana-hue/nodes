@@ -1,7 +1,11 @@
+"use client";
+
 import Image from 'next/image'
 import React from 'react'
+import { useTheme } from "../../context/ThemeContext";
 
 export default function Hero() {
+  const { theme } = useTheme();
 
   return (
     <>
@@ -11,7 +15,7 @@ export default function Hero() {
             <div className='flex flex-col md:flex-row lg:flex-row xl:flex-row gap-10'>
                 {/* Left Content */}
                 <div className='w-full lg:w-[50%]'>
-                    <h1 className='text-5xl lg:text-6xl text-[rgb(51,51,51)] font-bold'>MiDiT for a Cleaner Future</h1>
+                    <h1 className='text-5xl lg:text-6xl text-[rgb(51,51,51)] font-bold'>NodesIO for a Cleaner Future</h1>
                     <p className='py-10 text-[22px] lg:text-2xl text-gray-500'>Transform your waste management with our IoT-powered solution. Real-time monitoring, efficient collection, and data-driven decisions all in one platform.</p>
                     
                     {/* Buttons */}
@@ -33,7 +37,7 @@ export default function Hero() {
 
                     {/* Stats Labels */}
                     <div className='flex flex-row justify-center sm:justify-start py-4 gap-14 text-lg lg:gap-22 text-gray-500 text-center sm:text-left'>
-                        <p>Mid Bins</p>
+                        <p>Nodes Bins</p>
                         <p>Cities</p> 
                         <p>Efficiency</p>
                     </div>
@@ -48,7 +52,7 @@ export default function Hero() {
                         <p>95%</p>
                     </div>
                     <div className='flex flex-row gap-22 py-2 text-gray-500'>
-                        <p className=''>Mid Bins</p>
+                        <p className=''>Nodes Bins</p>
                         <p className=''>Cities</p>
                         <p className=''>Efficiency</p>
                     </div> */}
@@ -56,7 +60,11 @@ export default function Hero() {
                 {/* Right Content */}
                 <div className='w-[50%]'>
                     <div className='flex items-center justify-center'>
-                        <Image className='text-black' alt='image' src={'/'} width={50} height={50} />
+                        {theme === 'dark' ? (
+                          <Image className='text-black rounded-full' alt='NodesIO logo' src={'/images/logo.png'} width={300} height={300} />
+                        ) : (
+                          <Image className='text-black rounded-full' alt='NodesIO logo' src={'/images/nodesio.png'} width={300} height={300} />
+                        )}
                     </div>
                 </div>
             </div>

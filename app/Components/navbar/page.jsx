@@ -3,10 +3,12 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Menu, X, ChevronRight } from 'lucide-react';
+import { useTheme } from "../../context/ThemeContext";
 
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { theme } = useTheme();
 
   return (
 <nav className="bg-white fixed w-full z-20 top-0 left-0 border-b border-b-gray-300 dark:bg-white dark:border-gray-200">
@@ -14,8 +16,12 @@ const Navbar = () => {
 
         {/* Logo here okay */}
         <a href="#" className="flex items-center space-x-3">
-          <Image src="/" width={32} height={32} alt="Logo" />
-          <span className="text-2xl  font-bold text-green-600">MiDiT</span>
+          {theme === 'dark' ? (
+            <Image src="/images/logo.png" width={32} height={32} alt="Logo" className="rounded-full" />
+          ) : (
+            <Image src="/images/nodesio.png" width={32} height={32} alt="Logo" className="rounded-full" />
+          )}
+          <span className="text-2xl font-bold text-green-600">NodesIO</span>
         </a>
 
         <button
@@ -73,4 +79,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;  
+export default Navbar;
