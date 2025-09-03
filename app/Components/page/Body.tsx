@@ -1,11 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaLeaf, FaRoute, FaChartBar, FaMobileAlt } from "react-icons/fa";
 import Image from "next/image";
+import { FaChartLine, FaRoute, FaTrash, FaBell } from "react-icons/fa";
 
-const Body = () => {
-  // Animation variants
+export default function Body() {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -17,53 +16,49 @@ const Body = () => {
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
-      y: 0,
       opacity: 1,
-      transition: { duration: 0.5 }
+      y: 0
     }
   };
 
-  // Feature cards data
   const features = [
     {
-      icon: <FaLeaf className="h-8 w-8 text-green-500" />,
-      title: "IoT Integration",
-      description: "Smart sensors monitor fill levels and optimize collection schedules in real-time."
+      title: "Real-time Monitoring",
+      description: "Track fill levels and waste metrics in real-time with IoT sensors.",
+      icon: <FaChartLine className="w-6 h-6 text-green-600" />
     },
     {
-      icon: <FaRoute className="h-8 w-8 text-blue-500" />,
       title: "Route Optimization",
-      description: "AI-powered algorithms create the most efficient collection routes, saving time and fuel."
+      description: "AI-powered route planning for efficient waste collection.",
+      icon: <FaRoute className="w-6 h-6 text-green-600" />
     },
     {
-      icon: <FaChartBar className="h-8 w-8 text-purple-500" />,
-      title: "Analytics Dashboard",
-      description: "Comprehensive data visualization for waste management insights and decision making."
+      title: "Waste Analytics",
+      description: "Detailed insights and reporting on waste management patterns.",
+      icon: <FaTrash className="w-6 h-6 text-green-600" />
     },
     {
-      icon: <FaMobileAlt className="h-8 w-8 text-cyan-500" />,
-      title: "Mobile App Access",
-      description: "Control and monitor your waste management system from anywhere, anytime."
+      title: "Smart Alerts",
+      description: "Automated notifications for critical waste management events.",
+      icon: <FaBell className="w-6 h-6 text-green-600" />
     }
   ];
 
-  // Stats data
   const stats = [
-    { value: "0", label: "Smart Bins Deployed" },
-    { value: "0", label: "Cities Covered" },
-    { value: "75%", label: "Collection Efficiency" }
+    { value: "85%", label: "Cost Reduction" },
+    { value: "24/7", label: "Monitoring" },
+    { value: "50+", label: "Cities Served" }
   ];
 
-  // Testimonials data
   const testimonials = [
     {
       name: "Sarah Johnson",
       role: "City Waste Manager",
       company: "Metro City Council",
       image: "/images/testimonial1.jpg",
-      quote: "The smart waste management system has revolutionized our city's waste collection process. We've reduced operational costs by 30% in just six months."
+      quote: "The smart waste management system has revolutionized our city&apos;s waste collection process. We&apos;ve reduced operational costs by 30% in just six months."
     },
     {
       name: "Michael Chen",
@@ -85,7 +80,7 @@ const Body = () => {
     <div className="pt-24">
       {/* Hero Section */}
       <section className="relative bg-green-50 py-20">
-        <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
+        <div className="absolute inset-0 bg-[url(&apos;/images/grid.svg&apos;)] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-12">
             <motion.div 
@@ -274,15 +269,21 @@ const Body = () => {
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 viewport={{ once: true }}
               >
-                <div className="mb-6">
-                  <div className="flex items-center mb-4">
-                    <div className="h-12 w-12 rounded-full bg-gray-200 mr-4"></div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-                      <p className="text-sm text-gray-600">{testimonial.role}, {testimonial.company}</p>
-                    </div>
+                <p className="text-gray-700 mb-4 italic">&quot;{testimonial.quote}&quot;</p>
+                <div className="flex items-center">
+                  <div className="flex-shrink-0">
+                    <Image
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      width={40}
+                      height={40}
+                      className="rounded-full"
+                    />
                   </div>
-                  <p className="text-gray-700 italic">"{testimonial.quote}"</p>
+                  <div className="ml-3">
+                    <h4 className="text-lg font-semibold text-gray-900">{testimonial.name}</h4>
+                    <p className="text-sm text-gray-600">{testimonial.role} at {testimonial.company}</p>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -291,43 +292,39 @@ const Body = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-green-600 text-white">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="max-w-3xl mx-auto text-center">
-            <motion.h2 
-              className="text-3xl md:text-4xl font-bold mb-6"
-              initial={{ opacity: 0, y: -20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-            >
-              Ready to Transform Your Waste Management?
-            </motion.h2>
-            <motion.p 
-              className="text-lg mb-8 text-white/90"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              Join hundreds of organizations already benefiting from our smart waste management solution.
-            </motion.p>
-            <motion.button 
-              className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-3 rounded-lg font-medium transition-all hover:shadow-lg"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Schedule a Demo
-            </motion.button>
-          </div>
+      <section className="py-20 bg-blue-600">
+        <div className="container mx-auto px-4 md:px-6 text-center">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-white mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            Ready to Transform Your Waste Management?
+          </motion.h2>
+          <motion.p 
+            className="text-xl text-white/90 mb-12 max-w-3xl mx-auto"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            Join hundreds of organizations already benefiting from our smart waste management solution.
+          </motion.p>
+          <motion.button 
+            className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-3 rounded-lg font-medium transition-all hover:shadow-lg"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Schedule a Demo
+          </motion.button>
         </div>
       </section>
     </div>
   );
-};
-
-export default Body;
+}

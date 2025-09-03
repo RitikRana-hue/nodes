@@ -1,138 +1,127 @@
 "use client";
 
-import Header from "../Components/page/Header";
-import Footer from "../Components/page/Footer";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function About() {
+  const teamMembers = [
+    {
+      name: "Abhishek Mishra",
+      role: "Full Stack Developer",
+      image: "/images/abhishek.jpg"
+    },
+    {
+      name: "Rish Saha",
+      role: "Full Stack Developer",
+      image: "/images/rish.jpg"
+    }
+  ];
+
+  const values = [
+    {
+      title: "Innovation",
+      description: "We&apos;re constantly pushing the boundaries of what&apos;s possible in waste management technology."
+    },
+    {
+      title: "Sustainability",
+      description: "Our solutions are designed with environmental impact in mind, promoting a cleaner future."
+    },
+    {
+      title: "Collaboration",
+      description: "We believe in the power of teamwork and open communication to drive success."
+    },
+    {
+      title: "Excellence",
+      description: "We strive for excellence in everything we do, from code quality to customer service."
+    }
+  ];
+
   return (
-    <div className="flex flex-col min-h-screen">
-      <Header />
-      <main className="flex-grow min-h-screen pt-8 pb-8 bg-[#eaf1fb] flex flex-col items-center justify-start">
-  {/* Hero Section */}
-  <section className="w-full max-w-none mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-      <div className="flex flex-col md:flex-row justify-between items-center gap-16">
-        <div className="flex-1 max-w-2xl">
-          <span className="text-blue-600 font-semibold text-lg mb-4 block">How It Started</span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight text-gray-900">Our Dream is Global Waste Management Transformation</h2>
-          <p className="text-lg text-gray-600 mb-12 leading-relaxed">
-            NodesIO was founded by a passionate team of engineers and sustainability advocates. United by their belief in the power of technology to create cleaner, more efficient cities, they embarked on a journey to build innovative IoT solutions for waste management. With relentless dedication, they gathered a team of experts and launched this platform, creating a global community of forward-thinking partners and clients.
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">1+</div>
-              <div className="text-sm text-gray-600">Years Experience</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">0+</div>
-              <div className="text-sm text-gray-600">Projects</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">0+</div>
-              <div className="text-sm text-gray-600">Partners</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">0M+</div>
-              <div className="text-sm text-gray-600">Bins Monitored</div>
-            </div>
-          </div>
+    <div className="min-h-screen bg-gray-50 py-12">
+      {/* Hero Section */}
+      <section className="container mx-auto px-4 md:px-6 mb-16">
+        <div className="text-center max-w-3xl mx-auto">
+          <motion.h1 
+            className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            About NodesIO
+          </motion.h1>
+          <motion.p 
+            className="text-xl text-gray-700 mb-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            We&apos;re on a mission to revolutionize waste management through innovative technology and sustainable solutions.
+          </motion.p>
         </div>
-        <div className="flex-1 flex justify-center items-center">
-          <img 
-            src="/images/aboutIMG.png" 
-            alt="NodesIO Team" 
-            className="w-full max-w-3xl h-auto object-contain" 
-          />
-        </div>
-      </div>
       </section>
 
-  {/* Team Section */}
-  <section className="w-full max-w-none mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-    <div className="text-center mb-16">
-      <span className="text-blue-600 font-semibold text-lg mb-4 block">Meet the Team</span>
-      <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">Our Dedicated Team of Innovators</h2>
-    </div>
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-16 max-w-4xl mx-auto">
-      {/* Team Member Card */}
-      <div className="text-center group">
-        <div className="mb-6 relative">
-          <img src="/images/AbhishekIMG.jpeg" alt="Abhishek Mishra" className="w-48 h-48 mx-auto rounded-full object-cover shadow-md transition-transform duration-300 group-hover:scale-105" />
+      {/* Image Section */}
+      <section className="container mx-auto px-4 md:px-6 mb-16">
+        <div className="flex justify-center">
+          <div className="relative w-full max-w-3xl h-[400px]">
+            <Image
+              src="/images/aboutIMG.png"
+              alt="About NodesIO"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
         </div>
-        <h3 className="text-2xl font-bold text-gray-900 mb-2">Abhishek Mishra</h3>
-        <p className="text-blue-600 text-lg font-medium">Full Stack Developer</p>
-      </div>
-      <div className="text-center group">
-        <div className="mb-6 relative">
-          <img src="/images/RitikIMG.png" alt="Ritik Rana" className="w-48 h-48 mx-auto rounded-full object-cover shadow-md transition-transform duration-300 group-hover:scale-105" />
+      </section>
+
+      {/* Values Section */}
+      <section className="container mx-auto px-4 md:px-6 mb-16">
+        <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">Our Values</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {values.map((value, index) => (
+            <motion.div
+              key={index}
+              className="bg-white rounded-lg p-6 shadow-md"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">{value.title}</h3>
+              <p className="text-gray-700">{value.description}</p>
+            </motion.div>
+          ))}
         </div>
-        <h3 className="text-2xl font-bold text-gray-900 mb-2">Ritik Rana</h3>
-        <p className="text-blue-600 text-lg font-medium">Full Stack Developer</p>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  {/* Mission & Vision Section */}
-  <section className="w-full max-w-none mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-    <div className="grid md:grid-cols-2 gap-16 max-w-6xl mx-auto">
-      <div>
-        <span className="text-blue-600 font-semibold mb-4 block">Our Vision</span>
-        <h3 className="text-3xl font-bold mb-6 text-gray-900">Empowering Cities Through Technology</h3>
-        <p className="text-gray-600 text-lg leading-relaxed">
-          Our vision is to empower cities and organizations to achieve sustainability and operational excellence through smart, data-driven waste management solutions.
-        </p>
-      </div>
-      <div>
-        <span className="text-blue-600 font-semibold mb-4 block">Our Mission</span>
-        <h3 className="text-3xl font-bold mb-6 text-gray-900">Innovation for All, Everywhere</h3>
-        <p className="text-gray-600 text-lg leading-relaxed">
-          Our mission is to make advanced waste management accessible to all communities by fostering innovation, collaboration, and a passion for a cleaner future.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  {/* Schedule Demo Section */}
-  <section className="w-full max-w-none mx-auto px-4 sm:px-6 lg:px-8 py-24 bg-green-500">
-    <div className="max-w-6xl mx-auto text-center">
-      <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Ready to Transform Your Waste Management?</h2>
-      <p className="text-xl text-white/90 mb-12 max-w-3xl mx-auto">
-        Join hundreds of organizations already benefiting from our smart waste management solution.
-      </p>
-      <a 
-        href="https://calendly.com/nodesio/demo"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-blue-600 bg-white rounded-lg hover:bg-blue-50 transition-colors duration-300 transform hover:scale-105"
-      >
-        Schedule a Demo
-      </a>
-    </div>
-  </section>
-
-  {/* Newsletter Section */}
-  <section className="w-full max-w-none mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 bg-gray-50">
-    <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-      <div className="text-center md:text-left">
-        <h4 className="text-2xl font-bold text-gray-900 mb-4">Get 2% off your first 20 deployments</h4>
-        <p className="text-gray-600 text-lg">Subscribe to our newsletter for updates, insights, and exclusive offers.</p>
-      </div>
-      <form className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
-        <input 
-          type="email" 
-          placeholder="Enter your email" 
-          className="px-6 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-200 text-lg" 
-        />
-        <button 
-          type="submit" 
-          className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition text-lg"
-        >
-          Subscribe
-        </button>
-      </form>
-    </div>
-  </section>
-</main>
-      <Footer />
+      {/* Team Section */}
+      <section className="container mx-auto px-4 md:px-6">
+        <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">Our Team</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          {teamMembers.map((member, index) => (
+            <motion.div
+              key={index}
+              className="bg-white rounded-lg p-6 shadow-md text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <div className="relative w-32 h-32 mx-auto mb-4">
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  fill
+                  className="rounded-full object-cover"
+                />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-1">{member.name}</h3>
+              <p className="text-gray-600">{member.role}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
