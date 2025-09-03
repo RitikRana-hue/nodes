@@ -1,18 +1,17 @@
-import AboutUs from "./Components/AboutUs/AboutUs";
-import Navbar from "./Components/navbar/page";
-import Footer from "./Components/footer/page";
-import Hero from "./Components/Hero/Hero";
-import Section3 from "./Components/section3/page";
-import Card from "./Components/Card/page";
+"use client";
+
+import Header from "./Components/page/Header";
+import Body from "./Components/page/Body";
+import Footer from "./Components/page/Footer";
+
 export default function Home() {
   return (
-    <>
-      <Navbar/>
-      <Hero></Hero>
-      <Section3></Section3>
-      <Card></Card>
-      <AboutUs></AboutUs>
-      <Footer/>
-    </>
-  )
+    <div className="flex flex-col min-h-screen bg-green-50">
+      <Header />
+      <main className="flex-grow">
+        <Body />
+      </main>
+      <Footer />
+    </div>
+  );
 }
