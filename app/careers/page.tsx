@@ -1,135 +1,172 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { FaBriefcase, FaUsers, FaRocket, FaHeart } from "react-icons/fa";
+import { useState } from 'react';
+import Header from "../Components/page/Header";
+import Footer from "../Components/page/Footer";
+import JobApplication from "../Components/page/JobApplication";
 
 export default function Careers() {
-  const benefits = [
-    {
-      icon: <FaBriefcase className="h-6 w-6 text-blue-500" />,
-      title: "Competitive Salary",
-      description: "We offer industry-leading compensation packages to attract and retain top talent."
-    },
-    {
-      icon: <FaUsers className="h-6 w-6 text-green-500" />,
-      title: "Remote Work",
-      description: "Flexible work arrangements that prioritize work-life balance."
-    },
-    {
-      icon: <FaRocket className="h-6 w-6 text-purple-500" />,
-      title: "Career Growth",
-      description: "Continuous learning opportunities and clear career progression paths."
-    },
-    {
-      icon: <FaHeart className="h-6 w-6 text-red-500" />,
-      title: "Health Benefits",
-      description: "Comprehensive health, dental, and vision coverage for you and your family."
-    }
-  ];
+  const [isApplicationOpen, setIsApplicationOpen] = useState(false);
+  const [selectedJob, setSelectedJob] = useState('');
+  const [isGeneralApplication, setIsGeneralApplication] = useState(false);
 
-  const positions = [
+  const handleApply = (jobTitle: string) => {
+    setSelectedJob(jobTitle);
+    setIsGeneralApplication(false);
+    setIsApplicationOpen(true);
+  };
+
+  const handleGeneralApplication = () => {
+    setSelectedJob('');
+    setIsGeneralApplication(true);
+    setIsApplicationOpen(true);
+  };
+
+  const jobOpenings = [
     {
-      title: "Senior Full Stack Developer",
+      title: "IoT Engineer",
       department: "Engineering",
       location: "Remote",
-      type: "Full-time",
-      description: "We&apos;re looking for an experienced Full Stack Developer to join our engineering team. You&apos;ll be working on our core platform, building new features and improving existing ones."
+      type: "Full-time"
+    },
+    {
+      title: "Data Scientist",
+      department: "Analytics",
+      location: "San Francisco, CA",
+      type: "Full-time"
+    },
+    {
+      title: "Frontend Developer",
+      department: "Engineering",
+      location: "Remote",
+      type: "Full-time"
     },
     {
       title: "Product Manager",
       department: "Product",
-      location: "Remote",
-      type: "Full-time",
-      description: "Join us as a Product Manager to help shape the future of waste management technology. You&apos;ll work closely with our engineering and design teams to deliver innovative solutions."
-    },
-    {
-      title: "UX/UI Designer",
-      department: "Design",
-      location: "Remote",
-      type: "Full-time",
-      description: "We&apos;re seeking a talented UX/UI Designer to create beautiful and intuitive interfaces for our web and mobile applications."
-    },
-    {
-      title: "DevOps Engineer",
-      department: "Engineering",
-      location: "Remote",
-      type: "Full-time",
-      description: "Looking for a DevOps Engineer to help us scale our infrastructure and improve our deployment processes."
+      location: "Boston, MA",
+      type: "Full-time"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      {/* Hero Section */}
-      <section className="container mx-auto px-4 md:px-6 mb-16">
-        <div className="text-center max-w-3xl mx-auto">
-          <motion.h1 
-            className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            Join Our Mission to Transform Waste Management
-          </motion.h1>
-          <motion.p 
-            className="text-xl text-gray-700 mb-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            We&apos;re building the future of smart waste management, and we&apos;re looking for passionate individuals to join our team.
-          </motion.p>
-        </div>
-      </section>
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <main className="flex-grow min-h-screen bg-[#eaf1fb]">
+        {/* Hero Section */}
+        <section className="w-full bg-green-500 py-24 px-4">
+          <div className="max-w-6xl mx-auto text-center">
+            <span className="text-white/90 font-semibold text-lg mb-4 block">Join Our Team</span>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">Build the Future of Smart Cities</h1>
+            <p className="text-xl text-white/90 max-w-3xl mx-auto mb-8">
+              Join our team of innovators working to revolutionize waste management through technology.
+              At NodesIO, we&apos;re passionate about creating sustainable solutions for smarter cities.
+            </p>
+          </div>
+        </section>
 
-      {/* Benefits Section */}
-      <section className="container mx-auto px-4 md:px-6 mb-16">
-        <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">Why Work With Us?</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {benefits.map((benefit, index) => (
-            <motion.div
-              key={index}
-              className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <div className="mb-4">{benefit.icon}</div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">{benefit.title}</h3>
-              <p className="text-gray-700">{benefit.description}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* Open Positions Section */}
-      <section className="container mx-auto px-4 md:px-6">
-        <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">Open Positions</h2>
-        <div className="grid grid-cols-1 gap-6 max-w-4xl mx-auto">
-          {positions.map((position, index) => (
-            <motion.div
-              key={index}
-              className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900">{position.title}</h3>
-                  <p className="text-gray-600">{position.department} · {position.location} · {position.type}</p>
+        {/* Why Join Us Section */}
+        <section className="w-full py-20 px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <span className="text-blue-600 font-semibold text-lg mb-4 block">Why Choose Us</span>
+              <h2 className="text-4xl font-bold mb-6 text-gray-900">Why Work With Us</h2>
+            </div>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="p-6 rounded-xl bg-white shadow-sm hover:shadow-md transition-shadow">
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
                 </div>
-                <button className="mt-4 md:mt-0 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                  Apply Now
-                </button>
+                <h3 className="text-xl font-semibold mb-2">Meaningful Impact</h3>
+                <p className="text-gray-600">Work on projects that make real environmental impact and shape the future of smart cities.</p>
               </div>
-              <p className="text-gray-700">{position.description}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+              <div className="p-6 rounded-xl bg-white shadow-sm hover:shadow-md transition-shadow">
+                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold mb-2">Great Culture</h3>
+                <p className="text-gray-600">Join a collaborative and innovative culture with opportunities for growth and learning.</p>
+              </div>
+              <div className="p-6 rounded-xl bg-white shadow-sm hover:shadow-md transition-shadow">
+                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold mb-2">Great Benefits</h3>
+                <p className="text-gray-600">Competitive compensation, flexible work arrangements, and comprehensive benefits package.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Current Openings Section */}
+        <section className="w-full py-20 px-4 bg-white">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <span className="text-blue-600 font-semibold text-lg mb-4 block">Open Positions</span>
+              <h2 className="text-4xl font-bold mb-6 text-gray-900">Current Openings</h2>
+            </div>
+            <div className="grid gap-6 max-w-4xl mx-auto">
+              {jobOpenings.map((job, index) => (
+                <div key={index} className="group p-6 rounded-xl border border-gray-200 hover:border-blue-500 transition-all duration-300 bg-white">
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                      <h3 className="text-xl font-semibold mb-2 group-hover:text-blue-600 transition-colors">{job.title}</h3>
+                      <div className="flex flex-wrap gap-3">
+                        <span className="bg-blue-50 text-blue-600 px-3 py-1 rounded-full text-sm font-medium">{job.department}</span>
+                        <span className="bg-green-50 text-green-600 px-3 py-1 rounded-full text-sm font-medium">{job.location}</span>
+                        <span className="bg-purple-50 text-purple-600 px-3 py-1 rounded-full text-sm font-medium">{job.type}</span>
+                      </div>
+                    </div>
+                    <button 
+                      onClick={() => handleApply(job.title)}
+                      className="inline-flex items-center justify-center px-6 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition-colors group-hover:bg-blue-600 group-hover:text-white"
+                    >
+                      Apply Now
+                      <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Join Us CTA Section */}
+        <section className="w-full bg-green-500 py-20 px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Don&apos;t See the Right Role?</h2>
+            <p className="text-xl text-white/90 mb-8">
+              We&apos;re always looking for talented individuals to join our team. Send us your resume and we&apos;ll keep you in mind for future opportunities.
+            </p>
+            <button 
+              onClick={handleGeneralApplication}
+              className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+            >
+              Send Your Resume
+              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </button>
+          </div>
+        </section>
+
+        {/* Job Application Modal */}
+        <JobApplication
+          isOpen={isApplicationOpen}
+          onClose={() => setIsApplicationOpen(false)}
+          jobTitle={selectedJob}
+          isGeneralApplication={isGeneralApplication}
+        />
+      </main>
+      <Footer />
     </div>
   );
 }
