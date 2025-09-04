@@ -500,7 +500,7 @@ export default function About() {
                 Our Journey So Far
               </h2>
               <p className="text-lg text-white/90 max-w-3xl mx-auto">
-                From a simple idea to a comprehensive platform, here's how we've grown.
+                From a simple idea to a comprehensive platform, here&apos;s how we&apos;ve grown.
               </p>
             </motion.div>
             

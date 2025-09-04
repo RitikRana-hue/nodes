@@ -328,9 +328,9 @@ export default function Careers() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Don't See the Right Role?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Don&apos;t See the Right Role?</h2>
               <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
-                We're always looking for talented individuals to join our team. Send us your resume and we'll keep you in mind for future opportunities.
+                We&apos;re always looking for talented individuals to join our team. Send us your resume and we&apos;ll keep you in mind for future opportunities.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <motion.button 

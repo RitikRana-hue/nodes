@@ -74,7 +74,7 @@ export default function Contact() {
                     Contact Information
                   </h2>
                   <p className="text-lg text-gray-600 mb-8">
-                    Connect with our team through multiple channels. We're committed to providing prompt, professional responses to all inquiries about our IoT solutions.
+                    Connect with our team through multiple channels. We&apos;re committed to providing prompt, professional responses to all inquiries about our IoT solutions.
                   </p>
                 </motion.div>
 
@@ -103,6 +103,7 @@ export default function Contact() {
                         <h3 className="text-base font-medium text-gray-900 mb-1">Email Support</h3>
                         <p className="text-gray-600 text-sm mb-2">Send detailed inquiries and documentation</p>
                         <a href="mailto:career.ektros@gmail.com" className="text-gray-700 hover:text-gray-900 font-medium text-sm">
+                          
                           career.ektros@gmail.com
                         </a>
                       </div>
