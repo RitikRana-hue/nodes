@@ -18,11 +18,13 @@
   display: none;
 }
 
-/* Ensure proper dark mode support */
+/* Prevent overscroll behavior */
 html {
+  overscroll-behavior: none;
   transition: background-color 0.3s ease;
 }
 
 body {
+  overscroll-behavior: none;
   transition: background-color 0.3s ease;
 }
