@@ -36,7 +36,7 @@ export default function About() {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-5xl md:text-7xl font-bold mb-6 text-gray-900 leading-tight">
-                We're Building the
+                We&apos;re Building the
                 <span className="text-blue-600"> Future of Cities</span>
               </h1>
               <p className="text-xl text-gray-600 mb-16 leading-relaxed max-w-3xl mx-auto">
