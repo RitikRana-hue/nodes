@@ -101,7 +101,7 @@ const Body = () => {
                 <span className="text-gray-900">Connecting </span><br />
                 <span className="text-gray-900"> Technology with</span><br />
                 <span className="text-green-600">Tomorrow for a</span><br />
-                <span className="text-blue-600"> Cleaner Future</span>
+                <span className="text-blue-600"> Better Future</span>
               </h1>
               <p className="text-lg text-gray-700 mb-8">
               Innovative IoT devices that drive efficiency, sustainability, and growth across industries.
