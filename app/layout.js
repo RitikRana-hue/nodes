@@ -4,9 +4,9 @@ import { ThemeProvider } from "./context/ThemeContext";
 
 export const metadata = {
   title: "NodesIO",
-  description: "Smart waste management solution",
+  description: "Smart IOT solution",
   icons: {
-    icon: '/images/nodesio.png',
+    icon: '/images/jsimage.png',
   },
 };
 

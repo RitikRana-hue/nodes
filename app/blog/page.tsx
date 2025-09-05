@@ -111,7 +111,7 @@ export default function BlogPage() {
                 <span className="text-blue-600">Insights</span> <span className="text-green-600">&</span> <span className="text-blue-600">Updates</span>
               </h1>
               <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
-              Ready to transform your waste management operations? Connect with our team of IoT experts to discuss how we can optimize your systems for maximum efficiency and sustainability.
+                Ready to transform your waste management operations? Connect with our team of IoT experts to discuss how we can optimize your systems for maximum efficiency and sustainability.
               </p>
               <div className="flex flex-wrap justify-center gap-2 mb-8">
                 {categories.map((category, index) => (
