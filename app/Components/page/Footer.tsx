@@ -33,9 +33,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center mb-4">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-green-500 rounded flex items-center justify-center mr-2">
-                <FaRocket className="text-white text-sm" />
-              </div>
+              
               <h3 className="text-xl font-bold text-white">NodesIO</h3>
             </div>
             <p className="text-gray-400 mb-6 text-sm leading-relaxed">
