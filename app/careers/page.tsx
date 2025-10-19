@@ -2,9 +2,10 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import Header from "../Components/page/Header";
-import Footer from "../Components/page/Footer";
-import JobApplication from "../Components/page/JobApplication";
+import Header from "@/app/components/layout/Header";
+import Footer from "@/app/components/layout/Footer";
+import SoraChatbot from "@/app/components/SoraChatbot";
+import JobApplication from "@/app/components/forms/JobApplication";
 import { Briefcase, MapPin, Clock, Users, Zap, Heart, DollarSign, ArrowRight, Send, Star, Award, Target } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -178,7 +179,7 @@ export default function Careers() {
           <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-green-200/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-16">
-            <motion.div 
+            <motion.div
               className="max-w-5xl mx-auto text-center"
               initial={{ opacity: 0, y: 60 }}
               animate={{ opacity: 1, y: 0 }}
@@ -192,9 +193,9 @@ export default function Careers() {
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500"> Smart Cities</span>
               </h1>
               <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-12">
-              Join our team of innovators driving change through smart IoT technology. At NodesIO, we’re passionate about creating solutions that make industries and communities smarter, more efficient, and sustainable.
+                Join our team of innovators driving change through smart IoT technology. At NodesIO, we’re passionate about creating solutions that make industries and communities smarter, more efficient, and sustainable.
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <motion.button
                   onClick={() => document.getElementById('openings')?.scrollIntoView({ behavior: 'smooth' })}
@@ -299,7 +300,7 @@ export default function Careers() {
                         <span className="bg-purple-50 text-purple-600 px-3 py-1 rounded-full text-sm font-medium">{job.type}</span>
                       </div>
                     </div>
-                    <button 
+                    <button
                       onClick={() => handleApply(job.title)}
                       className="inline-flex items-center justify-center px-6 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition-colors group-hover:bg-blue-600 group-hover:text-white"
                     >
@@ -321,7 +322,7 @@ export default function Careers() {
           <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <motion.div 
+            <motion.div
               className="max-w-4xl mx-auto text-center"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -333,7 +334,7 @@ export default function Careers() {
                 We&apos;re always looking for talented individuals to join our team. Send us your resume and we&apos;ll keep you in mind for future opportunities.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <motion.button 
+                <motion.button
                   onClick={handleGeneralApplication}
                   className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center space-x-2"
                   whileHover={{ scale: 1.05 }}
@@ -342,7 +343,7 @@ export default function Careers() {
                   <Send className="w-5 h-5" />
                   <span>Send Your Resume</span>
                 </motion.button>
-                <Link 
+                <Link
                   href="/contact"
                   className="border-2 border-white hover:bg-white hover:text-blue-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 flex items-center space-x-2"
                 >
@@ -363,6 +364,9 @@ export default function Careers() {
         />
       </main>
       <Footer />
+
+      {/* Sora AI Chatbot */}
+      <SoraChatbot environment="landing" />
     </div>
   );
 }

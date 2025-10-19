@@ -1,7 +1,8 @@
 "use client";
 
-import Header from "../Components/page/Header";
-import Footer from "../Components/page/Footer";
+import Header from "@/app/components/layout/Header";
+import Footer from "@/app/components/layout/Footer";
+import SoraChatbot from "@/app/components/SoraChatbot";
 import { motion } from "framer-motion";
 import { FaLeaf, FaRoute, FaChartBar, FaMobileAlt, FaCog, FaShieldAlt, FaUsers, FaRocket, FaCheckCircle, FaArrowRight, FaLightbulb, FaGlobe } from "react-icons/fa";
 import Image from "next/image";
@@ -128,7 +129,7 @@ export default function Services() {
           <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-green-200/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-16">
-            <motion.div 
+            <motion.div
               className="text-center max-w-4xl mx-auto"
               initial="hidden"
               animate="visible"
@@ -140,18 +141,18 @@ export default function Services() {
                 <span className="text-green-600">Solutions</span>
               </h1>
               <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
-                Transform your waste management operations with our cutting-edge IoT technology, 
+                Transform your waste management operations with our cutting-edge IoT technology,
                 AI-powered optimization, and comprehensive analytics platform.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <motion.button 
+                <motion.button
                   className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-all hover:shadow-xl"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   Get Started Today
                 </motion.button>
-                <motion.button 
+                <motion.button
                   className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-4 rounded-lg font-semibold transition-all hover:shadow-lg"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
@@ -169,7 +170,7 @@ export default function Services() {
           <div className="absolute top-0 left-1/3 w-72 h-72 bg-blue-100/20 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 right-1/3 w-64 h-64 bg-green-100/20 rounded-full blur-3xl"></div>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <motion.div 
+            <motion.div
               className="text-center mb-16"
               initial="hidden"
               whileInView="visible"
@@ -183,8 +184,8 @@ export default function Services() {
                 Comprehensive solutions designed to revolutionize waste management across industries and municipalities.
               </p>
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
               initial="hidden"
               whileInView="visible"
@@ -192,8 +193,8 @@ export default function Services() {
               variants={staggerContainer}
             >
               {services.map((service, index) => (
-                <motion.div 
-                  key={index} 
+                <motion.div
+                  key={index}
                   className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all group border border-gray-100 relative overflow-hidden"
                   variants={fadeInUp}
                   whileHover={{ y: -8, scale: 1.02 }}
@@ -225,7 +226,7 @@ export default function Services() {
           <div className="absolute top-0 right-0 w-80 h-80 bg-green-200/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-200/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <motion.div 
+            <motion.div
               className="text-center mb-16"
               initial="hidden"
               whileInView="visible"
@@ -239,10 +240,10 @@ export default function Services() {
                 A proven methodology that ensures successful deployment and maximum ROI for your waste management transformation.
               </p>
             </motion.div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {processSteps.map((step, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   className="text-center group"
                   initial={{ opacity: 0, y: 20 }}
@@ -273,7 +274,7 @@ export default function Services() {
           <div className="absolute top-1/4 left-0 w-64 h-64 bg-green-100/20 rounded-full blur-3xl"></div>
           <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-blue-100/20 rounded-full blur-3xl"></div>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <motion.div 
+            <motion.div
               className="text-center mb-16"
               initial="hidden"
               whileInView="visible"
@@ -287,10 +288,10 @@ export default function Services() {
                 Our clients consistently achieve significant improvements in efficiency, cost savings, and environmental impact.
               </p>
             </motion.div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               {benefits.map((benefit, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   className="flex items-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-all group border border-gray-100"
                   initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
@@ -313,7 +314,7 @@ export default function Services() {
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-200/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-green-200/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <motion.div 
+            <motion.div
               className="text-center mb-16"
               initial="hidden"
               whileInView="visible"
@@ -327,10 +328,10 @@ export default function Services() {
                 Tailored solutions for diverse sectors, each with unique waste management challenges and requirements.
               </p>
             </motion.div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {industries.map((industry, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all group text-center border border-gray-100 relative overflow-hidden"
                   initial={{ opacity: 0, y: 20 }}
@@ -358,7 +359,7 @@ export default function Services() {
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-white/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <motion.div 
+            <motion.div
               className="text-center max-w-4xl mx-auto"
               initial="hidden"
               whileInView="visible"
@@ -372,14 +373,14 @@ export default function Services() {
                 Join hundreds of organizations already benefiting from our smart IoT solutions. Get started today with a free consultation and personalized demo.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <motion.button 
+                <motion.button
                   className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 rounded-lg font-semibold transition-all hover:shadow-2xl"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   Schedule Free Consultation
                 </motion.button>
-                <motion.button 
+                <motion.button
                   className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 rounded-lg font-semibold transition-all flex items-center"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
@@ -392,6 +393,9 @@ export default function Services() {
         </section>
       </main>
       <Footer />
+
+      {/* Sora AI Chatbot */}
+      <SoraChatbot environment="landing" />
     </div>
   );
 }

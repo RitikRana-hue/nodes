@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
 
-const MyMap = dynamic(() => import('./(components)/MyMap'), { ssr: false });
+const MyMap = dynamic(() => import('./components/MyMap'), { ssr: false });
 
 const DashboardPage = () => {
   const [isMapEnabled, setIsMapEnabled] = useState(true);

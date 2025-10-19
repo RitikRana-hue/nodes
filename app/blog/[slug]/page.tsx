@@ -1,13 +1,15 @@
 "use client";
 
-import Header from '../../Components/page/Header'
-import Footer from '../../Components/page/Footer'
+import Header from '@/app/components/layout/Header'
+import Footer from '@/app/components/layout/Footer'
 import { motion } from 'framer-motion'
 import { ArrowLeft, UserCircle, Clock, Eye, Calendar, Share2, BookmarkPlus } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { toast, Toaster } from 'react-hot-toast'
+import DOMPurify from 'isomorphic-dompurify'
 
 // Animation variants
 const fadeInUp = {
@@ -306,6 +308,48 @@ export default function BlogPost() {
   const [relatedPosts, setRelatedPosts] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
 
+  const handleShare = async () => {
+    const url = window.location.href
+    
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: post.title,
+          text: post.excerpt,
+          url: url,
+        })
+      } catch (err) {
+        // User cancelled or error occurred
+        if (err instanceof Error && err.name !== 'AbortError') {
+          copyToClipboard(url)
+        }
+      }
+    } else {
+      copyToClipboard(url)
+    }
+  }
+
+  const copyToClipboard = async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text)
+      toast.success('Link copied to clipboard!', {
+        duration: 3000,
+        position: 'bottom-center',
+        style: {
+          background: '#10B981',
+          color: '#fff',
+          padding: '16px',
+          borderRadius: '8px',
+        },
+      })
+    } catch (err) {
+      toast.error('Failed to copy link', {
+        duration: 3000,
+        position: 'bottom-center',
+      })
+    }
+  }
+
   useEffect(() => {
     if (params?.slug) {
       const slug = params.slug as string
@@ -358,6 +402,7 @@ export default function BlogPost() {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <Toaster />
       <Header />
       <main className="flex-grow">
         {/* Hero Section */}
@@ -420,6 +465,7 @@ export default function BlogPost() {
               
               <div className="flex items-center gap-4">
                 <motion.button
+                  onClick={handleShare}
                   className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -472,8 +518,22 @@ export default function BlogPost() {
             >
               <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12 border border-gray-100">
                 <div 
-                  className="prose prose-lg md:prose-xl max-w-none prose-headings:text-gray-900 prose-headings:font-bold prose-p:text-gray-700 prose-p:leading-relaxed prose-li:text-gray-700 prose-strong:text-gray-900"
-                  dangerouslySetInnerHTML={{ __html: post.content }}
+                  className="prose prose-lg md:prose-xl max-w-none 
+                    prose-headings:text-gray-900 prose-headings:font-bold prose-headings:mb-4 prose-headings:mt-8
+                    prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:pb-3 prose-h2:border-b prose-h2:border-gray-200
+                    prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4 prose-h3:text-blue-600
+                    prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-6 prose-p:text-lg
+                    prose-ul:my-6 prose-ul:space-y-3
+                    prose-li:text-gray-700 prose-li:leading-relaxed prose-li:pl-2
+                    prose-li:marker:text-blue-600
+                    prose-strong:text-gray-900 prose-strong:font-semibold
+                    first:prose-h2:mt-0"
+                  dangerouslySetInnerHTML={{ 
+                    __html: DOMPurify.sanitize(post.content, {
+                      ALLOWED_TAGS: ['h2', 'h3', 'p', 'ul', 'li', 'strong', 'em', 'a'],
+                      ALLOWED_ATTR: ['href', 'target', 'rel']
+                    })
+                  }}
                 />
               </div>
             </motion.article>

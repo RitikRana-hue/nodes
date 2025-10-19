@@ -1,7 +1,8 @@
 "use client";
 
-import Header from "../Components/page/Header";
-import Footer from "../Components/page/Footer";
+import Header from "@/app/components/layout/Header";
+import Footer from "@/app/components/layout/Footer";
+import SoraChatbot from "@/app/components/SoraChatbot";
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, Send, MessageSquare, Users, Globe } from 'lucide-react';
 import Image from 'next/image';
@@ -35,7 +36,7 @@ export default function Contact() {
           <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-green-200/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-16">
-            <motion.div 
+            <motion.div
               className="max-w-4xl mx-auto text-center"
               initial="hidden"
               animate="visible"
@@ -79,7 +80,7 @@ export default function Contact() {
                 </motion.div>
 
                 {/* Single Contact Card */}
-                <motion.div 
+                <motion.div
                   variants={fadeInUp}
                   className="bg-white rounded-lg p-8 border border-gray-200"
                 >
@@ -103,7 +104,7 @@ export default function Contact() {
                         <h3 className="text-base font-medium text-gray-900 mb-1">Email Support</h3>
                         <p className="text-gray-600 text-sm mb-2">Send detailed inquiries and documentation</p>
                         <a href="mailto:career.ektros@gmail.com" className="text-gray-700 hover:text-gray-900 font-medium text-sm">
-                          
+
                           career.ektros@gmail.com
                         </a>
                       </div>
@@ -262,7 +263,7 @@ export default function Contact() {
         <section className="py-20 bg-gray-50 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-blue-50/30"></div>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <motion.div 
+            <motion.div
               className="text-center mb-12"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -276,7 +277,7 @@ export default function Contact() {
                 Access professional support through multiple communication channels designed for your convenience.
               </p>
             </motion.div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -345,6 +346,9 @@ export default function Contact() {
         </section>
       </main>
       <Footer />
+
+      {/* Sora AI Chatbot */}
+      <SoraChatbot environment="landing" />
     </div>
   );
 }

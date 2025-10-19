@@ -1,0 +1,396 @@
+/**
+ * User Dashboard Mock Data
+ * This file contains mock data for the user dashboard
+ * 🔄 REMOVE THIS FILE when real APIs are integrated
+ */
+
+import type {
+  UserProfile,
+  NearbyBin,
+  Vehicle,
+  Report,
+  UserNotification,
+  UserDashboardStats,
+  EcoImpact,
+  Achievement,
+} from '@/types/user';
+
+// Simulate API delay
+export const simulateDelay = (ms: number = 500) =>
+  new Promise((resolve) => setTimeout(resolve, ms));
+
+// Mock User Profile
+export const mockUserProfile: UserProfile = {
+  id: 'user-001',
+  name: 'Ritik Rana',
+  email: 'ritik@example.com',
+  phone: '+91 98765 43210',
+  address: 'Sector 15, Chandigarh, India',
+  avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Ritik',
+  location: {
+    lat: 30.7333,
+    lng: 76.7794,
+  },
+  preferences: {
+    notifications: true,
+    emailAlerts: true,
+    smsAlerts: false,
+    theme: 'system',
+    language: 'en',
+  },
+  stats: {
+    totalReports: 24,
+    resolvedReports: 20,
+    contributionScore: 87,
+  },
+};
+
+// Mock Nearby Bins
+export const mockNearbyBins: NearbyBin[] = [
+  {
+    id: 'bin-001',
+    type: 'General Waste',
+    location: 'Sector 15 Market',
+    address: 'Near City Center, Sector 15',
+    fillLevel: 85,
+    status: 'full',
+    lastCleaned: '2024-10-18T08:30:00Z',
+    nextPickup: '2024-10-19T14:00:00Z',
+    distance: 120,
+    coordinates: { lat: 30.7340, lng: 76.7800 },
+    capacity: '240L',
+    temperature: 28,
+  },
+  {
+    id: 'bin-002',
+    type: 'Recyclable',
+    location: 'Sector 15 Park',
+    address: 'Rose Garden, Sector 15',
+    fillLevel: 45,
+    status: 'half',
+    lastCleaned: '2024-10-19T06:00:00Z',
+    nextPickup: '2024-10-20T10:00:00Z',
+    distance: 250,
+    coordinates: { lat: 30.7350, lng: 76.7810 },
+    capacity: '120L',
+    temperature: 26,
+  },
+  {
+    id: 'bin-003',
+    type: 'Organic',
+    location: 'Sector 16 Residential',
+    address: 'Block A, Sector 16',
+    fillLevel: 20,
+    status: 'empty',
+    lastCleaned: '2024-10-19T09:00:00Z',
+    nextPickup: '2024-10-21T08:00:00Z',
+    distance: 450,
+    coordinates: { lat: 30.7320, lng: 76.7780 },
+    capacity: '240L',
+    temperature: 25,
+  },
+  {
+    id: 'bin-004',
+    type: 'Hazardous',
+    location: 'Sector 17 Commercial',
+    address: 'Shopping Complex, Sector 17',
+    fillLevel: 60,
+    status: 'half',
+    lastCleaned: '2024-10-18T15:00:00Z',
+    nextPickup: '2024-10-22T11:00:00Z',
+    distance: 800,
+    coordinates: { lat: 30.7410, lng: 76.7850 },
+    capacity: '120L',
+    temperature: 27,
+  },
+  {
+    id: 'bin-005',
+    type: 'General Waste',
+    location: 'Sector 14 School',
+    address: 'Government School, Sector 14',
+    fillLevel: 10,
+    status: 'empty',
+    lastCleaned: '2024-10-19T07:30:00Z',
+    nextPickup: '2024-10-20T09:00:00Z',
+    distance: 600,
+    coordinates: { lat: 30.7300, lng: 76.7750 },
+    capacity: '240L',
+    temperature: 24,
+  },
+  {
+    id: 'bin-006',
+    type: 'Recyclable',
+    location: 'Sector 15 Hospital',
+    address: 'City Hospital, Sector 15',
+    fillLevel: 92,
+    status: 'full',
+    lastCleaned: '2024-10-17T10:00:00Z',
+    nextPickup: '2024-10-19T16:00:00Z',
+    distance: 350,
+    coordinates: { lat: 30.7360, lng: 76.7820 },
+    capacity: '240L',
+    temperature: 29,
+  },
+];
+
+// Mock Vehicles
+export const mockVehicles: Vehicle[] = [
+  {
+    id: 'vehicle-001',
+    vehicleNumber: 'CH-01-AB-1234',
+    driverName: 'Rajesh Kumar',
+    driverPhone: '+91 98765 11111',
+    status: 'on-route',
+    currentLocation: { lat: 30.7380, lng: 76.7830 },
+    route: {
+      id: 'route-001',
+      name: 'Sector 15-17 Route',
+      stops: ['Sector 15 Market', 'Sector 15 Park', 'Sector 16', 'Sector 17'],
+      currentStop: 2,
+      totalStops: 4,
+    },
+    eta: '15 mins',
+    distance: 850,
+    speed: 25,
+    lastUpdated: '2024-10-19T10:30:00Z',
+  },
+  {
+    id: 'vehicle-002',
+    vehicleNumber: 'CH-01-CD-5678',
+    driverName: 'Amit Singh',
+    driverPhone: '+91 98765 22222',
+    status: 'on-route',
+    currentLocation: { lat: 30.7290, lng: 76.7740 },
+    route: {
+      id: 'route-002',
+      name: 'Sector 14-16 Route',
+      stops: ['Sector 14', 'Sector 15', 'Sector 16'],
+      currentStop: 1,
+      totalStops: 3,
+    },
+    eta: '25 mins',
+    distance: 1200,
+    speed: 30,
+    lastUpdated: '2024-10-19T10:28:00Z',
+  },
+  {
+    id: 'vehicle-003',
+    vehicleNumber: 'CH-01-EF-9012',
+    driverName: 'Suresh Patel',
+    status: 'idle',
+    currentLocation: { lat: 30.7450, lng: 76.7900 },
+    route: {
+      id: 'route-003',
+      name: 'Sector 18-20 Route',
+      stops: ['Sector 18', 'Sector 19', 'Sector 20'],
+      currentStop: 0,
+      totalStops: 3,
+    },
+    eta: '45 mins',
+    distance: 2100,
+    speed: 0,
+    lastUpdated: '2024-10-19T10:15:00Z',
+  },
+];
+
+// Mock Reports
+export const mockReports: Report[] = [
+  {
+    id: 'report-001',
+    type: 'full-bin',
+    title: 'Bin Overflowing at Sector 15 Market',
+    description: 'The general waste bin near the market is completely full and overflowing.',
+    status: 'resolved',
+    priority: 'high',
+    location: {
+      lat: 30.7340,
+      lng: 76.7800,
+      address: 'Near City Center, Sector 15',
+    },
+    binId: 'bin-001',
+    photos: ['/images/report-1.jpg'],
+    createdAt: '2024-10-18T14:30:00Z',
+    updatedAt: '2024-10-19T08:00:00Z',
+    resolvedAt: '2024-10-19T08:00:00Z',
+    response: 'Bin has been emptied. Thank you for reporting!',
+    userId: 'user-001',
+  },
+  {
+    id: 'report-002',
+    type: 'broken-bin',
+    title: 'Damaged Bin at Sector 16',
+    description: 'The recycling bin has a broken lid and needs repair.',
+    status: 'in-progress',
+    priority: 'medium',
+    location: {
+      lat: 30.7320,
+      lng: 76.7780,
+      address: 'Block A, Sector 16',
+    },
+    binId: 'bin-003',
+    photos: ['/images/report-2.jpg'],
+    createdAt: '2024-10-19T09:15:00Z',
+    updatedAt: '2024-10-19T10:00:00Z',
+    response: 'Maintenance team has been dispatched.',
+    userId: 'user-001',
+  },
+  {
+    id: 'report-003',
+    type: 'missed-pickup',
+    title: 'Missed Pickup on October 18',
+    description: 'The scheduled pickup for our area was missed yesterday.',
+    status: 'pending',
+    priority: 'medium',
+    location: {
+      lat: 30.7333,
+      lng: 76.7794,
+      address: 'Sector 15, Chandigarh',
+    },
+    createdAt: '2024-10-19T07:00:00Z',
+    updatedAt: '2024-10-19T07:00:00Z',
+    userId: 'user-001',
+  },
+  {
+    id: 'report-004',
+    type: 'other',
+    title: 'Littering Near Bin Location',
+    description: 'People are throwing waste around the bin instead of inside it.',
+    status: 'pending',
+    priority: 'low',
+    location: {
+      lat: 30.7350,
+      lng: 76.7810,
+      address: 'Rose Garden, Sector 15',
+    },
+    binId: 'bin-002',
+    createdAt: '2024-10-19T08:30:00Z',
+    updatedAt: '2024-10-19T08:30:00Z',
+    userId: 'user-001',
+  },
+];
+
+// Mock Notifications
+export const mockUserNotifications: UserNotification[] = [
+  {
+    id: 'notif-001',
+    type: 'pickup',
+    title: 'Upcoming Pickup',
+    message: 'Waste collection scheduled for your area today at 2:00 PM',
+    timestamp: '2024-10-19T09:00:00Z',
+    read: false,
+    priority: 'high',
+    metadata: { eta: '2:00 PM' },
+  },
+  {
+    id: 'notif-002',
+    type: 'report-status',
+    title: 'Report Resolved',
+    message: 'Your report about overflowing bin has been resolved',
+    timestamp: '2024-10-19T08:00:00Z',
+    read: false,
+    priority: 'medium',
+    actionUrl: '/user/reports/report-001',
+    metadata: { reportId: 'report-001' },
+  },
+  {
+    id: 'notif-003',
+    type: 'alert',
+    title: 'Bin Near You is Full',
+    message: 'The bin at Sector 15 Market is 85% full',
+    timestamp: '2024-10-19T07:30:00Z',
+    read: true,
+    priority: 'medium',
+    metadata: { binId: 'bin-001' },
+  },
+  {
+    id: 'notif-004',
+    type: 'maintenance',
+    title: 'Scheduled Maintenance',
+    message: 'Bin maintenance scheduled in your area on Oct 20',
+    timestamp: '2024-10-18T16:00:00Z',
+    read: true,
+    priority: 'low',
+  },
+  {
+    id: 'notif-005',
+    type: 'update',
+    title: 'New Recycling Initiative',
+    message: 'Join our new e-waste recycling program. Learn more!',
+    timestamp: '2024-10-18T10:00:00Z',
+    read: true,
+    priority: 'low',
+    actionUrl: '/user/initiatives',
+  },
+];
+
+// Mock Dashboard Stats
+export const mockUserDashboardStats: UserDashboardStats = {
+  nearbyBins: {
+    total: 6,
+    empty: 2,
+    half: 2,
+    full: 2,
+  },
+  nextPickup: {
+    date: '2024-10-19',
+    time: '14:00',
+    eta: '2 hours',
+  },
+  userReports: {
+    total: 24,
+    pending: 2,
+    resolved: 20,
+  },
+  nearbyVehicles: 3,
+};
+
+// Mock Eco Impact
+export const mockEcoImpact: EcoImpact = {
+  userId: 'user-001',
+  period: 'month',
+  stats: {
+    wasteCollected: 145.5,
+    recyclingRate: 68,
+    co2Saved: 32.4,
+    treesEquivalent: 12,
+    contributionScore: 87,
+  },
+  areaStats: {
+    areaName: 'Sector 15',
+    cleanlinessScore: 92,
+    improvement: 8.5,
+    rank: 3,
+  },
+  achievements: [
+    {
+      id: 'ach-001',
+      title: 'Eco Warrior',
+      description: 'Reported 10+ issues',
+      icon: '🌟',
+      unlockedAt: '2024-10-15T10:00:00Z',
+      rarity: 'rare',
+    },
+    {
+      id: 'ach-002',
+      title: 'Green Champion',
+      description: 'Maintained 60%+ recycling rate for a month',
+      icon: '♻️',
+      unlockedAt: '2024-10-10T10:00:00Z',
+      rarity: 'epic',
+    },
+    {
+      id: 'ach-003',
+      title: 'Community Hero',
+      description: 'Helped improve area cleanliness by 5%',
+      icon: '🏆',
+      unlockedAt: '2024-10-05T10:00:00Z',
+      rarity: 'legendary',
+    },
+  ],
+  history: [
+    { date: '2024-10-01', wasteCollected: 35.2, recyclingRate: 65 },
+    { date: '2024-10-05', wasteCollected: 42.8, recyclingRate: 70 },
+    { date: '2024-10-10', wasteCollected: 38.5, recyclingRate: 68 },
+    { date: '2024-10-15', wasteCollected: 29.0, recyclingRate: 72 },
+  ],
+};
