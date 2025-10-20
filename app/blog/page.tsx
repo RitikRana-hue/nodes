@@ -28,7 +28,8 @@ export default function BlogPage() {
     }
   };
 
-  const blogPosts = [
+  // Wrap blogPosts in useMemo to stabilize the array reference
+  const blogPosts = useMemo(() => [
     {
       slug: "smart-waste-management",
       title: "The Future of Smart Waste Management",
@@ -90,7 +91,7 @@ export default function BlogPage() {
       readTime: "14 min read",
       category: "Artificial Intelligence"
     }
-  ];
+  ], []); // Empty dependency array since this data is static
 
   const categories = ["All", "Technology", "Case Study", "Sustainability", "Cost Optimization", "Artificial Intelligence"];
 
@@ -100,7 +101,7 @@ export default function BlogPage() {
       return blogPosts;
     }
     return blogPosts.filter(post => post.category === selectedCategory);
-  }, [selectedCategory]);
+  }, [selectedCategory, blogPosts]);
 
   // Get featured post (always show the first post or first from filtered)
   const featuredPost = filteredPosts[0] || blogPosts[0];

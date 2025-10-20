@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { User, Mail, Phone, MapPin, Camera, Save, Lock, Bell, Moon, Sun, Globe } from 'lucide-react';
 import { userProfileService } from '@/lib/api/userServices';
 import type { UserProfile } from '@/types/user';
@@ -109,10 +110,12 @@ export default function ProfilePage() {
               <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
                 <div className="flex items-center gap-6">
                   <div className="relative">
-                    <img
+                    <Image
                       src={profile.avatar || 'https://api.dicebear.com/7.x/avataaars/svg?seed=User'}
                       alt={profile.name}
-                      className="w-24 h-24 rounded-full"
+                      width={96}
+                      height={96}
+                      className="rounded-full"
                     />
                     <button className="absolute bottom-0 right-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors">
                       <Camera className="w-4 h-4" />

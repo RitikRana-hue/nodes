@@ -36,6 +36,7 @@ export default function VehiclesPage() {
     // Auto-refresh every 30 seconds
     const interval = setInterval(fetchVehicles, 30000);
     return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getStatusColor = (status: string) => {

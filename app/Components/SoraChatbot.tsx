@@ -31,6 +31,7 @@ export default function SoraChatbot({
       const greeting = soraService.getGreeting(environment);
       addMessage('assistant', greeting);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
 
   // Auto-scroll to bottom

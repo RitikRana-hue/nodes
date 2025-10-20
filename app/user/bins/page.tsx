@@ -39,6 +39,7 @@ export default function BinsPage() {
 
   useEffect(() => {
     fetchBins();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters]);
 
   const getStatusColor = (status: string) => {

@@ -36,6 +36,7 @@ export default function UserMap({ userLocation, bins, vehicles }: UserMapProps) 
         mapRef.current = null;
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

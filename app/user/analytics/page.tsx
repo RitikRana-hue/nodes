@@ -24,6 +24,7 @@ export default function AnalyticsPage() {
 
   useEffect(() => {
     fetchEcoImpact();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [period]);
 
   const getRarityColor = (rarity: string) => {

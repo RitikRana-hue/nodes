@@ -1,6 +1,7 @@
 "use client";
 
 import Link from 'next/link'
+import Image from 'next/image'
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { useTheme } from '../../context/ThemeContext'
@@ -69,9 +70,9 @@ export default function Sidebar() {
           <div className="space-y-6">
             <div className="flex items-center p-2 border-b border-gray-200 dark:border-gray-700 pb-4">
               {theme === 'dark' ? (
-                <img src="/images/logo.png" alt="NodesIO Logo" className="w-8 h-8 rounded-full" />
+                <Image src="/images/logo.png" alt="NodesIO Logo" width={32} height={32} className="rounded-full" />
               ) : (
-                <img src="/images/nodesio.png" alt="NodesIO Logo" className="w-8 h-8 rounded-full" />
+                <Image src="/images/nodesio.png" alt="NodesIO Logo" width={32} height={32} className="rounded-full" />
               )}
               <span className="mx-3 text-xl font-bold text-gray-900 dark:text-white hidden sm:block">NodesIO</span>
             </div>
@@ -245,11 +246,11 @@ export default function Sidebar() {
             {/* User Profile */}
             <div className="p-3 border-t border-gray-200 dark:border-gray-700">
               <div className="flex items-center">
-                <div className="w-8 h-8 rounded-full overflow-hidden">
+                <div className="w-8 h-8 rounded-full overflow-hidden relative">
                   {theme === 'dark' ? (
-                    <img src="/images/logo.png" alt="User" className="w-full h-full object-cover rounded-full" />
+                    <Image src="/images/logo.png" alt="User" fill className="object-cover rounded-full" />
                   ) : (
-                    <img src="/images/nodesio.png" alt="User" className="w-full h-full object-cover rounded-full" />
+                    <Image src="/images/nodesio.png" alt="User" fill className="object-cover rounded-full" />
                   )}
                 </div>
                 <div className="hidden sm:block ml-3 flex-1">
