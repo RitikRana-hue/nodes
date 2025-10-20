@@ -21,7 +21,7 @@ import {
 } from 'lucide-react';
 import { logout, getCurrentUser, type AuthUser } from '@/lib/auth';
 import AuthGuard from './components/AuthGuard';
-import SoraChatbot from '@/app/components/SoraChatbot';
+import SoraChatbot from '@/components/SoraChatbot';
 
 export default function UserLayout({
   children,

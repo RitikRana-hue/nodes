@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import Header from "@/app/components/layout/Header";
-import Footer from "@/app/components/layout/Footer";
-import SoraChatbot from "@/app/components/SoraChatbot";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import SoraChatbot from "@/components/SoraChatbot";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, UserCircle, Clock, Eye, Calendar, User, TrendingUp } from "lucide-react";

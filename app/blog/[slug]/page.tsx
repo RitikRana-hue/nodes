@@ -1,7 +1,7 @@
 "use client";
 
-import Header from '@/app/components/layout/Header'
-import Footer from '@/app/components/layout/Footer'
+import Header from '@/components/layout/Header'
+import Footer from '@/components/layout/Footer'
 import { motion } from 'framer-motion'
 import { ArrowLeft, UserCircle, Clock, Eye, Calendar, Share2, BookmarkPlus } from 'lucide-react'
 import Link from 'next/link'

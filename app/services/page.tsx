@@ -1,8 +1,8 @@
 "use client";
 
-import Header from "@/app/components/layout/Header";
-import Footer from "@/app/components/layout/Footer";
-import SoraChatbot from "@/app/components/SoraChatbot";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import SoraChatbot from "@/components/SoraChatbot";
 import { motion } from "framer-motion";
 import { FaLeaf, FaRoute, FaChartBar, FaMobileAlt, FaCog, FaShieldAlt, FaUsers, FaRocket, FaCheckCircle, FaArrowRight, FaLightbulb, FaGlobe } from "react-icons/fa";
 import Image from "next/image";
