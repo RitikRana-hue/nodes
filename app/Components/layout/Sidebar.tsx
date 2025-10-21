@@ -27,7 +27,7 @@ export default function Sidebar() {
   };
 
   // Function to get the appropriate icon based on theme
-  const getThemeIcon = (currentTheme: string) => {
+  const getThemeIcon = (currentTheme: 'light' | 'dark') => {
     switch(currentTheme) {
       case 'light':
         return (
@@ -41,23 +41,16 @@ export default function Sidebar() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12.79A9 9 0 0 1 11.21 3 7 7 0 0 0 12 21a9 9 0 0 1 9-8.21z" />
           </svg>
         );
-      case 'system':
-        return (
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-          </svg>
-        );
       default:
         return null;
     }
   };
 
   // Function to get theme name for display
-  const getThemeName = (themeValue: string) => {
+  const getThemeName = (themeValue: 'light' | 'dark') => {
     switch(themeValue) {
       case 'light': return 'Light';
       case 'dark': return 'Dark';
-      case 'system': return 'System';
       default: return 'Light';
     }
   };
@@ -222,18 +215,6 @@ export default function Sidebar() {
                           >
                             <span className="mr-2">{getThemeIcon('dark')}</span>
                             <span>Dark</span>
-                          </button>
-                        </li>
-                        <li>
-                          <button
-                            onClick={() => {
-                              setTheme('system');
-                              setDropdownOpen(false);
-                            }}
-                            className={`flex items-center w-full px-4 py-2 text-left ${theme === 'system' ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20' : 'text-gray-700 dark:text-gray-300'} hover:bg-blue-50 dark:hover:bg-blue-900/20`}
-                          >
-                            <span className="mr-2">{getThemeIcon('system')}</span>
-                            <span>System</span>
                           </button>
                         </li>
                       </ul>
