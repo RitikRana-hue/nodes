@@ -1,3 +1,9 @@
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Image Optimization
@@ -73,6 +79,18 @@ const nextConfig = {
   // Experimental features
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
+  },
+
+  // Webpack configuration for path aliases
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@/components': path.resolve(__dirname, 'app/components'),
+      '@/lib': path.resolve(__dirname, 'lib'),
+      '@/types': path.resolve(__dirname, 'types'),
+      '@/hooks': path.resolve(__dirname, 'hooks'),
+    };
+    return config;
   },
 };
 

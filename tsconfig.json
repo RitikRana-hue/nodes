@@ -24,11 +24,11 @@
       }
     ],
     "paths": {
-      "@/*": ["./"],
       "@/components/*": ["./app/components/*"],
       "@/lib/*": ["./lib/*"],
       "@/types/*": ["./types/*"],
-      "@/hooks/*": ["./hooks/*"]
+      "@/hooks/*": ["./hooks/*"],
+      "@/*": ["./"]
     }
   },
   "include": [
