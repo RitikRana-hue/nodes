@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "target": "ES2017",
     "lib": [
       "dom",
@@ -23,12 +22,13 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".",
     "paths": {
-      "@/components/*": ["./app/components/*"],
-      "@/lib/*": ["./lib/*"],
-      "@/types/*": ["./types/*"],
-      "@/hooks/*": ["./hooks/*"],
-      "@/*": ["./"]
+      "@/components/*": ["app/components/*"],
+      "@/lib/*": ["lib/*"],
+      "@/types/*": ["types/*"],
+      "@/hooks/*": ["hooks/*"],
+      "@/*": ["./*"]
     }
   },
   "include": [

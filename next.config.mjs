@@ -82,14 +82,14 @@ const nextConfig = {
   },
 
   // Webpack configuration for path aliases
-  webpack: (config) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '@/components': path.resolve(__dirname, 'app/components'),
-      '@/lib': path.resolve(__dirname, 'lib'),
-      '@/types': path.resolve(__dirname, 'types'),
-      '@/hooks': path.resolve(__dirname, 'hooks'),
-    };
+  webpack: (config, { isServer }) => {
+    // Add path aliases
+    config.resolve.alias['@/components'] = path.resolve(__dirname, 'app/components');
+    config.resolve.alias['@/lib'] = path.resolve(__dirname, 'lib');
+    config.resolve.alias['@/types'] = path.resolve(__dirname, 'types');
+    config.resolve.alias['@/hooks'] = path.resolve(__dirname, 'hooks');
+    config.resolve.alias['@'] = path.resolve(__dirname);
+    
     return config;
   },
 };
