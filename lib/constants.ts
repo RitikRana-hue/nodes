@@ -1,4 +1,4 @@
-import { AnimationVariant } from '@/types';
+import type { AnimationVariant } from '@/types/index';
 
 // Animation Variants (Reusable across all pages)
 export const fadeInUp: AnimationVariant = {
