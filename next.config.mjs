@@ -81,7 +81,18 @@ const nextConfig = {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
 
-  // Webpack configuration for path aliases
+  // Turbopack configuration for dev mode
+  turbopack: {
+    resolveAlias: {
+      '@/components': './app/components',
+      '@/lib': './lib',
+      '@/types': './types',
+      '@/hooks': './hooks',
+      '@': './',
+    },
+  },
+
+  // Webpack configuration for path aliases (used in production build)
   webpack: (config, { isServer }) => {
     // Add path aliases
     config.resolve.alias['@/components'] = path.resolve(__dirname, 'app/components');

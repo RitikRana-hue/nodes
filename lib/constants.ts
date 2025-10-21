@@ -51,7 +51,7 @@ export const SITE_CONFIG = {
   name: 'NodesIO',
   description: 'Smart IoT Waste Management Solutions',
   url: process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000',
-  ogImage: '/images/og-image.jpg',
+  ogImage: '/images/landingpageIMG.png',
   links: {
     twitter: 'https://twitter.com/nodesio',
     github: 'https://github.com/nodesio',

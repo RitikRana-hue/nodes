@@ -16,11 +16,11 @@ const SEO: DefaultSeoProps = {
       'Transform your waste management with smart IoT solutions. Real-time monitoring, AI-powered analytics, and sustainable practices.',
     images: [
       {
-        url: 'https://nodesio.com/images/og-image.jpg',
+        url: 'https://nodesio.com/images/landingpageIMG.png',
         width: 1200,
         height: 630,
         alt: 'NodesIO - Smart Waste Management Solutions',
-        type: 'image/jpeg',
+        type: 'image/png',
       },
     ],
   },

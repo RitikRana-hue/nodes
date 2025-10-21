@@ -22,7 +22,7 @@ export default function JobApplication({ isOpen, onClose, jobTitle, isGeneralApp
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // Here you would typically send the form data to your backend
-    console.log('Form submitted:', formData);
+    // TODO: Implement API call to submit application
     // Mock successful submission
     alert('Application submitted successfully! We will contact you soon.');
     onClose();

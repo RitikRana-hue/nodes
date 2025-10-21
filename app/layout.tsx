@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     description: 'Transform your waste management with smart IoT solutions.',
     images: [
       {
-        url: '/images/og-image.jpg',
+        url: '/images/landingpageIMG.png',
         width: 1200,
         height: 630,
         alt: 'NodesIO - Smart Waste Management Solutions',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'NodesIO - Smart IoT Waste Management',
     description: 'Transform your waste management with smart IoT solutions.',
-    images: ['/images/og-image.jpg'],
+    images: ['/images/landingpageIMG.png'],
   },
   icons: {
     icon: '/favicon.ico',
