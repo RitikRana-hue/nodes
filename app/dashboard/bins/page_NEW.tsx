@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import { useBins } from "@/hooks/useDashboard";
-import LoadingSpinner from "@/components/ui/LoadingSpinner";
-import ErrorMessage from "@/components/ui/ErrorMessage";
-import EmptyState from "@/components/ui/EmptyState";
-import SkeletonLoader from "@/components/ui/SkeletonLoader";
+import LoadingSpinner from "app/components/ui/LoadingSpinner";
+import ErrorMessage from "app/components/ui/ErrorMessage";
+import EmptyState from "app/components/ui/EmptyState";
+import SkeletonLoader from "app/components/ui/SkeletonLoader";
 import { Search, Filter, Download } from "lucide-react";
 
 export default function BinsManagement() {

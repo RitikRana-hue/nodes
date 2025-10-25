@@ -1,11 +1,7 @@
+/* postcss-enable */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Smooth transitions for theme switching */
-* {
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-}
 
 /* Hide scrollbar for all elements while maintaining functionality */
 * {
@@ -18,12 +14,8 @@
   display: none;
 }
 
-/* Prevent overscroll behavior */
-html {
-  overscroll-behavior: none;
-  transition: background-color 0.3s ease;
-}
-
+/* Prevent overscroll behavior and smooth theme transitions */
+html,
 body {
   overscroll-behavior: none;
   transition: background-color 0.3s ease;

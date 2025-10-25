@@ -1,9 +1,9 @@
 "use client";
 
-import Header from "@/components/layout/Header";
-import Body from "@/components/page/Body";
-import Footer from "@/components/layout/Footer";
-import SoraChatbot from "@/components/SoraChatbot";
+import Header from "app/components/layout/Header";
+import Body from "app/components/page/Body";
+import Footer from "app/components/layout/Footer";
+import SoraChatbot from "app/components/SoraChatbot";
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
         <Body />
       </main>
       <Footer />
-      
+
       {/* Sora AI Chatbot */}
       <SoraChatbot environment="landing" />
     </div>

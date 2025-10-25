@@ -3,9 +3,9 @@
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { useDashboardStats, useActivities } from '@/hooks/useDashboard';
-import LoadingSpinner from '@/components/ui/LoadingSpinner';
-import ErrorMessage from '@/components/ui/ErrorMessage';
-import SkeletonLoader from '@/components/ui/SkeletonLoader';
+import LoadingSpinner from 'app/components/ui/LoadingSpinner';
+import ErrorMessage from 'app/components/ui/ErrorMessage';
+import SkeletonLoader from 'app/components/ui/SkeletonLoader';
 import { TrendingUp, Trash2, CheckCircle, Truck, Recycle } from 'lucide-react';
 
 const MyMap = dynamic(() => import('./components/MyMap'), { ssr: false });
@@ -16,7 +16,7 @@ const DashboardPage = () => {
 
   // Fetch dashboard stats with auto-refresh every 30 seconds
   const { data: stats, loading: statsLoading, error: statsError, refetch: refetchStats } = useDashboardStats();
-  
+
   // Fetch recent activities with auto-refresh every 15 seconds
   const { data: activitiesData, loading: activitiesLoading } = useActivities(5);
 
@@ -37,7 +37,7 @@ const DashboardPage = () => {
             </p>
           </div>
           <div className="flex items-center gap-4">
-            <select 
+            <select
               value={timeRange}
               onChange={(e) => setTimeRange(e.target.value)}
               className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm bg-white dark:bg-gray-700 dark:text-gray-200"
@@ -47,7 +47,7 @@ const DashboardPage = () => {
               <option value="month">This Month</option>
               <option value="year">This Year</option>
             </select>
-            <button 
+            <button
               onClick={handleRefresh}
               disabled={statsLoading}
               className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white text-sm font-medium rounded-lg transition-colors duration-200"
@@ -136,8 +136,8 @@ const DashboardPage = () => {
                 {stats.fillLevelAverage}%
               </p>
               <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mt-2">
-                <div 
-                  className="bg-blue-600 h-2 rounded-full" 
+                <div
+                  className="bg-blue-600 h-2 rounded-full"
                   style={{ width: `${stats.fillLevelAverage}%` }}
                 ></div>
               </div>
@@ -197,18 +197,17 @@ const DashboardPage = () => {
           {/* Recent Activity */}
           <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
             <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Recent Activity</h2>
-            
+
             {activitiesLoading ? (
               <SkeletonLoader type="text" count={5} />
             ) : activitiesData?.activities ? (
               <div className="space-y-4">
                 {activitiesData.activities.map((activity) => (
                   <div key={activity.id} className="flex items-start gap-3 pb-4 border-b border-gray-100 dark:border-gray-700 last:border-0">
-                    <div className={`w-2 h-2 rounded-full mt-2 ${
-                      activity.severity === 'high' ? 'bg-red-500' :
-                      activity.severity === 'medium' ? 'bg-yellow-500' :
-                      'bg-green-500'
-                    }`}></div>
+                    <div className={`w-2 h-2 rounded-full mt-2 ${activity.severity === 'high' ? 'bg-red-500' :
+                        activity.severity === 'medium' ? 'bg-yellow-500' :
+                          'bg-green-500'
+                      }`}></div>
                     <div className="flex-1">
                       <p className="text-sm text-gray-900 dark:text-white">{activity.description}</p>
                       <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">

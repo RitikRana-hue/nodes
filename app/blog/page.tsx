@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import SoraChatbot from "@/components/SoraChatbot";
+import Header from "app/components/layout/Header";
+import Footer from "app/components/layout/Footer";
+import SoraChatbot from "app/components/SoraChatbot";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, UserCircle, Clock, Eye, Calendar, User, TrendingUp } from "lucide-react";
@@ -138,8 +138,8 @@ export default function BlogPage() {
                     key={category}
                     onClick={() => setSelectedCategory(category)}
                     className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedCategory === category
-                        ? 'bg-blue-600 text-white shadow-lg'
-                        : 'bg-white text-gray-600 hover:bg-blue-50 hover:text-blue-600 shadow-sm'
+                      ? 'bg-blue-600 text-white shadow-lg'
+                      : 'bg-white text-gray-600 hover:bg-blue-50 hover:text-blue-600 shadow-sm'
                       }`}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
