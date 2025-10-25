@@ -30,7 +30,7 @@ export default function ReportsManagement() {
   const startIndex = (currentPage - 1) * pageSize;
   const paginatedReports = filteredReports.slice(startIndex, startIndex + pageSize);
 
-  const regions = [...new Set(reports.map(r => r.region))];
+  const regions = Array.from(new Set(reports.map(r => r.region)));
 
   const stats = {
     total: reports.length,

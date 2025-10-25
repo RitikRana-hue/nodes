@@ -1,6 +1,6 @@
 "use client";
 
-import Sidebar from "app/components/layout/Sidebar";
+import Sidebar from "@/components/layout/Sidebar";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { usePathname } from "next/navigation";
 

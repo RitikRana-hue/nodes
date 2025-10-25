@@ -3,9 +3,9 @@
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { useDashboardStats, useActivities } from '@/hooks/useDashboard';
-import LoadingSpinner from 'app/components/ui/LoadingSpinner';
-import ErrorMessage from 'app/components/ui/ErrorMessage';
-import SkeletonLoader from 'app/components/ui/SkeletonLoader';
+import LoadingSpinner from '@/components/ui/LoadingSpinner';
+import ErrorMessage from '@/components/ui/ErrorMessage';
+import SkeletonLoader from '@/components/ui/SkeletonLoader';
 import { TrendingUp, Trash2, CheckCircle, Truck, Recycle } from 'lucide-react';
 
 const MyMap = dynamic(() => import('./components/MyMap'), { ssr: false });

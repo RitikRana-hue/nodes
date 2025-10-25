@@ -35,7 +35,7 @@ export default function VehicleOperations() {
   const startIndex = (currentPage - 1) * pageSize;
   const paginatedVehicles = filteredVehicles.slice(startIndex, startIndex + pageSize);
 
-  const regions = [...new Set(vehicles.map(v => v.region))];
+  const regions = Array.from(new Set(vehicles.map(v => v.region)));
 
   const exportToCSV = () => {
     const headers = ['Vehicle ID', 'Number', 'Driver', 'Region', 'Status', 'Capacity', 'Route', 'Collections', 'Efficiency'];

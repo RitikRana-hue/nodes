@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import Header from "app/components/layout/Header";
-import Footer from "app/components/layout/Footer";
-import SoraChatbot from "app/components/SoraChatbot";
-import JobApplication from "app/components/forms/JobApplication";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import SoraChatbot from "@/components/SoraChatbot";
+import JobApplication from "@/components/forms/JobApplication";
 import { Briefcase, MapPin, Clock, Users, Zap, Heart, DollarSign, ArrowRight, Send, Star, Award, Target } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
