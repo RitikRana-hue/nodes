@@ -191,7 +191,7 @@ class SoraService {
     const lemmas = meaningfulTokens.map(token => this.lemmatize(token));
     
     // Extract keywords (unique lemmas)
-    const keywords = [...new Set(lemmas)];
+    const keywords = Array.from(new Set(lemmas));
     
     // Detect intent (basic classification)
     const intent = this.detectIntent(keywords, normalized);
