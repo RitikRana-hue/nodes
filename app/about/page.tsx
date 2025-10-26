@@ -1,6 +1,5 @@
 "use client";
 
-
 import Footer from "@/components/layout/Footer";
 import SoraChatbot from "@/components/SoraChatbot";
 import Image from "next/image";
