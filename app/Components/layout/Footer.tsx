@@ -33,13 +33,13 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center mb-4">
-              
+
               <h3 className="text-xl font-bold text-white">NodesIO</h3>
             </div>
             <p className="text-gray-400 mb-6 text-sm leading-relaxed">
               Smart IoT solutions for a more efficient, connected, and sustainable future.
             </p>
-            
+
             {/* Contact Info */}
             <div className="space-y-2">
               <div className="flex items-center text-sm">
@@ -48,7 +48,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center text-sm">
                 <FaEnvelope className="text-green-400 mr-2 text-xs" />
-                <span className="text-gray-300">career.ektros@gmail.com</span>
+                <span className="text-gray-300">nodesiocorpprivatelimited@gmail.com</span>
               </div>
               <div className="flex items-center text-sm">
                 <FaMapMarkerAlt className="text-purple-400 mr-2 text-xs" />
@@ -63,8 +63,8 @@ const Footer = () => {
             <ul className="space-y-2">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
-                  <Link 
-                    href={link.href} 
+                  <Link
+                    href={link.href}
                     className="text-gray-400 hover:text-white transition-colors text-sm"
                   >
                     {link.name}
@@ -80,8 +80,8 @@ const Footer = () => {
             <ul className="space-y-2">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
-                  <Link 
-                    href={link.href} 
+                  <Link
+                    href={link.href}
                     className="text-gray-400 hover:text-white transition-colors text-sm"
                   >
                     {link.name}
@@ -97,7 +97,7 @@ const Footer = () => {
             <p className="text-gray-400 mb-4 text-sm">
               Get updates on smart city technology.
             </p>
-            
+
             <form className="mb-6">
               <div className="flex">
                 <input
@@ -113,7 +113,7 @@ const Footer = () => {
                 </button>
               </div>
             </form>
-            
+
             {/* Social Media */}
             <div>
               <p className="text-xs text-gray-500 mb-3">Follow us</p>
@@ -135,7 +135,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-            
+
         </div>
 
         {/* Bottom Section */}
@@ -152,7 +152,7 @@ const Footer = () => {
               ))}
             </div>
           </div>
-          
+
           <div className="text-gray-500 text-xs">
             Made with ❤️ for sustainable cities
           </div>

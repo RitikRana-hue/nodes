@@ -103,9 +103,9 @@ export default function Contact() {
                       <div>
                         <h3 className="text-base font-medium text-gray-900 mb-1">Email Support</h3>
                         <p className="text-gray-600 text-sm mb-2">Send detailed inquiries and documentation</p>
-                        <a href="mailto:career.ektros@gmail.com" className="text-gray-700 hover:text-gray-900 font-medium text-sm">
+                        <a href="mailto:nodesiocorpprivatelimited@gmail.com" className="text-gray-700 hover:text-gray-900 font-medium text-sm">
 
-                          career.ektros@gmail.com
+                          nodesiocorpprivatelimited@gmail.com
                         </a>
                       </div>
                     </div>
@@ -117,7 +117,8 @@ export default function Contact() {
                         <h3 className="text-base font-medium text-gray-900 mb-1">Corporate Office</h3>
                         <p className="text-gray-600 text-sm mb-2">Visit our development center</p>
                         <p className="text-gray-700 font-medium text-sm">
-                          Sector 15, Faridabad<br />
+                          Ground Floor House No 154 gali no 3 Malarna Road,<br />
+                          Aadarsh Nagar-2, Ballabgarh,Faridabad<br />
                           Haryana, India 121007
                         </p>
                       </div>
