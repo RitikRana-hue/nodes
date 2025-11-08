@@ -29,71 +29,71 @@ export default function Careers() {
 
   const jobOpenings = [
     {
-      title: "Senior IoT Engineer",
+      title: "Intern IoT Engineer",
       department: "Engineering",
-      location: "Remote / San Francisco",
+      location: "Remote , Faridabad",
       type: "Full-time",
-      salary: "$120k - $160k",
+      salary: "Travel Allowance",
       experience: "5+ years",
       description: "Lead the development of cutting-edge IoT sensor networks and smart waste management systems. Work with embedded systems, cloud platforms, and real-time data processing.",
       requirements: ["IoT protocols (MQTT, LoRaWAN)", "Embedded systems (C/C++)", "Cloud platforms (AWS/Azure)", "Python programming", "Hardware integration"],
       responsibilities: ["Design IoT sensor architectures", "Develop firmware for smart devices", "Integrate with cloud platforms", "Optimize power consumption", "Lead technical reviews"]
     },
+    // {
+    //   title: "Data Scientist",
+    //   department: "Analytics",
+    //   location: "S",
+    //   type: "Full-time",
+    //   salary: "$130k - $170k",
+    //   experience: "3+ years",
+    //   description: "Build predictive models and analytics solutions to optimize waste collection routes and operations. Transform data into actionable insights for smart city solutions.",
+    //   requirements: ["Machine Learning (TensorFlow/PyTorch)", "Python/R programming", "SQL and NoSQL databases", "Statistical modeling", "Data visualization"],
+    //   responsibilities: ["Develop predictive models", "Analyze sensor data patterns", "Create optimization algorithms", "Build dashboards", "Collaborate with engineering teams"]
+    // },
     {
-      title: "Data Scientist",
-      department: "Analytics",
-      location: "San Francisco, CA",
-      type: "Full-time",
-      salary: "$130k - $170k",
-      experience: "3+ years",
-      description: "Build predictive models and analytics solutions to optimize waste collection routes and operations. Transform data into actionable insights for smart city solutions.",
-      requirements: ["Machine Learning (TensorFlow/PyTorch)", "Python/R programming", "SQL and NoSQL databases", "Statistical modeling", "Data visualization"],
-      responsibilities: ["Develop predictive models", "Analyze sensor data patterns", "Create optimization algorithms", "Build dashboards", "Collaborate with engineering teams"]
-    },
-    {
-      title: "Full-Stack Developer",
+      title: "Full-Stack Developer Intern",
       department: "Engineering",
-      location: "Remote",
+      location: "Faridabad",
       type: "Full-time",
-      salary: "$100k - $140k",
-      experience: "3+ years",
+      salary: "Unpaid",
+      experience: "0 years",
       description: "Develop and maintain our web applications, dashboards, and customer-facing platforms. Build scalable solutions for smart city management.",
       requirements: ["React/Next.js", "Node.js/Express", "TypeScript", "Database design (PostgreSQL/MongoDB)", "RESTful APIs"],
       responsibilities: ["Build responsive web applications", "Develop REST APIs", "Implement real-time features", "Optimize performance", "Write comprehensive tests"]
     },
-    {
-      title: "Product Manager",
-      department: "Product",
-      location: "Boston, MA / Remote",
-      type: "Full-time",
-      salary: "$110k - $150k",
-      experience: "4+ years",
-      description: "Drive product strategy and roadmap for our smart city solutions and IoT platform. Work closely with engineering, design, and sales teams.",
-      requirements: ["Product strategy", "Agile/Scrum methodologies", "IoT/SaaS experience", "Stakeholder management", "Market analysis"],
-      responsibilities: ["Define product roadmap", "Gather customer requirements", "Coordinate cross-functional teams", "Analyze market trends", "Drive product launches"]
-    },
-    {
-      title: "DevOps Engineer",
-      department: "Engineering",
-      location: "Remote",
-      type: "Full-time",
-      salary: "$115k - $155k",
-      experience: "4+ years",
-      description: "Build and maintain our cloud infrastructure, CI/CD pipelines, and monitoring systems. Ensure scalability and reliability of our IoT platform.",
-      requirements: ["AWS/Azure cloud platforms", "Kubernetes/Docker", "Infrastructure as Code (Terraform)", "CI/CD pipelines", "Monitoring tools"],
-      responsibilities: ["Manage cloud infrastructure", "Implement CI/CD pipelines", "Monitor system performance", "Ensure security compliance", "Automate deployment processes"]
-    },
-    {
-      title: "Sales Engineer",
-      department: "Sales",
-      location: "New York, NY",
-      type: "Full-time",
-      salary: "$90k - $130k + Commission",
-      experience: "2+ years",
-      description: "Support sales team with technical expertise and customer demonstrations of our IoT solutions. Bridge the gap between technical capabilities and customer needs.",
-      requirements: ["Technical sales experience", "IoT/SaaS knowledge", "Customer presentation skills", "Solution design", "CRM systems"],
-      responsibilities: ["Conduct technical demos", "Support sales proposals", "Provide technical consultation", "Train customers", "Gather product feedback"]
-    }
+    // {
+    //   title: "Product Manager",
+    //   department: "Product",
+    //   location: "Boston, MA / Remote",
+    //   type: "Full-time",
+    //   salary: "$110k - $150k",
+    //   experience: "4+ years",
+    //   description: "Drive product strategy and roadmap for our smart city solutions and IoT platform. Work closely with engineering, design, and sales teams.",
+    //   requirements: ["Product strategy", "Agile/Scrum methodologies", "IoT/SaaS experience", "Stakeholder management", "Market analysis"],
+    //   responsibilities: ["Define product roadmap", "Gather customer requirements", "Coordinate cross-functional teams", "Analyze market trends", "Drive product launches"]
+    // },
+    // {
+    //   title: "DevOps Engineer",
+    //   department: "Engineering",
+    //   location: "Remote",
+    //   type: "Full-time",
+    //   salary: "$115k - $155k",
+    //   experience: "4+ years",
+    //   description: "Build and maintain our cloud infrastructure, CI/CD pipelines, and monitoring systems. Ensure scalability and reliability of our IoT platform.",
+    //   requirements: ["AWS/Azure cloud platforms", "Kubernetes/Docker", "Infrastructure as Code (Terraform)", "CI/CD pipelines", "Monitoring tools"],
+    //   responsibilities: ["Manage cloud infrastructure", "Implement CI/CD pipelines", "Monitor system performance", "Ensure security compliance", "Automate deployment processes"]
+    // },
+    // {
+    //   title: "Sales Engineer",
+    //   department: "Sales",
+    //   location: "New York, NY",
+    //   type: "Full-time",
+    //   salary: "$90k - $130k + Commission",
+    //   experience: "2+ years",
+    //   description: "Support sales team with technical expertise and customer demonstrations of our IoT solutions. Bridge the gap between technical capabilities and customer needs.",
+    //   requirements: ["Technical sales experience", "IoT/SaaS knowledge", "Customer presentation skills", "Solution design", "CRM systems"],
+    //   responsibilities: ["Conduct technical demos", "Support sales proposals", "Provide technical consultation", "Train customers", "Gather product feedback"]
+    // }
   ];
 
   const benefits = [

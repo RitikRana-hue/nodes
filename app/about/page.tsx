@@ -6,6 +6,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaRocket, FaGlobe, FaUsers, FaLightbulb, FaHeart, FaShieldAlt, FaRecycle, FaChartLine, FaLeaf } from 'react-icons/fa';
 import Header from "@/components/layout/Header";
+import Link from "next/link";
 
 export default function About() {
   const fadeInUp = {
@@ -41,7 +42,7 @@ export default function About() {
                 <span className="text-blue-600"> Future of Cities</span>
               </h1>
               <p className="text-xl text-gray-600 mb-16 leading-relaxed max-w-3xl mx-auto">
-                NodesIO transforms industries through smart IoT technology, making operations smarter and the future more sustainable.
+                NodesIO transforms industries with smart IoT technology — creating intelligent operations and a sustainable future.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -100,7 +101,7 @@ export default function About() {
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500"> Innovation</span>
                 </h2>
                 <p className="text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto">
-                  From witnessing urban waste chaos to pioneering smart IoT solutions, our journey represents a commitment to creating cleaner, more efficient cities through cutting-edge technology and sustainable practices.
+                  From witnessing urban waste challenges to pioneering smart IoT solutions, our journey reflects a steadfast commitment to building cleaner, more efficient cities through innovation and sustainability.
                 </p>
               </motion.div>
 
@@ -200,7 +201,7 @@ export default function About() {
                   <div>
                     <h3 className="text-3xl font-bold text-gray-900 mb-6">Our Mission</h3>
                     <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                      To transform urban waste management through intelligent IoT solutions that create cleaner, more sustainable cities while reducing operational costs and environmental impact.
+                      To revolutionize urban waste management through intelligent IoT solutions — building cleaner, more sustainable cities while reducing operational costs and environmental impact.
                     </p>
                   </div>
 
@@ -211,7 +212,7 @@ export default function About() {
                       </div>
                       <div>
                         <h4 className="text-xl font-bold text-gray-900 mb-3">Smart Technology Integration</h4>
-                        <p className="text-gray-600 leading-relaxed">Advanced IoT sensors combined with AI-powered analytics provide real-time insights, predictive maintenance, and optimized collection routes that reduce costs by up to 30%.</p>
+                        <p className="text-gray-600 leading-relaxed">Advanced IoT sensors and AI-driven analytics deliver real-time insights, predictive maintenance, and optimized collection routes — cutting costs by up to 30% and improving operational efficiency.</p>
                       </div>
                     </div>
 
@@ -221,7 +222,7 @@ export default function About() {
                       </div>
                       <div>
                         <h4 className="text-xl font-bold text-gray-900 mb-3">Sustainability Focus</h4>
-                        <p className="text-gray-600 leading-relaxed">Every solution prioritizes environmental responsibility, helping cities achieve their sustainability goals while creating measurable positive impact on carbon footprint reduction.</p>
+                        <p className="text-gray-600 leading-relaxed">Every solution is designed with sustainability at its core, helping cities meet environmental goals and significantly reduce their carbon footprint.</p>
                       </div>
                     </div>
 
@@ -231,7 +232,7 @@ export default function About() {
                       </div>
                       <div>
                         <h4 className="text-xl font-bold text-gray-900 mb-3">Community Partnership</h4>
-                        <p className="text-gray-600 leading-relaxed">We partner with organizations, industries, and communities to co-create tailored IoT solutions that solve local challenges and deliver real impact.</p>
+                        <p className="text-gray-600 leading-relaxed">We collaborate with governments, industries, and communities to co-create tailored IoT solutions that address local challenges and deliver measurable real-world impact.</p>
                       </div>
                     </div>
                   </div>
@@ -412,7 +413,7 @@ export default function About() {
                     Empowering the World Through IoT
                   </h3>
                   <p className="text-gray-600 text-lg leading-relaxed">
-                    Our vision is to empower cities and organizations worldwide to achieve sustainability and operational excellence through smart, data-driven IoT solutions that create more efficient, connected, and impactful environments.
+                    We aim to empower cities and organizations across the globe to achieve sustainability and operational excellence through smart, data-driven IoT solutions — creating more connected, efficient, and impactful environments.
                   </p>
                 </motion.div>
 
@@ -428,7 +429,7 @@ export default function About() {
                     Innovation for All, Everywhere
                   </h3>
                   <p className="text-gray-600 text-lg leading-relaxed">
-                    Our mission is to make advanced IoT solutions accessible to all communities by fostering innovation, collaboration, and a passion for a smarter, more sustainable future. We’re committed to democratizing connected technology for everyone.
+                    We strive to make IoT innovation universal — bridging technology and people to create inclusive, intelligent, and sustainable solutions for a connected world.
                   </p>
                 </motion.div>
               </motion.div>
@@ -580,23 +581,23 @@ export default function About() {
                   Join hundreds of organizations already benefiting from our smart waste management solution.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
+                  <Link href="/contact">
+                    <motion.button
+                      className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 rounded-lg font-semibold transition-all hover:shadow-xl"
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      Schedule a Demo
+                    </motion.button>
+                  </Link>
                   <motion.a
-                    href="https://calendly.com/nodesio/demo"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 rounded-lg font-semibold transition-all hover:shadow-xl"
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Schedule a Demo
-                  </motion.a>
-                  <motion.button
+                    href="mailto:sales@nodesio.com"
                     className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 rounded-lg font-semibold transition-all"
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                   >
                     Contact Sales
-                  </motion.button>
+                  </motion.a>
                 </div>
               </div>
             </motion.div>
