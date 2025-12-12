@@ -3,8 +3,8 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { Mail, Lock, LogIn, Trash2, AlertCircle } from 'lucide-react';
-import { login, isAuthenticated, initializeDemoAccount, DEMO_ACCOUNT } from '@/lib/auth';
+import { Mail, Lock, LogIn, Trash2 } from 'lucide-react';
+import { login, isAuthenticated, initializeDemoAccount } from '@/lib/auth';
 import toast, { Toaster } from 'react-hot-toast';
 
 export default function LoginPage() {
@@ -14,7 +14,6 @@ export default function LoginPage() {
     password: '',
   });
   const [loading, setLoading] = useState(false);
-  const [showDemoHint, setShowDemoHint] = useState(true);
 
   useEffect(() => {
     // Initialize demo account
@@ -48,18 +47,12 @@ export default function LoginPage() {
     }
   };
 
-  const handleDemoLogin = () => {
-    setFormData({
-      email: DEMO_ACCOUNT.email,
-      password: DEMO_ACCOUNT.password,
-    });
-    setShowDemoHint(false);
-  };
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 flex items-center justify-center p-4">
       <Toaster position="top-center" />
-      
+
       <div className="w-full max-w-md">
         {/* Logo and Title */}
         <div className="text-center mb-8">
@@ -74,29 +67,7 @@ export default function LoginPage() {
           </p>
         </div>
 
-        {/* Demo Account Hint */}
-        {showDemoHint && (
-          <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
-            <div className="flex items-start gap-3">
-              <AlertCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
-              <div className="flex-1">
-                <p className="text-sm font-medium text-blue-900 dark:text-blue-300 mb-2">
-                  Try Demo Account
-                </p>
-                <p className="text-xs text-blue-700 dark:text-blue-400 mb-3">
-                  Email: {DEMO_ACCOUNT.email}<br />
-                  Password: {DEMO_ACCOUNT.password}
-                </p>
-                <button
-                  onClick={handleDemoLogin}
-                  className="text-xs font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 underline"
-                >
-                  Auto-fill credentials
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
+
 
         {/* Login Card */}
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 p-8">

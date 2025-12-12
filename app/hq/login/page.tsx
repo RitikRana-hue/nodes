@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Mail, Lock, LogIn, Building2, Shield } from 'lucide-react';
-import { hqLogin, isHQAuthenticated, HQ_DEMO_ACCOUNTS } from '@/lib/hqAuth';
+import { hqLogin, isHQAuthenticated } from '@/lib/hqAuth';
 import toast, { Toaster } from 'react-hot-toast';
 
 export default function HQLogin() {
@@ -37,15 +37,12 @@ export default function HQLogin() {
     }
   };
 
-  const quickLogin = (accountType: keyof typeof HQ_DEMO_ACCOUNTS) => {
-    const account = HQ_DEMO_ACCOUNTS[accountType];
-    setFormData({ email: account.email, password: account.password });
-  };
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 flex items-center justify-center p-4">
       <Toaster position="top-center" />
-      
+
       <div className="w-full max-w-5xl grid md:grid-cols-2 gap-8">
         {/* Left Side - Branding */}
         <div className="hidden md:flex flex-col justify-center p-8">
@@ -58,7 +55,7 @@ export default function HQLogin() {
           <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
             Enterprise Control Center for Smart Waste Management
           </p>
-          
+
           <div className="space-y-4">
             <div className="flex items-start gap-3">
               <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -69,7 +66,7 @@ export default function HQLogin() {
                 <p className="text-sm text-gray-600 dark:text-gray-400">Role-based access control with audit logging</p>
               </div>
             </div>
-            
+
             <div className="flex items-start gap-3">
               <div className="w-10 h-10 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
                 <Building2 className="w-5 h-5 text-purple-600 dark:text-purple-400" />
@@ -149,46 +146,7 @@ export default function HQLogin() {
               </button>
             </form>
 
-            {/* Quick Login */}
-            <div className="mt-6">
-              <div className="relative">
-                <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-gray-300 dark:border-gray-600"></div>
-                </div>
-                <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400">
-                    Quick Login
-                  </span>
-                </div>
-              </div>
 
-              <div className="mt-4 grid grid-cols-2 gap-2">
-                <button
-                  onClick={() => quickLogin('superAdmin')}
-                  className="px-3 py-2 text-xs font-medium border border-blue-600 text-blue-600 dark:border-blue-500 dark:text-blue-400 rounded hover:bg-blue-50 dark:hover:bg-blue-900/20"
-                >
-                  Super Admin
-                </button>
-                <button
-                  onClick={() => quickLogin('regionalAdmin')}
-                  className="px-3 py-2 text-xs font-medium border border-purple-600 text-purple-600 dark:border-purple-500 dark:text-purple-400 rounded hover:bg-purple-50 dark:hover:bg-purple-900/20"
-                >
-                  Regional Admin
-                </button>
-                <button
-                  onClick={() => quickLogin('analyst')}
-                  className="px-3 py-2 text-xs font-medium border border-green-600 text-green-600 dark:border-green-500 dark:text-green-400 rounded hover:bg-green-50 dark:hover:bg-green-900/20"
-                >
-                  Analyst
-                </button>
-                <button
-                  onClick={() => quickLogin('operator')}
-                  className="px-3 py-2 text-xs font-medium border border-orange-600 text-orange-600 dark:border-orange-500 dark:text-orange-400 rounded hover:bg-orange-50 dark:hover:bg-orange-900/20"
-                >
-                  Operator
-                </button>
-              </div>
-            </div>
           </div>
 
           <p className="text-center text-sm text-gray-600 dark:text-gray-400 mt-6">

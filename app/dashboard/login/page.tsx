@@ -51,7 +51,7 @@ export default function DashboardLogin() {
 
     try {
       const hashedPassword = await simpleHash(password);
-      
+
       const user = DEMO_CREDENTIALS.find(
         cred => cred.username === username && cred.passwordHash === hashedPassword
       );
@@ -67,7 +67,7 @@ export default function DashboardLogin() {
 
         // Store encrypted session in sessionStorage (more secure than localStorage)
         sessionStorage.setItem('dashboard_session', JSON.stringify(sessionData));
-        
+
         // Also set a flag in localStorage for persistence check
         localStorage.setItem('dashboard_auth', 'true');
         localStorage.setItem('dashboard_user', user.username);
@@ -189,11 +189,10 @@ export default function DashboardLogin() {
                 disabled={isLoading}
                 whileHover={{ scale: isLoading ? 1 : 1.02 }}
                 whileTap={{ scale: isLoading ? 1 : 0.98 }}
-                className={`w-full py-3 px-4 rounded-lg font-semibold text-white transition-all duration-200 ${
-                  isLoading
+                className={`w-full py-3 px-4 rounded-lg font-semibold text-white transition-all duration-200 ${isLoading
                     ? 'bg-gray-400 cursor-not-allowed'
                     : 'bg-gradient-to-r from-blue-600 to-green-500 hover:from-blue-700 hover:to-green-600 shadow-lg hover:shadow-xl'
-                }`}
+                  }`}
               >
                 {isLoading ? (
                   <div className="flex items-center justify-center gap-2">
@@ -206,22 +205,7 @@ export default function DashboardLogin() {
               </motion.button>
             </form>
 
-            {/* Demo Credentials Info */}
-            <div className="mt-8 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-              <p className="text-xs font-semibold text-blue-800 mb-2">Demo Credentials:</p>
-              <div className="space-y-2 text-xs text-blue-700">
-                <div className="bg-white p-2 rounded border border-blue-100">
-                  <p className="font-medium">Admin Access:</p>
-                  <p>Username: <code className="bg-blue-100 px-1 rounded">admin@nodesio.com</code></p>
-                  <p>Password: <code className="bg-blue-100 px-1 rounded">NodesIO@2024</code></p>
-                </div>
-                <div className="bg-white p-2 rounded border border-blue-100">
-                  <p className="font-medium">Demo Access:</p>
-                  <p>Username: <code className="bg-blue-100 px-1 rounded">demo@nodesio.com</code></p>
-                  <p>Password: <code className="bg-blue-100 px-1 rounded">Demo@123</code></p>
-                </div>
-              </div>
-            </div>
+
           </div>
         </div>
 
