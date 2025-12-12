@@ -1,0 +1,28 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="180" height="180" rx="36" fill="#1e293b"/>
+  
+  <!-- Network nodes and connections -->
+  <!-- Center node -->
+  <circle cx="90" cy="90" r="16" fill="#10b981"/>
+  
+  <!-- Top right node -->
+  <circle cx="135" cy="45" r="14" fill="#10b981"/>
+  <line x1="104" y1="76" x2="121" y2="59" stroke="#10b981" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- Bottom right node -->
+  <circle cx="135" cy="135" r="14" fill="#10b981"/>
+  <line x1="104" y1="104" x2="121" y2="121" stroke="#10b981" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- Bottom left node -->
+  <circle cx="45" cy="135" r="14" fill="#10b981"/>
+  <line x1="76" y1="104" x2="59" y2="121" stroke="#10b981" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- Top left node -->
+  <circle cx="45" cy="45" r="14" fill="#10b981"/>
+  <line x1="76" y1="76" x2="59" y2="59" stroke="#10b981" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- Additional connecting lines for more network effect -->
+  <line x1="45" y1="45" x2="135" y2="135" stroke="#10b981" stroke-width="3" stroke-linecap="round" opacity="0.3"/>
+  <line x1="135" y1="45" x2="45" y2="135" stroke="#10b981" stroke-width="3" stroke-linecap="round" opacity="0.3"/>
+</svg>

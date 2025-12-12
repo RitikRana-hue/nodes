@@ -7,10 +7,10 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: {
-    default: 'NodesIO - Smart IoT Waste Management Solutions',
+    default: 'NodesIO - Smart IoT Solutions',
     template: '%s | NodesIO',
   },
-  description: 'Transform your waste management with NodesIO smart IoT solutions. Real-time monitoring, AI-powered analytics, and sustainable practices for cleaner cities.',
+  description: 'Transform your operations with NodesIO smart IoT solutions. Real-time monitoring, AI-powered analytics, and sustainable practices for smarter cities.',
   keywords: ['IoT', 'waste management', 'smart cities', 'sustainability', 'sensors', 'AI analytics'],
   authors: [{ name: 'NodesIO' }],
   creator: 'NodesIO',
@@ -21,8 +21,8 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: '/',
     siteName: 'NodesIO',
-    title: 'NodesIO - Smart IoT Waste Management',
-    description: 'Transform your waste management with smart IoT solutions.',
+    title: 'NodesIO - Smart IoT Solutions',
+    description: 'Transform your operations with smart IoT solutions.',
     images: [
       {
         url: '/images/og-image.jpg',
@@ -34,13 +34,18 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'NodesIO - Smart IoT Waste Management',
-    description: 'Transform your waste management with smart IoT solutions.',
+    title: 'NodesIO - Smart IoT Solutions',
+    description: 'Transform your operations with smart IoT solutions.',
     images: ['/images/og-image.jpg'],
   },
   icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
+    icon: [
+      { url: '/favicon.svg', sizes: 'any', type: 'image/svg+xml' },
+      { url: '/favicon-32x32.svg', sizes: '32x32', type: 'image/svg+xml' },
+      { url: '/favicon-16x16.svg', sizes: '16x16', type: 'image/svg+xml' },
+    ],
+    apple: '/apple-touch-icon.svg',
+    shortcut: '/favicon.ico',
   },
   manifest: '/site.webmanifest',
 };
@@ -52,6 +57,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/svg+xml" sizes="32x32" href="/favicon-32x32.svg" />
+        <link rel="icon" type="image/svg+xml" sizes="16x16" href="/favicon-16x16.svg" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.svg" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="theme-color" content="#10b981" />
+        <meta name="msapplication-TileColor" content="#1e293b" />
+      </head>
       <body className="antialiased">
         <ThemeProvider>
           {children}

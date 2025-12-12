@@ -1,0 +1,27 @@
+{
+    "name": "NodesIO - Smart IoT Solutions",
+    "short_name": "NodesIO",
+    "description": "Smart IoT solutions for efficient waste management and sustainable cities",
+    "icons": [
+        {
+            "src": "/favicon-32x32.svg",
+            "sizes": "32x32",
+            "type": "image/svg+xml"
+        },
+        {
+            "src": "/icon.svg",
+            "sizes": "64x64",
+            "type": "image/svg+xml"
+        },
+        {
+            "src": "/apple-touch-icon.svg",
+            "sizes": "180x180",
+            "type": "image/svg+xml"
+        }
+    ],
+    "theme_color": "#10b981",
+    "background_color": "#1e293b",
+    "display": "standalone",
+    "start_url": "/",
+    "scope": "/"
+}

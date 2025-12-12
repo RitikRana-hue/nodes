@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 
 interface FloatingElementsProps {
     variant?: 'blue' | 'green' | 'purple' | 'mixed';
@@ -11,6 +12,12 @@ export default function FloatingElements({
     variant = 'mixed',
     density = 'medium'
 }: FloatingElementsProps) {
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
+
     const getElementCount = () => {
         switch (density) {
             case 'low': return 3;
@@ -37,15 +44,30 @@ export default function FloatingElements({
     const colors = getColors();
     const elementCount = getElementCount();
 
+    // Predefined configurations to avoid hydration issues
+    const getElementConfig = (index: number) => {
+        const configs = [
+            { size: 150, delay: 0, duration: 20, colorIndex: 0 },
+            { size: 200, delay: 1, duration: 18, colorIndex: 1 },
+            { size: 120, delay: 2, duration: 22, colorIndex: 2 },
+            { size: 180, delay: 0.5, duration: 19, colorIndex: 3 },
+            { size: 160, delay: 1.5, duration: 21, colorIndex: 4 },
+            { size: 140, delay: 2.5, duration: 17, colorIndex: 5 },
+            { size: 190, delay: 3, duration: 23, colorIndex: 6 },
+            { size: 170, delay: 3.5, duration: 18, colorIndex: 7 }
+        ];
+        return configs[index % configs.length];
+    };
+
     const generateElements = () => {
+        if (!isClient) return null;
+
         const elements = [];
         for (let i = 0; i < elementCount; i++) {
-            const size = Math.random() * 200 + 100; // 100-300px
-            const delay = Math.random() * 5;
-            const duration = Math.random() * 10 + 15; // 15-25s
-            const color = colors[Math.floor(Math.random() * colors.length)];
+            const config = getElementConfig(i);
+            const color = colors[config.colorIndex % colors.length];
 
-            // Random positions
+            // Predefined positions
             const positions = [
                 { top: '10%', left: '10%' },
                 { top: '20%', right: '15%' },
@@ -64,8 +86,8 @@ export default function FloatingElements({
                     key={i}
                     className={`absolute ${color} rounded-full blur-3xl`}
                     style={{
-                        width: `${size}px`,
-                        height: `${size}px`,
+                        width: `${config.size}px`,
+                        height: `${config.size}px`,
                         ...position
                     }}
                     animate={{
@@ -75,8 +97,8 @@ export default function FloatingElements({
                         opacity: [0.3, 0.6, 0.3]
                     }}
                     transition={{
-                        duration,
-                        delay,
+                        duration: config.duration,
+                        delay: config.delay,
                         repeat: Infinity,
                         ease: "easeInOut"
                     }}
