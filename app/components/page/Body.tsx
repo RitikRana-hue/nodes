@@ -91,7 +91,7 @@ const Body = () => {
         <div className="absolute top-1/2 left-0 w-64 h-64 bg-green-300/10 rounded-full blur-2xl animate-pulse delay-500"></div>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-            <motion.div 
+            <motion.div
               className="md:w-1/2"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -104,17 +104,17 @@ const Body = () => {
                 <span className="text-blue-600"> Better Future</span>
               </h1>
               <p className="text-lg text-gray-700 mb-8">
-              Innovative IoT devices that drive efficiency, sustainability, and growth across industries.
+                Innovative IoT devices that drive efficiency, sustainability, and growth across industries.
               </p>
               <div className="flex flex-wrap gap-4 mb-8">
-                <motion.button 
+                <motion.button
                   className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-medium transition-all hover:shadow-xl"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   Get Started
                 </motion.button>
-                <motion.button 
+                <motion.button
                   className="border-2 border-green-600 text-green-600 hover:bg-green-50 px-8 py-3 rounded-lg font-medium transition-all hover:shadow-lg"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
@@ -123,7 +123,7 @@ const Body = () => {
                 </motion.button>
               </div>
             </motion.div>
-            <motion.div 
+            <motion.div
               className="md:w-1/2"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
@@ -149,7 +149,7 @@ const Body = () => {
         <div className="absolute top-0 left-1/3 w-72 h-72 bg-green-100/20 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-1/3 w-64 h-64 bg-blue-100/20 rounded-full blur-3xl"></div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
-          <motion.div 
+          <motion.div
             className="grid grid-cols-1 md:grid-cols-3 gap-8"
             variants={containerVariants}
             initial="hidden"
@@ -157,7 +157,7 @@ const Body = () => {
             viewport={{ once: true, amount: 0.3 }}
           >
             {stats.map((stat, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 className="bg-white rounded-xl shadow-lg p-8 text-center hover:shadow-2xl transition-all group border border-gray-100"
                 variants={itemVariants}
@@ -183,11 +183,11 @@ const Body = () => {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Smart Features for Smart Tomorrow</h2>
             <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-            Our comprehensive IoT solutions combine cutting-edge hardware with powerful software to transform how industries operate and grow.
+              Our comprehensive IoT solutions combine cutting-edge hardware with powerful software to transform how industries operate and grow.
             </p>
           </div>
-          
-          <motion.div 
+
+          <motion.div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
             variants={containerVariants}
             initial="hidden"
@@ -195,7 +195,7 @@ const Body = () => {
             viewport={{ once: true, amount: 0.1 }}
           >
             {features.map((feature, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 className="bg-white rounded-xl shadow-md p-6 hover:shadow-2xl transition-all group border border-gray-100 relative overflow-hidden"
                 variants={itemVariants}
@@ -228,9 +228,9 @@ const Body = () => {
               Our smart waste management system uses a simple but effective process to optimize waste collection.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <motion.div 
+            <motion.div
               className="text-center group"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -244,8 +244,8 @@ const Body = () => {
               <h3 className="text-xl font-semibold mb-3 group-hover:text-blue-600 transition-colors">Smart Sensors</h3>
               <p className="text-gray-700">IoT sensors monitor fill levels and environmental conditions in real-time.</p>
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               className="text-center group"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -259,8 +259,8 @@ const Body = () => {
               <h3 className="text-xl font-semibold mb-3 group-hover:text-green-600 transition-colors">Data Analysis</h3>
               <p className="text-gray-700">Our AI algorithms process data to optimize collection routes and schedules.</p>
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               className="text-center group"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -290,29 +290,23 @@ const Body = () => {
               Hear from organizations that have transformed their waste management operations with our smart solution.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
-                className="bg-white rounded-xl shadow-md p-6 hover:shadow-2xl transition-all group border border-gray-100 relative overflow-hidden"
+                className="bg-white rounded-lg shadow-md p-8 hover:shadow-xl transition-all group border-l-4 border-l-blue-500 relative overflow-hidden"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -5, scale: 1.02 }}
+                whileHover={{ y: -5 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 to-green-50/30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <div className="absolute top-0 right-0 w-20 h-20 bg-blue-200/20 rounded-full blur-xl group-hover:bg-blue-300/30 transition-colors"></div>
-                <div className="mb-6 relative z-10">
-                  <div className="flex items-center mb-4">
-                    <div className="h-12 w-12 rounded-full bg-gradient-to-br from-blue-100 to-green-100 mr-4 group-hover:scale-110 transition-transform"></div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">{testimonial.name}</h4>
-                      <p className="text-sm text-gray-600">{testimonial.role}, {testimonial.company}</p>
-                    </div>
-                  </div>
-                  <p className="text-gray-700 italic">&quot;{testimonial.quote}&quot;</p>
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="relative z-10">
+                  <h4 className="font-bold text-lg text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">{testimonial.name}</h4>
+                  <p className="text-sm text-gray-600 mb-4">{testimonial.role}, {testimonial.company}</p>
+                  <p className="text-gray-700 leading-relaxed">&quot;{testimonial.quote}&quot;</p>
                 </div>
               </motion.div>
             ))}
@@ -327,7 +321,7 @@ const Body = () => {
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-white/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <motion.h2 
+            <motion.h2
               className="text-3xl md:text-4xl font-bold mb-6"
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -336,7 +330,7 @@ const Body = () => {
             >
               Ready to Transform Your Waste Management?
             </motion.h2>
-            <motion.p 
+            <motion.p
               className="text-lg mb-8 text-white/90"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -345,7 +339,7 @@ const Body = () => {
             >
               Join hundreds of organizations already benefiting from our smart waste management solution.
             </motion.p>
-            <motion.button 
+            <motion.button
               className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-3 rounded-lg font-medium transition-all hover:shadow-2xl"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
