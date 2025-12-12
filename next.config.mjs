@@ -81,6 +81,17 @@ const nextConfig = {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
 
+  // Turbopack configuration
+  turbopack: {
+    resolveAlias: {
+      '@/components': path.resolve(__dirname, 'app/components'),
+      '@/lib': path.resolve(__dirname, 'lib'),
+      '@/types': path.resolve(__dirname, 'types'),
+      '@/hooks': path.resolve(__dirname, 'hooks'),
+      '@': path.resolve(__dirname),
+    },
+  },
+
   // Webpack configuration for path aliases
   webpack: (config, { isServer }) => {
     // Add path aliases with explicit resolution
@@ -92,10 +103,10 @@ const nextConfig = {
       '@/hooks': path.resolve(__dirname, 'hooks'),
       '@': path.resolve(__dirname),
     };
-    
+
     // Ensure case-sensitive resolution
     config.resolve.symlinks = false;
-    
+
     return config;
   },
 };
