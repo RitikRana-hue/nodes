@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { User, Mail, Phone, MapPin, Camera, Save, Lock, Bell, Moon, Sun, Globe } from 'lucide-react';
+import toast from 'react-hot-toast';
+import { User, Mail, Phone, MapPin, Camera, Save, Lock, Bell, Moon, Globe } from 'lucide-react';
 import { userProfileService } from '@/lib/api/userServices';
 import type { UserProfile } from '@/types/user';
 
@@ -11,6 +12,7 @@ export default function ProfilePage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [activeTab, setActiveTab] = useState<'profile' | 'settings' | 'security'>('profile');
+  const [uploadingAvatar, setUploadingAvatar] = useState(false);
 
   const fetchProfile = async () => {
     try {
@@ -30,16 +32,56 @@ export default function ProfilePage() {
 
   const handleSaveProfile = async () => {
     if (!profile) return;
-    
+
     try {
       setSaving(true);
       await userProfileService.updateProfile(profile);
-      alert('Profile updated successfully!');
+      toast.success('Profile updated successfully!');
     } catch (error) {
       console.error('Failed to update profile:', error);
-      alert('Failed to update profile');
+      toast.error('Failed to update profile');
     } finally {
       setSaving(false);
+    }
+  };
+
+  const handleAvatarUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file || !profile) return;
+
+    // Validate file type
+    if (!file.type.startsWith('image/')) {
+      toast.error('Please select an image file');
+      return;
+    }
+
+    // Validate file size (max 5MB)
+    if (file.size > 5 * 1024 * 1024) {
+      toast.error('File size must be less than 5MB');
+      return;
+    }
+
+    try {
+      setUploadingAvatar(true);
+
+      // Create a preview URL for immediate display
+      const previewUrl = URL.createObjectURL(file);
+      setProfile({ ...profile, avatar: previewUrl });
+
+      // Upload the file using the service
+      const newAvatarUrl = await userProfileService.uploadAvatar(file);
+
+      // Update profile with the new avatar URL
+      setProfile({ ...profile, avatar: newAvatarUrl });
+
+      toast.success('Profile picture updated successfully!');
+    } catch (error) {
+      console.error('Failed to upload avatar:', error);
+      toast.error('Failed to upload profile picture');
+      // Revert to original avatar on error
+      fetchProfile();
+    } finally {
+      setUploadingAvatar(false);
     }
   };
 
@@ -70,31 +112,28 @@ export default function ProfilePage() {
         <div className="mt-4 flex gap-2 border-b border-gray-200 dark:border-gray-700">
           <button
             onClick={() => setActiveTab('profile')}
-            className={`px-4 py-2 font-medium transition-colors border-b-2 ${
-              activeTab === 'profile'
-                ? 'border-blue-600 text-blue-600 dark:text-blue-400'
-                : 'border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
-            }`}
+            className={`px-4 py-2 font-medium transition-colors border-b-2 ${activeTab === 'profile'
+              ? 'border-blue-600 text-blue-600 dark:text-blue-400'
+              : 'border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
+              }`}
           >
             Profile
           </button>
           <button
             onClick={() => setActiveTab('settings')}
-            className={`px-4 py-2 font-medium transition-colors border-b-2 ${
-              activeTab === 'settings'
-                ? 'border-blue-600 text-blue-600 dark:text-blue-400'
-                : 'border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
-            }`}
+            className={`px-4 py-2 font-medium transition-colors border-b-2 ${activeTab === 'settings'
+              ? 'border-blue-600 text-blue-600 dark:text-blue-400'
+              : 'border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
+              }`}
           >
             Settings
           </button>
           <button
             onClick={() => setActiveTab('security')}
-            className={`px-4 py-2 font-medium transition-colors border-b-2 ${
-              activeTab === 'security'
-                ? 'border-blue-600 text-blue-600 dark:text-blue-400'
-                : 'border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
-            }`}
+            className={`px-4 py-2 font-medium transition-colors border-b-2 ${activeTab === 'security'
+              ? 'border-blue-600 text-blue-600 dark:text-blue-400'
+              : 'border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
+              }`}
           >
             Security
           </button>
@@ -115,15 +154,34 @@ export default function ProfilePage() {
                       alt={profile.name}
                       width={96}
                       height={96}
-                      className="rounded-full"
+                      className="rounded-full object-cover"
                     />
-                    <button className="absolute bottom-0 right-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors">
-                      <Camera className="w-4 h-4" />
-                    </button>
+                    <div className="absolute bottom-0 right-0">
+                      <input
+                        type="file"
+                        id="avatar-upload"
+                        accept="image/*"
+                        onChange={handleAvatarUpload}
+                        className="hidden"
+                      />
+                      <label
+                        htmlFor="avatar-upload"
+                        className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors cursor-pointer"
+                      >
+                        {uploadingAvatar ? (
+                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                        ) : (
+                          <Camera className="w-4 h-4" />
+                        )}
+                      </label>
+                    </div>
                   </div>
                   <div>
                     <h2 className="text-xl font-bold text-gray-900 dark:text-white">{profile.name}</h2>
                     <p className="text-sm text-gray-600 dark:text-gray-400">{profile.email}</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">
+                      Click the camera icon to upload a new profile picture
+                    </p>
                     <div className="mt-2 flex items-center gap-4 text-sm">
                       <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-full font-medium">
                         Contribution Score: {profile.stats.contributionScore}

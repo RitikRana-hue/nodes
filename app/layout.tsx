@@ -3,9 +3,7 @@ import { ThemeProvider } from "./context/ThemeContext";
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Toaster } from 'react-hot-toast';
-import Header from './components/layout/Header';
-import Footer from './components/layout/Footer';
-import ScrollProgress from './components/ui/ScrollProgress';
+import ConditionalLayout from '@/components/layout/ConditionalLayout';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -71,14 +69,9 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         <ThemeProvider>
-          <div className="flex flex-col min-h-screen">
-            <ScrollProgress />
-            <Header />
-            <main className="flex-grow">
-              {children}
-            </main>
-            <Footer />
-          </div>
+          <ConditionalLayout>
+            {children}
+          </ConditionalLayout>
           <Toaster
             position="bottom-right"
             toastOptions={{

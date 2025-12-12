@@ -47,14 +47,14 @@ export const userDashboardService = {
    */
   async getStats(): Promise<UserDashboardStats> {
     await simulateDelay(300);
-    
+
     // 🔄 REPLACE WITH:
     // const response = await api.get<UserDashboardStats>('/user/dashboard/stats');
     // if (response.success && response.data) {
     //   return response.data;
     // }
     // throw new Error(response.error || 'Failed to fetch stats');
-    
+
     return mockUserDashboardStats;
   },
 };
@@ -73,7 +73,7 @@ export const userBinsService = {
     filters?: BinFilters
   ): Promise<NearbyBinsResponse> {
     await simulateDelay(400);
-    
+
     // 🔄 REPLACE WITH:
     // const params = new URLSearchParams({
     //   lat: lat.toString(),
@@ -87,9 +87,9 @@ export const userBinsService = {
     //   return response.data;
     // }
     // throw new Error(response.error || 'Failed to fetch nearby bins');
-    
+
     let filteredBins = [...mockNearbyBins];
-    
+
     // Apply filters
     if (filters?.status) {
       filteredBins = filteredBins.filter(bin => bin.status === filters.status);
@@ -100,7 +100,7 @@ export const userBinsService = {
     if (filters?.maxDistance) {
       filteredBins = filteredBins.filter(bin => bin.distance <= filters.maxDistance!);
     }
-    
+
     // Apply sorting
     if (filters?.sortBy) {
       filteredBins.sort((a, b) => {
@@ -119,7 +119,7 @@ export const userBinsService = {
         return filters.sortOrder === 'desc' ? -comparison : comparison;
       });
     }
-    
+
     return {
       bins: filteredBins,
       total: filteredBins.length,
@@ -133,14 +133,14 @@ export const userBinsService = {
    */
   async getBinById(id: string) {
     await simulateDelay(300);
-    
+
     // 🔄 REPLACE WITH:
     // const response = await api.get(`/user/bins/${id}`);
     // if (response.success && response.data) {
     //   return response.data;
     // }
     // throw new Error(response.error || 'Failed to fetch bin details');
-    
+
     const bin = mockNearbyBins.find(b => b.id === id);
     if (!bin) throw new Error('Bin not found');
     return bin;
@@ -161,7 +161,7 @@ export const userVehiclesService = {
     filters?: VehicleFilters
   ): Promise<NearbyVehiclesResponse> {
     await simulateDelay(400);
-    
+
     // 🔄 REPLACE WITH:
     // const params = new URLSearchParams({
     //   lat: lat.toString(),
@@ -174,9 +174,9 @@ export const userVehiclesService = {
     //   return response.data;
     // }
     // throw new Error(response.error || 'Failed to fetch nearby vehicles');
-    
+
     let filteredVehicles = [...mockVehicles];
-    
+
     // Apply filters
     if (filters?.status) {
       filteredVehicles = filteredVehicles.filter(v => v.status === filters.status);
@@ -184,17 +184,17 @@ export const userVehiclesService = {
     if (filters?.maxDistance) {
       filteredVehicles = filteredVehicles.filter(v => v.distance <= filters.maxDistance!);
     }
-    
+
     // Apply sorting
     if (filters?.sortBy) {
       filteredVehicles.sort((a, b) => {
-        const comparison = filters.sortBy === 'distance' 
-          ? a.distance - b.distance 
+        const comparison = filters.sortBy === 'distance'
+          ? a.distance - b.distance
           : 0;
         return filters.sortOrder === 'desc' ? -comparison : comparison;
       });
     }
-    
+
     return {
       vehicles: filteredVehicles,
       total: filteredVehicles.length,
@@ -208,14 +208,14 @@ export const userVehiclesService = {
    */
   async getVehicleById(id: string) {
     await simulateDelay(300);
-    
+
     // 🔄 REPLACE WITH:
     // const response = await api.get(`/user/vehicles/${id}`);
     // if (response.success && response.data) {
     //   return response.data;
     // }
     // throw new Error(response.error || 'Failed to fetch vehicle details');
-    
+
     const vehicle = mockVehicles.find(v => v.id === id);
     if (!vehicle) throw new Error('Vehicle not found');
     return vehicle;
@@ -232,7 +232,7 @@ export const userReportsService = {
    */
   async getReports(filters?: ReportFilters): Promise<ReportsResponse> {
     await simulateDelay(400);
-    
+
     // 🔄 REPLACE WITH:
     // const params = new URLSearchParams({
     //   ...(filters?.status && { status: filters.status }),
@@ -245,9 +245,9 @@ export const userReportsService = {
     //   return response.data;
     // }
     // throw new Error(response.error || 'Failed to fetch reports');
-    
+
     let filteredReports = [...mockReports];
-    
+
     // Apply filters
     if (filters?.status) {
       filteredReports = filteredReports.filter(r => r.status === filters.status);
@@ -255,7 +255,7 @@ export const userReportsService = {
     if (filters?.type) {
       filteredReports = filteredReports.filter(r => r.type === filters.type);
     }
-    
+
     // Calculate stats
     const stats = {
       pending: filteredReports.filter(r => r.status === 'pending').length,
@@ -263,7 +263,7 @@ export const userReportsService = {
       resolved: filteredReports.filter(r => r.status === 'resolved').length,
       rejected: filteredReports.filter(r => r.status === 'rejected').length,
     };
-    
+
     return {
       reports: filteredReports,
       total: filteredReports.length,
@@ -277,7 +277,7 @@ export const userReportsService = {
    */
   async createReport(payload: CreateReportPayload): Promise<Report> {
     await simulateDelay(500);
-    
+
     // 🔄 REPLACE WITH:
     // const formData = new FormData();
     // formData.append('type', payload.type);
@@ -293,7 +293,7 @@ export const userReportsService = {
     //   return response.data;
     // }
     // throw new Error(response.error || 'Failed to create report');
-    
+
     const newReport: Report = {
       id: `report-${Date.now()}`,
       type: payload.type,
@@ -308,7 +308,7 @@ export const userReportsService = {
       updatedAt: new Date().toISOString(),
       userId: 'user-001',
     };
-    
+
     return newReport;
   },
 
@@ -318,14 +318,14 @@ export const userReportsService = {
    */
   async getReportById(id: string): Promise<Report> {
     await simulateDelay(300);
-    
+
     // 🔄 REPLACE WITH:
     // const response = await api.get<Report>(`/user/reports/${id}`);
     // if (response.success && response.data) {
     //   return response.data;
     // }
     // throw new Error(response.error || 'Failed to fetch report');
-    
+
     const report = mockReports.find(r => r.id === id);
     if (!report) throw new Error('Report not found');
     return report;
@@ -342,16 +342,16 @@ export const userNotificationsService = {
    */
   async getNotifications(): Promise<UserNotificationsResponse> {
     await simulateDelay(300);
-    
+
     // 🔄 REPLACE WITH:
     // const response = await api.get<UserNotificationsResponse>('/user/notifications');
     // if (response.success && response.data) {
     //   return response.data;
     // }
     // throw new Error(response.error || 'Failed to fetch notifications');
-    
+
     const unreadCount = mockUserNotifications.filter(n => !n.read).length;
-    
+
     return {
       notifications: mockUserNotifications,
       unreadCount,
@@ -365,13 +365,13 @@ export const userNotificationsService = {
    */
   async markAsRead(id: string): Promise<void> {
     await simulateDelay(200);
-    
+
     // 🔄 REPLACE WITH:
     // const response = await api.patch(`/user/notifications/${id}/read`);
     // if (!response.success) {
     //   throw new Error(response.error || 'Failed to mark notification as read');
     // }
-    
+
     const notification = mockUserNotifications.find(n => n.id === id);
     if (notification) {
       notification.read = true;
@@ -384,13 +384,13 @@ export const userNotificationsService = {
    */
   async markAllAsRead(): Promise<void> {
     await simulateDelay(300);
-    
+
     // 🔄 REPLACE WITH:
     // const response = await api.patch('/user/notifications/read-all');
     // if (!response.success) {
     //   throw new Error(response.error || 'Failed to mark all notifications as read');
     // }
-    
+
     mockUserNotifications.forEach(n => n.read = true);
   },
 };
@@ -405,14 +405,14 @@ export const userProfileService = {
    */
   async getProfile(): Promise<UserProfile> {
     await simulateDelay(300);
-    
+
     // 🔄 REPLACE WITH:
     // const response = await api.get<UserProfile>('/user/profile');
     // if (response.success && response.data) {
     //   return response.data;
     // }
     // throw new Error(response.error || 'Failed to fetch profile');
-    
+
     return mockUserProfile;
   },
 
@@ -422,14 +422,14 @@ export const userProfileService = {
    */
   async updateProfile(updates: Partial<UserProfile>): Promise<UserProfile> {
     await simulateDelay(400);
-    
+
     // 🔄 REPLACE WITH:
     // const response = await api.patch<UserProfile>('/user/profile', updates);
     // if (response.success && response.data) {
     //   return response.data;
     // }
     // throw new Error(response.error || 'Failed to update profile');
-    
+
     Object.assign(mockUserProfile, updates);
     return mockUserProfile;
   },
@@ -440,7 +440,7 @@ export const userProfileService = {
    */
   async updatePassword(currentPassword: string, newPassword: string): Promise<void> {
     await simulateDelay(400);
-    
+
     // 🔄 REPLACE WITH:
     // const response = await api.post('/user/profile/password', {
     //   currentPassword,
@@ -449,8 +449,33 @@ export const userProfileService = {
     // if (!response.success) {
     //   throw new Error(response.error || 'Failed to update password');
     // }
-    
+
     // Mock success
+  },
+
+  /**
+   * Upload avatar image
+   * 🔄 REPLACE: POST /api/user/profile/avatar
+   */
+  async uploadAvatar(file: File): Promise<string> {
+    await simulateDelay(1000);
+
+    // 🔄 REPLACE WITH:
+    // const formData = new FormData();
+    // formData.append('avatar', file);
+    // const response = await api.post<{ avatarUrl: string }>('/user/profile/avatar', formData);
+    // if (response.success && response.data) {
+    //   return response.data.avatarUrl;
+    // }
+    // throw new Error(response.error || 'Failed to upload avatar');
+
+    // Mock successful upload - return a new avatar URL
+    const newAvatarUrl = `https://api.dicebear.com/7.x/avataaars/svg?seed=${Date.now()}`;
+
+    // Update the mock profile with new avatar
+    mockUserProfile.avatar = newAvatarUrl;
+
+    return newAvatarUrl;
   },
 };
 
@@ -464,14 +489,14 @@ export const userAnalyticsService = {
    */
   async getEcoImpact(period: 'week' | 'month' | 'year' | 'all-time' = 'month'): Promise<EcoImpact> {
     await simulateDelay(400);
-    
+
     // 🔄 REPLACE WITH:
     // const response = await api.get<EcoImpact>(`/user/analytics/eco-impact?period=${period}`);
     // if (response.success && response.data) {
     //   return response.data;
     // }
     // throw new Error(response.error || 'Failed to fetch eco impact');
-    
+
     return { ...mockEcoImpact, period };
   },
 };
