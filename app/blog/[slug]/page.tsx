@@ -310,7 +310,7 @@ export default function BlogPost() {
 
   const handleShare = async () => {
     const url = window.location.href
-    
+
     if (navigator.share) {
       try {
         await navigator.share({
@@ -354,7 +354,7 @@ export default function BlogPost() {
     if (params?.slug) {
       const slug = params.slug as string
       const foundPost = blogPosts.find(post => post.slug === slug)
-      
+
       if (foundPost) {
         setPost(foundPost)
         setRelatedPosts(blogPosts.filter(p => p.slug !== slug).slice(0, 3))
@@ -386,7 +386,7 @@ export default function BlogPost() {
           <div className="text-center">
             <h1 className="text-4xl font-bold text-gray-900 mb-4">Article Not Found</h1>
             <p className="text-gray-600 mb-8">The article you&apos;re looking for doesn&apos;t exist.</p>
-            <Link 
+            <Link
               href="/blog"
               className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
             >
@@ -411,14 +411,14 @@ export default function BlogPost() {
           <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-green-200/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-16">
-            <motion.div 
+            <motion.div
               className="max-w-4xl mx-auto"
               initial="hidden"
               animate="visible"
               variants={fadeInUp}
             >
               <div className="mb-6">
-                <Link 
+                <Link
                   href="/blog"
                   className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium transition-colors"
                 >
@@ -426,17 +426,17 @@ export default function BlogPost() {
                   Back to Blog
                 </Link>
               </div>
-              
+
               <div className="mb-6">
                 <span className="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium">
                   {post.category}
                 </span>
               </div>
-              
+
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-gray-900 leading-tight">
                 {post.title}
               </h1>
-              
+
               <div className="flex flex-wrap items-center gap-6 text-gray-600 mb-8">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-green-500 flex items-center justify-center text-white font-bold text-lg">
@@ -462,7 +462,7 @@ export default function BlogPost() {
                   </div>
                 </div>
               </div>
-              
+
               <div className="flex items-center gap-4">
                 <motion.button
                   onClick={handleShare}
@@ -489,7 +489,7 @@ export default function BlogPost() {
         {/* Featured Image */}
         <section className="py-8 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div 
+            <motion.div
               className="max-w-4xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -510,14 +510,14 @@ export default function BlogPost() {
         {/* Article Content */}
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.article 
+            <motion.article
               className="max-w-4xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12 border border-gray-100">
-                <div 
+                <div
                   className="prose prose-lg md:prose-xl max-w-none 
                     prose-headings:text-gray-900 prose-headings:font-bold prose-headings:mb-4 prose-headings:mt-8
                     prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:pb-3 prose-h2:border-b prose-h2:border-gray-200
@@ -528,7 +528,7 @@ export default function BlogPost() {
                     prose-li:marker:text-blue-600
                     prose-strong:text-gray-900 prose-strong:font-semibold
                     first:prose-h2:mt-0"
-                  dangerouslySetInnerHTML={{ 
+                  dangerouslySetInnerHTML={{
                     __html: DOMPurify.sanitize(post.content, {
                       ALLOWED_TAGS: ['h2', 'h3', 'p', 'ul', 'li', 'strong', 'em', 'a'],
                       ALLOWED_ATTR: ['href', 'target', 'rel']
@@ -545,7 +545,7 @@ export default function BlogPost() {
           <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-blue-50/30"></div>
           <div className="absolute top-0 right-0 w-80 h-80 bg-blue-200/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <motion.div 
+            <motion.div
               className="text-center mb-12"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -559,7 +559,7 @@ export default function BlogPost() {
                 Continue exploring insights in smart waste management technology.
               </p>
             </motion.div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {relatedPosts.map((relatedPost, index) => (
                 <motion.div
@@ -570,12 +570,12 @@ export default function BlogPost() {
                   transition={{ duration: 0.6, delay: index * 0.2 }}
                   whileHover={{ y: -8, scale: 1.02 }}
                 >
-                  <Link 
+                  <Link
                     href={`/blog/${relatedPost.slug}`}
                     className="block bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all group border border-gray-100 relative"
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 to-green-50/30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    
+
                     <div className="relative z-10">
                       <div className="relative w-full h-48 overflow-hidden">
                         <Image
@@ -590,13 +590,13 @@ export default function BlogPost() {
                           </span>
                         </div>
                       </div>
-                      
+
                       <div className="p-6">
                         <h3 className="text-lg font-bold mb-2 text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2">
                           {relatedPost.title}
                         </h3>
                         <p className="text-gray-600 mb-4 text-sm line-clamp-2">{relatedPost.excerpt}</p>
-                        
+
                         <div className="flex items-center justify-between">
                           <div className="flex items-center">
                             <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-green-500 flex items-center justify-center text-white font-bold text-xs">

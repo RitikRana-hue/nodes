@@ -13,7 +13,7 @@ export default function Home() {
         <Body />
       </main>
       <Footer />
-      
+
       {/* Sora AI Chatbot */}
       <SoraChatbot environment="landing" />
     </div>
