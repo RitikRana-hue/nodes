@@ -1169,152 +1169,152 @@ export default function BlogPost() {
   return (
     <div>
       <Toaster />
-        {/* Hero Section */}
-        <section className="hero-section bg-gradient-to-br from-blue-50 via-green-50/30 to-blue-50 relative overflow-hidden">
-          <FloatingElements variant="mixed" density="medium" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-50/80 z-10"></div>
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full flex items-center min-h-screen">
-            <motion.div
-              className="max-w-4xl mx-auto"
-              initial="hidden"
-              animate="visible"
-              variants={fadeInUp}
-            >
-              {/* Breadcrumb */}
-              <div className="mb-8">
-                <Link
-                  href="/blog"
-                  className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium transition-colors bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm"
-                >
-                  <ArrowLeft className="w-4 h-4 mr-2" />
-                  Back to Blog
-                </Link>
-              </div>
+      {/* Hero Section */}
+      <section className="hero-section bg-gradient-to-br from-blue-50 via-green-50/30 to-blue-50 relative overflow-hidden">
+        <FloatingElements variant="mixed" density="medium" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-50/80 z-10"></div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full flex items-center min-h-screen">
+          <motion.div
+            className="max-w-4xl mx-auto"
+            initial="hidden"
+            animate="visible"
+            variants={fadeInUp}
+          >
+            {/* Breadcrumb */}
+            <div className="mb-8">
+              <Link
+                href="/blog"
+                className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium transition-colors bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm"
+              >
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Back to Blog
+              </Link>
+            </div>
 
-              {/* Category Badge */}
-              <div className="mb-6">
-                <span className="bg-gradient-to-r from-blue-600 to-green-600 text-white px-6 py-3 rounded-full text-sm font-semibold shadow-lg">
-                  {post.category}
-                </span>
-              </div>
+            {/* Category Badge */}
+            <div className="mb-6">
+              <span className="bg-gradient-to-r from-blue-600 to-green-600 text-white px-6 py-3 rounded-full text-sm font-semibold shadow-lg">
+                {post.category}
+              </span>
+            </div>
 
-              {/* Title */}
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-gray-900 leading-tight">
-                {post.title}
-              </h1>
+            {/* Title */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-gray-900 leading-tight">
+              {post.title}
+            </h1>
 
-              {/* Author & Meta Info */}
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50 mb-8">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-                  <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-green-500 flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                      {post.author.charAt(0)}
-                    </div>
-                    <div>
-                      <p className="font-bold text-gray-900 text-lg">{post.author}</p>
-                      <p className="text-blue-600 font-medium">{post.role}</p>
-                      <p className="text-sm text-gray-600 mt-1">Published on {post.date}</p>
-                    </div>
+            {/* Author & Meta Info */}
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50 mb-8">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-green-500 flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                    {post.author.charAt(0)}
                   </div>
+                  <div>
+                    <p className="font-bold text-gray-900 text-lg">{post.author}</p>
+                    <p className="text-blue-600 font-medium">{post.role}</p>
+                    <p className="text-sm text-gray-600 mt-1">Published on {post.date}</p>
+                  </div>
+                </div>
 
-                  <div className="flex items-center gap-6 text-sm text-gray-600">
-                    <div className="flex items-center gap-2 bg-gray-100 px-3 py-2 rounded-lg">
-                      <Clock className="w-4 h-4 text-blue-600" />
-                      <span className="font-medium">{post.readTime}</span>
-                    </div>
-                    <div className="flex items-center gap-2 bg-gray-100 px-3 py-2 rounded-lg">
-                      <Eye className="w-4 h-4 text-green-600" />
-                      <span className="font-medium">{post.views}</span>
-                    </div>
+                <div className="flex items-center gap-6 text-sm text-gray-600">
+                  <div className="flex items-center gap-2 bg-gray-100 px-3 py-2 rounded-lg">
+                    <Clock className="w-4 h-4 text-blue-600" />
+                    <span className="font-medium">{post.readTime}</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-gray-100 px-3 py-2 rounded-lg">
+                    <Eye className="w-4 h-4 text-green-600" />
+                    <span className="font-medium">{post.views}</span>
                   </div>
                 </div>
               </div>
+            </div>
 
-              {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-4">
-                <motion.button
-                  onClick={handleShare}
-                  className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-6 py-3 rounded-xl font-semibold transition-all shadow-lg hover:shadow-xl"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Share2 className="w-4 h-4" />
-                  Share Article
-                </motion.button>
-                <motion.button
-                  className="flex items-center gap-2 bg-white border-2 border-gray-300 hover:border-blue-500 text-gray-700 hover:text-blue-600 px-6 py-3 rounded-xl font-semibold transition-all shadow-lg hover:shadow-xl"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <BookmarkPlus className="w-4 h-4" />
-                  Save for Later
-                </motion.button>
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center gap-4">
+              <motion.button
+                onClick={handleShare}
+                className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-6 py-3 rounded-xl font-semibold transition-all shadow-lg hover:shadow-xl"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Share2 className="w-4 h-4" />
+                Share Article
+              </motion.button>
+              <motion.button
+                className="flex items-center gap-2 bg-white border-2 border-gray-300 hover:border-blue-500 text-gray-700 hover:text-blue-600 px-6 py-3 rounded-xl font-semibold transition-all shadow-lg hover:shadow-xl"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <BookmarkPlus className="w-4 h-4" />
+                Save for Later
+              </motion.button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Featured Image */}
+      <section className="py-12 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="max-w-5xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <div className="relative w-full h-[500px] rounded-3xl overflow-hidden shadow-2xl group">
+              <Image
+                src={post.thumbnail}
+                alt={post.title}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+              <div className="absolute bottom-6 left-6 right-6">
+                <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
+                  <p className="text-gray-700 font-medium text-lg leading-relaxed">
+                    {post.excerpt}
+                  </p>
+                </div>
               </div>
-            </motion.div>
-          </div>
-        </section>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
-        {/* Featured Image */}
-        <section className="py-12 bg-white">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              className="max-w-5xl mx-auto"
+      {/* Article Content */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <motion.article
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <div className="relative w-full h-[500px] rounded-3xl overflow-hidden shadow-2xl group">
-                <Image
-                  src={post.thumbnail}
-                  alt={post.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
-                <div className="absolute bottom-6 left-6 right-6">
-                  <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
-                    <p className="text-gray-700 font-medium text-lg leading-relaxed">
-                      {post.excerpt}
-                    </p>
-                  </div>
+              {/* Table of Contents */}
+              <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6 mb-12">
+                <h3 className="text-lg font-bold text-blue-900 mb-4 flex items-center">
+                  📋 Table of Contents
+                </h3>
+                <div className="text-sm text-blue-700 space-y-2">
+                  <div>• Introduction</div>
+                  <div>• Key Benefits & Implementation</div>
+                  <div>• Challenges & Solutions</div>
+                  <div>• Future Prospects & Success Stories</div>
+                  <div>• Conclusion</div>
                 </div>
               </div>
-            </motion.div>
-          </div>
-        </section>
 
-        {/* Article Content */}
-        <section className="py-20 bg-gray-50">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              <motion.article
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                {/* Table of Contents */}
-                <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6 mb-12">
-                  <h3 className="text-lg font-bold text-blue-900 mb-4 flex items-center">
-                    📋 Table of Contents
-                  </h3>
-                  <div className="text-sm text-blue-700 space-y-2">
-                    <div>• Introduction</div>
-                    <div>• Key Benefits & Implementation</div>
-                    <div>• Challenges & Solutions</div>
-                    <div>• Future Prospects & Success Stories</div>
-                    <div>• Conclusion</div>
-                  </div>
-                </div>
+              {/* Main Content */}
+              <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-gray-100 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-full blur-2xl"></div>
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-green-50 rounded-full blur-2xl"></div>
 
-                {/* Main Content */}
-                <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-gray-100 relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-full blur-2xl"></div>
-                  <div className="absolute bottom-0 left-0 w-24 h-24 bg-green-50 rounded-full blur-2xl"></div>
-
-                  <div className="relative z-10">
-                    <div className="prose prose-lg md:prose-xl max-w-none">
-                      <div
-                        className="
+                <div className="relative z-10">
+                  <div className="prose prose-lg md:prose-xl max-w-none">
+                    <div
+                      className="
                           [&_h2]:text-3xl [&_h2]:font-bold [&_h2]:text-blue-900 [&_h2]:mt-12 [&_h2]:mb-6 [&_h2]:pb-4 [&_h2]:border-b-2 [&_h2]:border-blue-200 [&_h2]:scroll-mt-24
                           [&_h3]:text-2xl [&_h3]:font-semibold [&_h3]:text-blue-700 [&_h3]:mt-10 [&_h3]:mb-4
                           [&_h4]:text-xl [&_h4]:font-semibold [&_h4]:text-gray-800 [&_h4]:mt-8 [&_h4]:mb-3
@@ -1326,168 +1326,166 @@ export default function BlogPost() {
                           [&_a]:text-blue-600 [&_a]:font-semibold [&_a]:no-underline hover:[&_a]:underline
                           first:[&_h2]:mt-0
                         "
-                        dangerouslySetInnerHTML={{
-                          __html: DOMPurify.sanitize(post.content, {
-                            ALLOWED_TAGS: ['h2', 'h3', 'h4', 'p', 'ul', 'li', 'strong', 'em', 'a'],
-                            ALLOWED_ATTR: ['href', 'target', 'rel']
-                          })
-                        }}
-                      />
-                    </div>
+                      dangerouslySetInnerHTML={{
+                        __html: DOMPurify.sanitize(post.content, {
+                          ALLOWED_TAGS: ['h2', 'h3', 'h4', 'p', 'ul', 'li', 'strong', 'em', 'a'],
+                          ALLOWED_ATTR: ['href', 'target', 'rel']
+                        })
+                      }}
+                    />
                   </div>
                 </div>
-
-                {/* Article Footer */}
-                <div className="mt-12 bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-                  <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div className="flex items-center gap-4">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-green-500 flex items-center justify-center text-white font-bold text-xl">
-                        {post.author.charAt(0)}
-                      </div>
-                      <div>
-                        <p className="font-bold text-gray-900 text-lg">{post.author}</p>
-                        <p className="text-blue-600 font-medium">{post.role}</p>
-                        <p className="text-sm text-gray-600">Expert in IoT and Smart City Solutions</p>
-                      </div>
-                    </div>
-                    <div className="flex gap-3">
-                      <motion.button
-                        onClick={handleShare}
-                        className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition-all shadow-lg hover:shadow-xl"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        Share Article
-                      </motion.button>
-                      <motion.button
-                        className="border-2 border-gray-300 hover:border-blue-500 text-gray-700 hover:text-blue-600 px-6 py-3 rounded-xl font-semibold transition-all"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        Follow Author
-                      </motion.button>
-                    </div>
-                  </div>
-                </div>
-              </motion.article>
-            </div>
-          </div>
-        </section>
-
-        {/* Related Articles */}
-        <section className="py-20 bg-white relative overflow-hidden">
-          <FloatingElements variant="purple" density="low" />
-          <div className="absolute inset-0 bg-gradient-to-br from-white to-blue-50/30"></div>
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <motion.div
-              className="text-center mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 font-semibold text-sm rounded-full mb-6">
-                📖 Continue Reading
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-                Related Articles
-              </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Discover more expert insights and in-depth analysis on smart waste management and IoT technology.
-              </p>
-            </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {relatedPosts.map((relatedPost, index) => (
-                <motion.div
-                  key={relatedPost.slug}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
-                  whileHover={{ y: -12, scale: 1.03 }}
+              {/* Article Footer */}
+              <div className="mt-12 bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-green-500 flex items-center justify-center text-white font-bold text-xl">
+                      {post.author.charAt(0)}
+                    </div>
+                    <div>
+                      <p className="font-bold text-gray-900 text-lg">{post.author}</p>
+                      <p className="text-blue-600 font-medium">{post.role}</p>
+                      <p className="text-sm text-gray-600">Expert in IoT and Smart City Solutions</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-3">
+                    <motion.button
+                      onClick={handleShare}
+                      className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition-all shadow-lg hover:shadow-xl"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      Share Article
+                    </motion.button>
+                    <motion.button
+                      className="border-2 border-gray-300 hover:border-blue-500 text-gray-700 hover:text-blue-600 px-6 py-3 rounded-xl font-semibold transition-all"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      Follow Author
+                    </motion.button>
+                  </div>
+                </div>
+              </div>
+            </motion.article>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Articles */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        <FloatingElements variant="purple" density="low" />
+        <div className="absolute inset-0 bg-gradient-to-br from-white to-blue-50/30"></div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 font-semibold text-sm rounded-full mb-6">
+              📖 Continue Reading
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+              Related Articles
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Discover more expert insights and in-depth analysis on smart waste management and IoT technology.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {relatedPosts.map((relatedPost, index) => (
+              <motion.div
+                key={relatedPost.slug}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                whileHover={{ y: -12, scale: 1.03 }}
+              >
+                <Link
+                  href={`/blog/${relatedPost.slug}`}
+                  className="block bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all group border border-gray-100 relative h-full"
                 >
-                  <Link
-                    href={`/blog/${relatedPost.slug}`}
-                    className="block bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all group border border-gray-100 relative h-full"
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 to-green-50/30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    <div className="absolute top-0 right-0 w-16 h-16 bg-blue-200/20 rounded-full blur-xl group-hover:bg-blue-300/30 transition-colors"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 to-green-50/30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="absolute top-0 right-0 w-16 h-16 bg-blue-200/20 rounded-full blur-xl group-hover:bg-blue-300/30 transition-colors"></div>
 
-                    <div className="relative z-10 h-full flex flex-col">
-                      <div className="relative w-full h-56 overflow-hidden">
-                        <Image
-                          src={relatedPost.thumbnail}
-                          alt={relatedPost.title}
-                          fill
-                          className="object-cover group-hover:scale-110 transition-transform duration-500"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
-                        <div className="absolute top-4 left-4 right-4 flex justify-between items-start">
-                          <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
-                            {relatedPost.category}
-                          </span>
-                          <span className="bg-black/30 backdrop-blur-sm text-white px-2 py-1 rounded-full text-xs font-medium">
-                            {relatedPost.readTime}
-                          </span>
-                        </div>
+                  <div className="relative z-10 h-full flex flex-col">
+                    <div className="relative w-full h-56 overflow-hidden">
+                      <Image
+                        src={relatedPost.thumbnail}
+                        alt={relatedPost.title}
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+                      <div className="absolute top-4 left-4 right-4 flex justify-between items-start">
+                        <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
+                          {relatedPost.category}
+                        </span>
+                        <span className="bg-black/30 backdrop-blur-sm text-white px-2 py-1 rounded-full text-xs font-medium">
+                          {relatedPost.readTime}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="p-6 flex-grow flex flex-col">
+                      <div className="flex-grow">
+                        <h3 className="text-lg font-bold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2 leading-tight">
+                          {relatedPost.title}
+                        </h3>
+                        <p className="text-gray-600 mb-4 text-sm line-clamp-3 leading-relaxed">
+                          {relatedPost.excerpt}
+                        </p>
                       </div>
 
-                      <div className="p-6 flex-grow flex flex-col">
-                        <div className="flex-grow">
-                          <h3 className="text-lg font-bold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2 leading-tight">
-                            {relatedPost.title}
-                          </h3>
-                          <p className="text-gray-600 mb-4 text-sm line-clamp-3 leading-relaxed">
-                            {relatedPost.excerpt}
-                          </p>
-                        </div>
-
-                        <div className="border-t border-gray-100 pt-4 mt-4">
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center">
-                              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-green-500 flex items-center justify-center text-white font-bold text-sm shadow-md">
-                                {relatedPost.author.charAt(0)}
-                              </div>
-                              <div className="ml-3">
-                                <p className="text-sm font-semibold text-gray-900">{relatedPost.author}</p>
-                                <p className="text-xs text-gray-500">{relatedPost.role}</p>
-                              </div>
+                      <div className="border-t border-gray-100 pt-4 mt-4">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center">
+                            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-green-500 flex items-center justify-center text-white font-bold text-sm shadow-md">
+                              {relatedPost.author.charAt(0)}
                             </div>
-                            <div className="text-right">
-                              <div className="text-xs text-blue-600 font-medium group-hover:text-blue-700">
-                                Read More →
-                              </div>
+                            <div className="ml-3">
+                              <p className="text-sm font-semibold text-gray-900">{relatedPost.author}</p>
+                              <p className="text-xs text-gray-500">{relatedPost.role}</p>
+                            </div>
+                          </div>
+                          <div className="text-right">
+                            <div className="text-xs text-blue-600 font-medium group-hover:text-blue-700">
+                              Read More →
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Back to Blog CTA */}
-            <motion.div
-              className="text-center mt-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-            >
-              <Link
-                href="/blog"
-                className="inline-flex items-center bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl"
-              >
-                <ArrowLeft className="w-5 h-5 mr-2" />
-                Explore All Articles
-              </Link>
-            </motion.div>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
           </div>
-        </section>
-      </main>
-      <Footer />
-    </div >
+
+          {/* Back to Blog CTA */}
+          <motion.div
+            className="text-center mt-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+          >
+            <Link
+              href="/blog"
+              className="inline-flex items-center bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl"
+            >
+              <ArrowLeft className="w-5 h-5 mr-2" />
+              Explore All Articles
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+    </div>
   )
 }
