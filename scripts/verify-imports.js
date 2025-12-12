@@ -13,23 +13,39 @@ const requiredFiles = [
 ];
 
 console.log('🔍 Verifying component files...');
+console.log(`📁 Checking directory: ${componentsDir}`);
 
 let allFilesExist = true;
 
 requiredFiles.forEach(file => {
   const filePath = path.join(componentsDir, file);
-  if (fs.existsSync(filePath)) {
-    console.log(`✅ ${file} exists`);
-  } else {
-    console.log(`❌ ${file} missing`);
+  try {
+    if (fs.existsSync(filePath)) {
+      const stats = fs.statSync(filePath);
+      console.log(`✅ ${file} exists (${stats.size} bytes)`);
+    } else {
+      console.log(`❌ ${file} missing`);
+      allFilesExist = false;
+    }
+  } catch (error) {
+    console.log(`❌ ${file} error: ${error.message}`);
     allFilesExist = false;
   }
 });
 
+// List actual files in components directory for debugging
+console.log('\n📋 Files in components directory:');
+try {
+  const files = fs.readdirSync(componentsDir, { recursive: true });
+  files.forEach(file => console.log(`  - ${file}`));
+} catch (error) {
+  console.log(`  Error reading directory: ${error.message}`);
+}
+
 if (allFilesExist) {
-  console.log('🎉 All component files exist!');
+  console.log('\n🎉 All component files exist!');
   process.exit(0);
 } else {
-  console.log('💥 Some component files are missing!');
+  console.log('\n💥 Some component files are missing!');
   process.exit(1);
 }
