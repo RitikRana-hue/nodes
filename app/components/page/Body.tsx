@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { FaLeaf, FaRoute, FaChartBar, FaMobileAlt } from "react-icons/fa";
+import FloatingElements from "@/components/ui/FloatingElements";
 import Image from "next/image";
 
 const Body = () => {
@@ -82,14 +83,12 @@ const Body = () => {
   ];
 
   return (
-    <div className="pt-24">
+    <div>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-green-50 via-blue-50/30 to-green-50 py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-green-200/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-blue-200/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-0 w-64 h-64 bg-green-300/10 rounded-full blur-2xl animate-pulse delay-500"></div>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <section className="hero-section bg-gradient-to-br from-green-50 via-blue-50/30 to-green-50 relative overflow-hidden">
+        <FloatingElements variant="mixed" density="high" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-green-50/80 z-10"></div>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
           <div className="flex flex-col md:flex-row items-center justify-between gap-12">
             <motion.div
               className="md:w-1/2"
@@ -107,20 +106,22 @@ const Body = () => {
                 Innovative IoT devices that drive efficiency, sustainability, and growth across industries.
               </p>
               <div className="flex flex-wrap gap-4 mb-8">
-                <motion.button
-                  className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-medium transition-all hover:shadow-xl"
+                <motion.a
+                  href="/contact"
+                  className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-medium transition-all hover:shadow-xl inline-block"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   Get Started
-                </motion.button>
-                <motion.button
-                  className="border-2 border-green-600 text-green-600 hover:bg-green-50 px-8 py-3 rounded-lg font-medium transition-all hover:shadow-lg"
+                </motion.a>
+                <motion.a
+                  href="/contact"
+                  className="border-2 border-green-600 text-green-600 hover:bg-green-50 px-8 py-3 rounded-lg font-medium transition-all hover:shadow-lg inline-block"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   Learn More
-                </motion.button>
+                </motion.a>
               </div>
             </motion.div>
             <motion.div
@@ -145,9 +146,8 @@ const Body = () => {
 
       {/* Stats Section */}
       <section className="py-16 bg-white relative overflow-hidden">
+        <FloatingElements variant="green" density="low" />
         <div className="absolute inset-0 bg-gradient-to-r from-green-50/30 to-blue-50/30"></div>
-        <div className="absolute top-0 left-1/3 w-72 h-72 bg-green-100/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/3 w-64 h-64 bg-blue-100/20 rounded-full blur-3xl"></div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <motion.div
             className="grid grid-cols-1 md:grid-cols-3 gap-8"
@@ -176,9 +176,8 @@ const Body = () => {
 
       {/* Features Section */}
       <section className="py-20 bg-gray-50 relative overflow-hidden">
+        <FloatingElements variant="blue" density="medium" />
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-green-50/30"></div>
-        <div className="absolute top-0 right-0 w-80 h-80 bg-green-200/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-200/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Smart Features for Smart Tomorrow</h2>
@@ -218,9 +217,8 @@ const Body = () => {
 
       {/* How It Works Section */}
       <section className="py-20 bg-white relative overflow-hidden">
+        <FloatingElements variant="mixed" density="low" />
         <div className="absolute inset-0 bg-gradient-to-r from-white to-green-50/20"></div>
-        <div className="absolute top-1/4 left-0 w-64 h-64 bg-blue-100/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-green-100/20 rounded-full blur-3xl"></div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How It Works</h2>
@@ -280,9 +278,8 @@ const Body = () => {
 
       {/* Testimonials Section */}
       <section className="py-20 bg-gray-50 relative overflow-hidden">
+        <FloatingElements variant="purple" density="medium" />
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-blue-50/30"></div>
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-200/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-green-200/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
@@ -339,8 +336,9 @@ const Body = () => {
             >
               Join hundreds of organizations already benefiting from our smart waste management solution.
             </motion.p>
-            <motion.button
-              className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-3 rounded-lg font-medium transition-all hover:shadow-2xl"
+            <motion.a
+              href="/contact"
+              className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-3 rounded-lg font-medium transition-all hover:shadow-2xl inline-block"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -349,7 +347,7 @@ const Body = () => {
               whileTap={{ scale: 0.95 }}
             >
               Schedule a Demo
-            </motion.button>
+            </motion.a>
           </div>
         </div>
       </section>

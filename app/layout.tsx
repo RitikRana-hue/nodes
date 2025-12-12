@@ -2,6 +2,7 @@ import "./globals.css";
 import { ThemeProvider } from "./context/ThemeContext";
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Toaster } from 'react-hot-toast';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -51,9 +52,35 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
+      <body className="antialiased">
         <ThemeProvider>
           {children}
+          <Toaster
+            position="bottom-right"
+            toastOptions={{
+              duration: 4000,
+              style: {
+                background: '#fff',
+                color: '#374151',
+                boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                border: '1px solid #e5e7eb',
+                borderRadius: '0.75rem',
+                padding: '16px',
+              },
+              success: {
+                iconTheme: {
+                  primary: '#10b981',
+                  secondary: '#fff',
+                },
+              },
+              error: {
+                iconTheme: {
+                  primary: '#ef4444',
+                  secondary: '#fff',
+                },
+              },
+            }}
+          />
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />

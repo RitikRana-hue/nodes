@@ -2,13 +2,16 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import SoraChatbot from "@/components/SoraChatbot";
+import PageLayout from "@/components/layout/PageLayout";
+import Container from "@/components/ui/Container";
+import Section from "@/components/ui/Section";
+import Button from "@/components/ui/Button";
+import Card, { CardBody } from "@/components/ui/Card";
+import FloatingElements from "@/components/ui/FloatingElements";
 import JobApplication from "@/components/forms/JobApplication";
-import { Briefcase, MapPin, Clock, Users, Zap, Heart, DollarSign, ArrowRight, Send, Star, Award, Target } from 'lucide-react';
-import Image from 'next/image';
+import { Briefcase, Clock, Users, Zap, Heart, DollarSign, ArrowRight, Send, Star, Award, Target } from 'lucide-react';
 import Link from 'next/link';
+import { fadeInUp, staggerContainer, CAREER_POSITIONS } from "@/lib/constants";
 
 export default function Careers() {
   const [isApplicationOpen, setIsApplicationOpen] = useState(false);
@@ -26,75 +29,6 @@ export default function Careers() {
     setIsGeneralApplication(true);
     setIsApplicationOpen(true);
   };
-
-  const jobOpenings = [
-    {
-      title: "Senior IoT Engineer",
-      department: "Engineering",
-      location: "Remote / San Francisco",
-      type: "Full-time",
-      salary: "$120k - $160k",
-      experience: "5+ years",
-      description: "Lead the development of cutting-edge IoT sensor networks and smart waste management systems. Work with embedded systems, cloud platforms, and real-time data processing.",
-      requirements: ["IoT protocols (MQTT, LoRaWAN)", "Embedded systems (C/C++)", "Cloud platforms (AWS/Azure)", "Python programming", "Hardware integration"],
-      responsibilities: ["Design IoT sensor architectures", "Develop firmware for smart devices", "Integrate with cloud platforms", "Optimize power consumption", "Lead technical reviews"]
-    },
-    {
-      title: "Data Scientist",
-      department: "Analytics",
-      location: "San Francisco, CA",
-      type: "Full-time",
-      salary: "$130k - $170k",
-      experience: "3+ years",
-      description: "Build predictive models and analytics solutions to optimize waste collection routes and operations. Transform data into actionable insights for smart city solutions.",
-      requirements: ["Machine Learning (TensorFlow/PyTorch)", "Python/R programming", "SQL and NoSQL databases", "Statistical modeling", "Data visualization"],
-      responsibilities: ["Develop predictive models", "Analyze sensor data patterns", "Create optimization algorithms", "Build dashboards", "Collaborate with engineering teams"]
-    },
-    {
-      title: "Full-Stack Developer",
-      department: "Engineering",
-      location: "Remote",
-      type: "Full-time",
-      salary: "$100k - $140k",
-      experience: "3+ years",
-      description: "Develop and maintain our web applications, dashboards, and customer-facing platforms. Build scalable solutions for smart city management.",
-      requirements: ["React/Next.js", "Node.js/Express", "TypeScript", "Database design (PostgreSQL/MongoDB)", "RESTful APIs"],
-      responsibilities: ["Build responsive web applications", "Develop REST APIs", "Implement real-time features", "Optimize performance", "Write comprehensive tests"]
-    },
-    {
-      title: "Product Manager",
-      department: "Product",
-      location: "Boston, MA / Remote",
-      type: "Full-time",
-      salary: "$110k - $150k",
-      experience: "4+ years",
-      description: "Drive product strategy and roadmap for our smart city solutions and IoT platform. Work closely with engineering, design, and sales teams.",
-      requirements: ["Product strategy", "Agile/Scrum methodologies", "IoT/SaaS experience", "Stakeholder management", "Market analysis"],
-      responsibilities: ["Define product roadmap", "Gather customer requirements", "Coordinate cross-functional teams", "Analyze market trends", "Drive product launches"]
-    },
-    {
-      title: "DevOps Engineer",
-      department: "Engineering",
-      location: "Remote",
-      type: "Full-time",
-      salary: "$115k - $155k",
-      experience: "4+ years",
-      description: "Build and maintain our cloud infrastructure, CI/CD pipelines, and monitoring systems. Ensure scalability and reliability of our IoT platform.",
-      requirements: ["AWS/Azure cloud platforms", "Kubernetes/Docker", "Infrastructure as Code (Terraform)", "CI/CD pipelines", "Monitoring tools"],
-      responsibilities: ["Manage cloud infrastructure", "Implement CI/CD pipelines", "Monitor system performance", "Ensure security compliance", "Automate deployment processes"]
-    },
-    {
-      title: "Sales Engineer",
-      department: "Sales",
-      location: "New York, NY",
-      type: "Full-time",
-      salary: "$90k - $130k + Commission",
-      experience: "2+ years",
-      description: "Support sales team with technical expertise and customer demonstrations of our IoT solutions. Bridge the gap between technical capabilities and customer needs.",
-      requirements: ["Technical sales experience", "IoT/SaaS knowledge", "Customer presentation skills", "Solution design", "CRM systems"],
-      responsibilities: ["Conduct technical demos", "Support sales proposals", "Provide technical consultation", "Train customers", "Gather product feedback"]
-    }
-  ];
 
   const benefits = [
     {
@@ -142,10 +76,10 @@ export default function Careers() {
   ];
 
   const companyStats = [
-    { number: "0+", label: "Team Members", description: "Talented professionals" },
-    { number: "0+", label: "Cities Served", description: "Across 15 countries" },
+    { number: "15+", label: "Team Members", description: "Talented professionals" },
+    { number: "50+", label: "Cities Served", description: "Across 15 countries" },
     { number: "95%", label: "Employee Satisfaction", description: "Based on internal surveys" },
-    { number: "5L+", label: "Funding Raised", description: "Series B completed" }
+    { number: "5M+", label: "Funding Raised", description: "Series A completed" }
   ];
 
   const testimonials = [
@@ -170,203 +104,343 @@ export default function Careers() {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <Header />
-      <main className="flex-grow">
-        {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-blue-50 via-green-50/30 to-blue-50 py-20 overflow-hidden">
-          <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
-          <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-green-200/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-16">
-            <motion.div
-              className="max-w-5xl mx-auto text-center"
-              initial={{ opacity: 0, y: 60 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <span className="inline-block px-4 py-2 bg-blue-100 text-blue-600 font-semibold text-sm rounded-full mb-6">
-                Join Our Mission
-              </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900">
-                Build the Future of
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500"> Smart Cities</span>
-              </h1>
-              <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-12">
-                Join our team of innovators driving change through smart IoT technology. At NodesIO, we’re passionate about creating solutions that make industries and communities smarter, more efficient, and sustainable.
-              </p>
+    <PageLayout fullViewport>
+      {/* Hero Section */}
+      <section className="hero-section bg-gradient-to-br from-blue-50 via-green-50/30 to-blue-50 relative overflow-hidden">
+        <FloatingElements variant="mixed" density="high" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-50/80 z-10"></div>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <motion.button
-                  onClick={() => document.getElementById('openings')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="bg-gradient-to-r from-blue-600 to-green-500 hover:from-blue-700 hover:to-green-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center space-x-2"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Briefcase className="w-5 h-5" />
-                  <span>View Open Positions</span>
-                </motion.button>
-                <motion.button
-                  onClick={handleGeneralApplication}
-                  className="border-2 border-gray-300 hover:border-blue-500 text-gray-700 hover:text-blue-600 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 flex items-center space-x-2"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Send className="w-5 h-5" />
-                  <span>Send Resume</span>
-                </motion.button>
-              </div>
+        <Container className="relative z-20 w-full">
+          <motion.div
+            className="max-w-5xl mx-auto text-center"
+            initial="hidden"
+            animate="visible"
+            variants={fadeInUp}
+          >
+            <span className="inline-block px-4 py-2 bg-blue-100 text-blue-600 font-semibold text-sm rounded-full mb-6">
+              Join Our Mission
+            </span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900">
+              Build the Future of
+              <span className="gradient-text"> Smart Cities</span>
+            </h1>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-12">
+              Join our team of innovators driving change through smart IoT technology. At NodesIO, we&apos;re passionate about creating solutions that make industries and communities smarter, more efficient, and sustainable.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button
+                onClick={() => document.getElementById('openings')?.scrollIntoView({ behavior: 'smooth' })}
+                variant="primary"
+                size="lg"
+                leftIcon={<Briefcase className="w-5 h-5" />}
+                className="shadow-lg hover:shadow-xl"
+              >
+                View Open Positions
+              </Button>
+              <Button
+                onClick={handleGeneralApplication}
+                variant="outline"
+                size="lg"
+                leftIcon={<Send className="w-5 h-5" />}
+              >
+                Send Resume
+              </Button>
+            </div>
+          </motion.div>
+        </Container>
+      </section>
+
+      {/* Company Stats Section */}
+      <Section className="bg-white relative overflow-hidden section-padding-sm">
+        <Container className="relative z-10">
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            {companyStats.map((stat, index) => (
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                className="text-center"
+              >
+                <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">{stat.number}</div>
+                <div className="text-lg font-semibold text-gray-900 mb-1">{stat.label}</div>
+                <div className="text-sm text-gray-600">{stat.description}</div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </Container>
+      </Section>
+
+      {/* Why Join Us Section */}
+      <Section className="bg-gray-50 relative overflow-hidden">
+        <FloatingElements variant="blue" density="low" />
+        <Container>
+          <motion.div
+            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+          >
+            <span className="text-blue-600 font-semibold text-lg mb-4 block">Why Choose Us</span>
+            <h2 className="text-4xl font-bold mb-6 text-gray-900">Why Work With Us</h2>
+          </motion.div>
+
+          <motion.div
+            className="grid md:grid-cols-3 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            <motion.div variants={fadeInUp}>
+              <Card className="card-hover h-full">
+                <CardBody className="p-6">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                    <Zap className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">Meaningful Impact</h3>
+                  <p className="text-gray-600">Work on projects that make real environmental impact and shape the future of smart cities.</p>
+                </CardBody>
+              </Card>
             </motion.div>
-          </div>
-        </section>
 
-        {/* Company Stats Section */}
-        <section className="py-16 bg-white relative overflow-hidden">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-              {companyStats.map((stat, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="text-center"
-                >
-                  <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">{stat.number}</div>
-                  <div className="text-lg font-semibold text-gray-900 mb-1">{stat.label}</div>
-                  <div className="text-sm text-gray-600">{stat.description}</div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+            <motion.div variants={fadeInUp}>
+              <Card className="card-hover h-full">
+                <CardBody className="p-6">
+                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                    <Users className="w-6 h-6 text-green-600" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">Great Culture</h3>
+                  <p className="text-gray-600">Join a collaborative and innovative culture with opportunities for growth and learning.</p>
+                </CardBody>
+              </Card>
+            </motion.div>
 
-        {/* Why Join Us Section */}
-        <section className="w-full py-20 px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <span className="text-blue-600 font-semibold text-lg mb-4 block">Why Choose Us</span>
-              <h2 className="text-4xl font-bold mb-6 text-gray-900">Why Work With Us</h2>
-            </div>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="p-6 rounded-xl bg-white shadow-sm hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Meaningful Impact</h3>
-                <p className="text-gray-600">Work on projects that make real environmental impact and shape the future of smart cities.</p>
-              </div>
-              <div className="p-6 rounded-xl bg-white shadow-sm hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Great Culture</h3>
-                <p className="text-gray-600">Join a collaborative and innovative culture with opportunities for growth and learning.</p>
-              </div>
-              <div className="p-6 rounded-xl bg-white shadow-sm hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Great Benefits</h3>
-                <p className="text-gray-600">Competitive compensation, flexible work arrangements, and comprehensive benefits package.</p>
-              </div>
-            </div>
-          </div>
-        </section>
+            <motion.div variants={fadeInUp}>
+              <Card className="card-hover h-full">
+                <CardBody className="p-6">
+                  <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                    <DollarSign className="w-6 h-6 text-purple-600" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">Great Benefits</h3>
+                  <p className="text-gray-600">Competitive compensation, flexible work arrangements, and comprehensive benefits package.</p>
+                </CardBody>
+              </Card>
+            </motion.div>
+          </motion.div>
+        </Container>
+      </Section>
 
-        {/* Current Openings Section */}
-        <section className="w-full py-20 px-4 bg-white">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <span className="text-blue-600 font-semibold text-lg mb-4 block">Open Positions</span>
-              <h2 className="text-4xl font-bold mb-6 text-gray-900">Current Openings</h2>
-            </div>
-            <div className="grid gap-6 max-w-4xl mx-auto">
-              {jobOpenings.map((job, index) => (
-                <div key={index} className="group p-6 rounded-xl border border-gray-200 hover:border-blue-500 transition-all duration-300 bg-white">
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div>
-                      <h3 className="text-xl font-semibold mb-2 group-hover:text-blue-600 transition-colors">{job.title}</h3>
-                      <div className="flex flex-wrap gap-3">
-                        <span className="bg-blue-50 text-blue-600 px-3 py-1 rounded-full text-sm font-medium">{job.department}</span>
-                        <span className="bg-green-50 text-green-600 px-3 py-1 rounded-full text-sm font-medium">{job.location}</span>
-                        <span className="bg-purple-50 text-purple-600 px-3 py-1 rounded-full text-sm font-medium">{job.type}</span>
+      {/* Benefits Section */}
+      <Section className="bg-white relative overflow-hidden">
+        <FloatingElements variant="green" density="medium" />
+        <Container>
+          <motion.div
+            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+          >
+            <h2 className="text-4xl font-bold mb-6 text-gray-900">Benefits & Perks</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              We believe in taking care of our team with comprehensive benefits and a supportive work environment.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            {benefits.map((benefit, index) => (
+              <motion.div key={index} variants={fadeInUp}>
+                <Card className="card-hover group h-full">
+                  <CardBody className="p-6">
+                    <div className={`w-12 h-12 bg-gradient-to-r ${benefit.color} rounded-lg flex items-center justify-center mb-4 text-white group-hover:scale-110 transition-transform`}>
+                      {benefit.icon}
+                    </div>
+                    <h3 className="text-xl font-semibold mb-3 group-hover:text-blue-600 transition-colors">{benefit.title}</h3>
+                    <p className="text-gray-600 mb-4">{benefit.description}</p>
+                    <ul className="space-y-1">
+                      {benefit.details.map((detail, idx) => (
+                        <li key={idx} className="text-sm text-gray-500 flex items-center">
+                          <div className="w-1 h-1 bg-gray-400 rounded-full mr-2"></div>
+                          {detail}
+                        </li>
+                      ))}
+                    </ul>
+                  </CardBody>
+                </Card>
+              </motion.div>
+            ))}
+          </motion.div>
+        </Container>
+      </Section>
+
+      {/* Current Openings Section */}
+      <Section id="openings" className="bg-gray-50 relative overflow-hidden">
+        <FloatingElements variant="purple" density="low" />
+        <Container>
+          <motion.div
+            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+          >
+            <span className="text-blue-600 font-semibold text-lg mb-4 block">Open Positions</span>
+            <h2 className="text-4xl font-bold mb-6 text-gray-900">Current Openings</h2>
+          </motion.div>
+
+          <motion.div
+            className="grid gap-6 max-w-4xl mx-auto"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            {CAREER_POSITIONS.map((job, index) => (
+              <motion.div key={index} variants={fadeInUp}>
+                <Card className="card-hover group">
+                  <CardBody className="p-6">
+                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                      <div>
+                        <h3 className="text-xl font-semibold mb-2 group-hover:text-blue-600 transition-colors">{job.title}</h3>
+                        <div className="flex flex-wrap gap-3 mb-3">
+                          <span className="bg-blue-50 text-blue-600 px-3 py-1 rounded-full text-sm font-medium">{job.department}</span>
+                          <span className="bg-green-50 text-green-600 px-3 py-1 rounded-full text-sm font-medium">{job.location}</span>
+                          <span className="bg-purple-50 text-purple-600 px-3 py-1 rounded-full text-sm font-medium">{job.type}</span>
+                          <span className="bg-orange-50 text-orange-600 px-3 py-1 rounded-full text-sm font-medium">{job.experience}</span>
+                        </div>
+                        <p className="text-gray-600 text-sm">{job.description}</p>
+                      </div>
+                      <Button
+                        onClick={() => handleApply(job.title)}
+                        variant="outline"
+                        className="group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 shrink-0"
+                        rightIcon={<ArrowRight className="w-4 h-4" />}
+                      >
+                        Apply Now
+                      </Button>
+                    </div>
+                  </CardBody>
+                </Card>
+              </motion.div>
+            ))}
+          </motion.div>
+        </Container>
+      </Section>
+
+      {/* Testimonials Section */}
+      <Section className="bg-white relative overflow-hidden">
+        <FloatingElements variant="mixed" density="low" />
+        <Container>
+          <motion.div
+            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+          >
+            <h2 className="text-4xl font-bold mb-6 text-gray-900">What Our Team Says</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Hear from our team members about their experience working at NodesIO.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="grid md:grid-cols-3 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            {testimonials.map((testimonial, index) => (
+              <motion.div key={index} variants={fadeInUp}>
+                <Card className="card-hover h-full">
+                  <CardBody className="p-6">
+                    <div className="flex items-center mb-4">
+                      <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-green-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                        {testimonial.avatar}
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
+                        <p className="text-sm text-gray-600">{testimonial.role}</p>
                       </div>
                     </div>
-                    <button
-                      onClick={() => handleApply(job.title)}
-                      className="inline-flex items-center justify-center px-6 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition-colors group-hover:bg-blue-600 group-hover:text-white"
-                    >
-                      Apply Now
-                      <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              ))}
+                    <p className="text-gray-600 italic">&ldquo;{testimonial.quote}&rdquo;</p>
+                    <div className="flex mt-4">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                      ))}
+                    </div>
+                  </CardBody>
+                </Card>
+              </motion.div>
+            ))}
+          </motion.div>
+        </Container>
+      </Section>
+
+      {/* Join Us CTA Section */}
+      <Section className="gradient-primary relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-10"></div>
+        <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+
+        <Container className="relative z-10">
+          <motion.div
+            className="max-w-4xl mx-auto text-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Don&apos;t See the Right Role?</h2>
+            <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
+              We&apos;re always looking for talented individuals to join our team. Send us your resume and we&apos;ll keep you in mind for future opportunities.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button
+                onClick={handleGeneralApplication}
+                variant="secondary"
+                size="lg"
+                leftIcon={<Send className="w-5 h-5" />}
+                className="bg-white hover:bg-gray-100 text-blue-600 shadow-lg hover:shadow-xl"
+              >
+                Send Your Resume
+              </Button>
+              <Button
+                as={Link}
+                href="/contact"
+                variant="outline"
+                size="lg"
+                className="border-2 border-white hover:bg-white hover:text-blue-600 text-white"
+                rightIcon={<ArrowRight className="w-5 h-5" />}
+              >
+                Contact Us
+              </Button>
             </div>
-          </div>
-        </section>
+          </motion.div>
+        </Container>
+      </Section>
 
-        {/* Join Us CTA Section */}
-        <section className="py-20 bg-gradient-to-br from-blue-600 to-green-500 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-10"></div>
-          <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <motion.div
-              className="max-w-4xl mx-auto text-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Don&apos;t See the Right Role?</h2>
-              <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
-                We&apos;re always looking for talented individuals to join our team. Send us your resume and we&apos;ll keep you in mind for future opportunities.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <motion.button
-                  onClick={handleGeneralApplication}
-                  className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center space-x-2"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Send className="w-5 h-5" />
-                  <span>Send Your Resume</span>
-                </motion.button>
-                <Link
-                  href="/contact"
-                  className="border-2 border-white hover:bg-white hover:text-blue-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 flex items-center space-x-2"
-                >
-                  <ArrowRight className="w-5 h-5" />
-                  <span>Contact Us</span>
-                </Link>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Job Application Modal */}
-        <JobApplication
-          isOpen={isApplicationOpen}
-          onClose={() => setIsApplicationOpen(false)}
-          jobTitle={selectedJob}
-          isGeneralApplication={isGeneralApplication}
-        />
-      </main>
-      <Footer />
-
-      {/* Sora AI Chatbot */}
-      <SoraChatbot environment="landing" />
-    </div>
+      {/* Job Application Modal */}
+      <JobApplication
+        isOpen={isApplicationOpen}
+        onClose={() => setIsApplicationOpen(false)}
+        jobTitle={selectedJob}
+        isGeneralApplication={isGeneralApplication}
+      />
+    </PageLayout>
   );
 }

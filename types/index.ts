@@ -89,6 +89,7 @@ export interface ApiError {
 
 // Animation Types
 export interface AnimationVariant {
+  [key: string]: any;
   hidden: {
     opacity: number;
     y?: number;

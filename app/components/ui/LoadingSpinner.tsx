@@ -1,34 +1,61 @@
-/**
- * Loading Spinner Component
- * Reusable loading indicator
- */
+"use client";
 
-interface LoadingSpinnerProps {
-  size?: 'sm' | 'md' | 'lg' | 'xl';
-  className?: string;
+import { forwardRef } from 'react';
+import { clsx } from 'clsx';
+
+interface LoadingSpinnerProps extends React.HTMLAttributes<HTMLDivElement> {
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  variant?: 'primary' | 'secondary' | 'neutral';
+  centered?: boolean;
   text?: string;
 }
 
-export default function LoadingSpinner({ 
-  size = 'md', 
-  className = '',
-  text 
-}: LoadingSpinnerProps) {
-  const sizeClasses = {
-    sm: 'w-4 h-4',
-    md: 'w-8 h-8',
-    lg: 'w-12 h-12',
-    xl: 'w-16 h-16',
-  };
+const LoadingSpinner = forwardRef<HTMLDivElement, LoadingSpinnerProps>(
+  ({
+    size = 'md',
+    variant = 'primary',
+    centered = true,
+    text,
+    className,
+    ...props
+  }, ref) => {
+    const sizeClasses = {
+      xs: 'w-3 h-3 border',
+      sm: 'w-4 h-4 border-2',
+      md: 'w-8 h-8 border-2',
+      lg: 'w-12 h-12 border-4',
+      xl: 'w-16 h-16 border-4'
+    };
 
-  return (
-    <div className={`flex flex-col items-center justify-center ${className}`}>
-      <div
-        className={`${sizeClasses[size]} border-4 border-gray-200 border-t-blue-600 rounded-full animate-spin`}
-      ></div>
-      {text && (
-        <p className="mt-3 text-sm text-gray-600 dark:text-gray-400">{text}</p>
-      )}
-    </div>
-  );
-}
+    const variantClasses = {
+      primary: 'border-gray-300 border-t-blue-600',
+      secondary: 'border-gray-300 border-t-green-600',
+      neutral: 'border-gray-300 border-t-gray-600'
+    };
+
+    const spinnerClasses = clsx(
+      'animate-spin rounded-full',
+      sizeClasses[size],
+      variantClasses[variant]
+    );
+
+    const containerClasses = clsx(
+      'flex flex-col items-center',
+      centered && 'justify-center',
+      className
+    );
+
+    return (
+      <div ref={ref} className={containerClasses} {...props}>
+        <div className={spinnerClasses} />
+        {text && (
+          <p className="mt-3 text-sm text-gray-600">{text}</p>
+        )}
+      </div>
+    );
+  }
+);
+
+LoadingSpinner.displayName = 'LoadingSpinner';
+
+export default LoadingSpinner;
