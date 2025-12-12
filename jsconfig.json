@@ -3,16 +3,19 @@
     "baseUrl": ".",
     "paths": {
       "@/components/*": [
-        "app/components/*"
+        "./app/components/*"
+      ],
+      "@/components/layout/*": [
+        "./app/components/layout/*"
       ],
       "@/lib/*": [
-        "lib/*"
+        "./lib/*"
       ],
       "@/types/*": [
-        "types/*"
+        "./types/*"
       ],
       "@/hooks/*": [
-        "hooks/*"
+        "./hooks/*"
       ],
       "@/*": [
         "./*"

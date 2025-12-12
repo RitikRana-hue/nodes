@@ -24,10 +24,11 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["app/components/*"],
-      "@/lib/*": ["lib/*"],
-      "@/types/*": ["types/*"],
-      "@/hooks/*": ["hooks/*"],
+      "@/components/*": ["./app/components/*"],
+      "@/components/layout/*": ["./app/components/layout/*"],
+      "@/lib/*": ["./lib/*"],
+      "@/types/*": ["./types/*"],
+      "@/hooks/*": ["./hooks/*"],
       "@/*": ["./*"]
     }
   },
