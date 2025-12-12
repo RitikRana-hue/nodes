@@ -46,7 +46,7 @@ const Footer = () => {
                   </div>
                   <div className="flex items-center">
                     <FaEnvelope className="text-green-400 mr-3 text-sm" />
-                    <span className="text-gray-300">career.ektros@gmail.com</span>
+                    <span className="text-gray-300">support@nodesio.in</span>
                   </div>
                   <div className="flex items-center">
                     <FaMapMarkerAlt className="text-purple-400 mr-3 text-sm" />
