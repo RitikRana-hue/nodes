@@ -87,8 +87,8 @@ export default function Contact() {
                         <div>
                           <h3 className="text-base font-medium text-gray-900 mb-1">Email Support</h3>
                           <p className="text-gray-600 text-sm mb-2">Send detailed inquiries and documentation</p>
-                          <a href="mailto:career.ektros@gmail.com" className="text-gray-700 hover:text-gray-900 font-medium text-sm">
-                            career.ektros@gmail.com
+                          <a href="mailto:support@nodesio.in" className="text-gray-700 hover:text-gray-900 font-medium text-sm">
+                            support@nodesio.in
                           </a>
                         </div>
                       </div>
