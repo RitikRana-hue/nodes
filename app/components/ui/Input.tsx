@@ -1,6 +1,6 @@
 "use client";
 
-import { forwardRef, useId } from 'react';
+import { forwardRef, useId, useState, useEffect } from 'react';
 import { clsx } from 'clsx';
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -25,7 +25,14 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         ...props
     }, ref) => {
         const generatedId = useId();
-        const inputId = id || generatedId;
+        const [isClient, setIsClient] = useState(false);
+
+        useEffect(() => {
+            setIsClient(true);
+        }, []);
+
+        // Only use generated ID on client side, or if explicit ID is provided
+        const inputId = id || (isClient ? generatedId : undefined);
 
         const inputClasses = clsx(
             'form-input',

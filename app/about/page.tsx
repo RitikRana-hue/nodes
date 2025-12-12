@@ -460,7 +460,7 @@ export default function About() {
 
       {/* Journey Section */}
       <Section className="gradient-primary relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-center opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-center opacity-25"></div>
         <div className="absolute top-10 left-10 w-40 h-40 bg-white/5 rounded-full blur-2xl animate-pulse"></div>
         <div className="absolute bottom-10 right-10 w-32 h-32 bg-white/5 rounded-full blur-2xl animate-pulse delay-1000"></div>
 
@@ -538,7 +538,7 @@ export default function About() {
           >
             <Card className="gradient-primary rounded-3xl text-center relative overflow-hidden group">
               <CardBody className="p-12">
-                <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-center opacity-10"></div>
+                <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-center opacity-25"></div>
                 <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl group-hover:bg-white/20 transition-colors"></div>
                 <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full blur-2xl group-hover:bg-white/20 transition-colors"></div>
                 <div className="relative z-10">

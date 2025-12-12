@@ -280,7 +280,7 @@ export default function Services() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {benefits.map((benefit, index) => (
               <motion.div
                 key={index}
@@ -289,11 +289,12 @@ export default function Services() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.02 }}
+                className="h-full"
               >
-                <Card className="card-hover group">
-                  <CardBody className="flex items-center p-4">
-                    <div className="mr-4 group-hover:scale-110 transition-transform">{benefit.icon}</div>
-                    <p className="text-gray-800 font-medium">{benefit.text}</p>
+                <Card className="card-hover group h-full">
+                  <CardBody className="flex items-center p-6 h-full">
+                    <div className="mr-4 group-hover:scale-110 transition-transform flex-shrink-0">{benefit.icon}</div>
+                    <p className="text-gray-800 font-medium leading-relaxed">{benefit.text}</p>
                   </CardBody>
                 </Card>
               </motion.div>
@@ -352,7 +353,7 @@ export default function Services() {
 
       {/* CTA Section */}
       <Section className="gradient-primary text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-center opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-center opacity-25"></div>
         <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-white/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
 

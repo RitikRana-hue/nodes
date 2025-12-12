@@ -1,7 +1,6 @@
 "use client";
 
-import Header from '@/components/layout/Header'
-import Footer from '@/components/layout/Footer'
+
 import FloatingElements from '@/components/ui/FloatingElements'
 import { motion } from 'framer-motion'
 import { ArrowLeft, Clock, Eye, Share2, BookmarkPlus } from 'lucide-react'
@@ -1140,46 +1139,36 @@ export default function BlogPost() {
 
   if (loading) {
     return (
-      <div className="flex flex-col min-h-screen">
-        <Header />
-        <main className="flex-grow flex items-center justify-center">
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600 mx-auto mb-4"></div>
-            <p className="text-gray-600">Loading article...</p>
-          </div>
-        </main>
-        <Footer />
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading article...</p>
+        </div>
       </div>
     )
   }
 
   if (!post) {
     return (
-      <div className="flex flex-col min-h-screen">
-        <Header />
-        <main className="flex-grow flex items-center justify-center">
-          <div className="text-center">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Article Not Found</h1>
-            <p className="text-gray-600 mb-8">The article you&apos;re looking for doesn&apos;t exist.</p>
-            <Link
-              href="/blog"
-              className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Blog
-            </Link>
-          </div>
-        </main>
-        <Footer />
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Article Not Found</h1>
+          <p className="text-gray-600 mb-8">The article you&apos;re looking for doesn&apos;t exist.</p>
+          <Link
+            href="/blog"
+            className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back to Blog
+          </Link>
+        </div>
       </div>
     )
   }
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div>
       <Toaster />
-      <Header />
-      <main className="flex-grow">
         {/* Hero Section */}
         <section className="hero-section bg-gradient-to-br from-blue-50 via-green-50/30 to-blue-50 relative overflow-hidden">
           <FloatingElements variant="mixed" density="medium" />
@@ -1499,6 +1488,6 @@ export default function BlogPost() {
         </section>
       </main>
       <Footer />
-    </div>
+    </div >
   )
 }

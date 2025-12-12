@@ -1,10 +1,7 @@
 "use client";
 
 import { ReactNode } from 'react';
-import Header from './Header';
-import Footer from './Footer';
 import SoraChatbot from '../SoraChatbot';
-import ScrollProgress from '../ui/ScrollProgress';
 import PageTransition from '../ui/PageTransition';
 
 interface PageLayoutProps {
@@ -23,15 +20,12 @@ export default function PageLayout({
     fullViewport = false
 }: PageLayoutProps) {
     return (
-        <div className={`flex flex-col min-h-screen ${className}`}>
-            <ScrollProgress />
-            <Header />
+        <div className={className}>
             <PageTransition>
-                <main className={`flex-grow ${fullViewport ? '' : 'pt-20'}`}>
+                <div className={fullViewport ? '' : 'pt-20'}>
                     {children}
-                </main>
+                </div>
             </PageTransition>
-            <Footer />
 
             {showChatbot && (
                 <SoraChatbot environment={chatbotEnvironment} />

@@ -313,7 +313,7 @@ const Body = () => {
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-blue-600 to-green-600 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-center opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-center opacity-25"></div>
         <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-white/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">

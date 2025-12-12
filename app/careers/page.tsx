@@ -393,7 +393,7 @@ export default function Careers() {
 
       {/* Join Us CTA Section */}
       <Section className="gradient-primary relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-25"></div>
         <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
 

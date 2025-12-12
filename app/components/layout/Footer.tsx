@@ -115,6 +115,7 @@ const Footer = () => {
               <form className="mb-8">
                 <div className="flex flex-col sm:flex-row gap-3">
                   <Input
+                    id="footer-email-input"
                     type="email"
                     placeholder="Enter your email"
                     className="flex-1 bg-gray-800 border-gray-700 text-white placeholder-gray-500 focus:border-blue-500"

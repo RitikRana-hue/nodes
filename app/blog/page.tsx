@@ -1,8 +1,6 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
 import SoraChatbot from "@/components/SoraChatbot";
 import FloatingElements from "@/components/ui/FloatingElements";
 import Image from "next/image";
@@ -111,9 +109,8 @@ export default function BlogPage() {
   const gridPosts = filteredPosts.slice(1);
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <Header />
-      <main className="flex-grow">
+    <div>
+      <div>
         {/* Hero Section */}
         <section className="hero-section bg-gradient-to-br from-blue-50 via-green-50/30 to-blue-50 relative overflow-hidden">
           <FloatingElements variant="mixed" density="high" />
@@ -429,7 +426,7 @@ export default function BlogPage() {
               variants={fadeInUp}
             >
               <div className="bg-gradient-to-r from-blue-600 to-green-600 rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-center opacity-10"></div>
+                <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-center opacity-25"></div>
                 <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
                 <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full blur-2xl"></div>
                 <div className="relative z-10">
@@ -458,8 +455,7 @@ export default function BlogPage() {
             </motion.div>
           </div>
         </section>
-      </main>
-      <Footer />
+      </div>
 
       {/* Sora AI Chatbot */}
       <SoraChatbot environment="landing" />
