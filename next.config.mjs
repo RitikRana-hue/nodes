@@ -29,6 +29,14 @@ const nextConfig = {
   reactStrictMode: true,
   productionBrowserSourceMaps: false,
 
+  // Output configuration for deployment
+  output: 'standalone',
+
+  // Environment variables
+  env: {
+    CUSTOM_KEY: process.env.CUSTOM_KEY,
+  },
+
   // Headers for security and caching
   async headers() {
     return [
