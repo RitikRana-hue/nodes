@@ -75,6 +75,14 @@ const Footer = () => {
                     </Link>
                   </li>
                 ))}
+                <li>
+                  <Link
+                    href="/login"
+                    className="text-gray-400 hover:text-green-400 transition-colors duration-200 hover:translate-x-1 inline-block font-medium"
+                  >
+                    Login
+                  </Link>
+                </li>
               </ul>
             </motion.div>
 
@@ -99,6 +107,8 @@ const Footer = () => {
                 ))}
               </ul>
             </motion.div>
+
+
 
             {/* Newsletter & Social */}
             <motion.div
