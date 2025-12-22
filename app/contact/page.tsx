@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from 'react';
 import PageLayout from "@/components/layout/PageLayout";
 import Container from "@/components/ui/Container";
 import Section from "@/components/ui/Section";
@@ -9,11 +10,70 @@ import Textarea from "@/components/ui/Textarea";
 import Card, { CardBody } from "@/components/ui/Card";
 import FloatingElements from "@/components/ui/FloatingElements";
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Clock, Send, MessageSquare, Users, Globe } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, MessageSquare, Users, Globe, CheckCircle, AlertCircle } from 'lucide-react';
 import Link from 'next/link';
 import { fadeInUp, staggerContainer, CONTACT_SUBJECTS } from "@/lib/constants";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    company: '',
+    subject: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [statusMessage, setStatusMessage] = useState('');
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setStatusMessage(result.message);
+        // Reset form
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          company: '',
+          subject: '',
+          message: ''
+        });
+      } else {
+        setSubmitStatus('error');
+        setStatusMessage(result.error || 'Failed to send message');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+      setStatusMessage('Network error. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <PageLayout fullViewport>
       {/* Hero Section */}
@@ -144,7 +204,26 @@ export default function Contact() {
                       </p>
                     </div>
 
-                    <form className="space-y-6">
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                      {/* Status Message */}
+                      {submitStatus !== 'idle' && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className={`p-4 rounded-lg flex items-center space-x-3 ${submitStatus === 'success'
+                              ? 'bg-green-50 border border-green-200 text-green-800'
+                              : 'bg-red-50 border border-red-200 text-red-800'
+                            }`}
+                        >
+                          {submitStatus === 'success' ? (
+                            <CheckCircle className="w-5 h-5 text-green-600" />
+                          ) : (
+                            <AlertCircle className="w-5 h-5 text-red-600" />
+                          )}
+                          <span className="text-sm font-medium">{statusMessage}</span>
+                        </motion.div>
+                      )}
+
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                           <label htmlFor="firstName" className="form-label">
@@ -153,8 +232,11 @@ export default function Contact() {
                           <Input
                             type="text"
                             id="firstName"
+                            name="firstName"
                             required
                             placeholder="John"
+                            value={formData.firstName}
+                            onChange={handleInputChange}
                             className="bg-gray-50 hover:bg-white"
                           />
                         </div>
@@ -165,8 +247,11 @@ export default function Contact() {
                           <Input
                             type="text"
                             id="lastName"
+                            name="lastName"
                             required
                             placeholder="Doe"
+                            value={formData.lastName}
+                            onChange={handleInputChange}
                             className="bg-gray-50 hover:bg-white"
                           />
                         </div>
@@ -179,8 +264,11 @@ export default function Contact() {
                         <Input
                           type="email"
                           id="email"
+                          name="email"
                           required
                           placeholder="john.doe@company.com"
+                          value={formData.email}
+                          onChange={handleInputChange}
                           className="bg-gray-50 hover:bg-white"
                         />
                       </div>
@@ -192,7 +280,10 @@ export default function Contact() {
                         <Input
                           type="text"
                           id="company"
+                          name="company"
                           placeholder="Your Company Name"
+                          value={formData.company}
+                          onChange={handleInputChange}
                           className="bg-gray-50 hover:bg-white"
                         />
                       </div>
@@ -203,7 +294,10 @@ export default function Contact() {
                         </label>
                         <select
                           id="subject"
+                          name="subject"
                           required
+                          value={formData.subject}
+                          onChange={handleInputChange}
                           className="form-select bg-gray-50 hover:bg-white"
                         >
                           <option value="">Select a topic...</option>
@@ -221,9 +315,12 @@ export default function Contact() {
                         </label>
                         <Textarea
                           id="message"
+                          name="message"
                           rows={5}
                           required
                           placeholder="Tell us about your project, requirements, or any questions you have..."
+                          value={formData.message}
+                          onChange={handleInputChange}
                           className="bg-gray-50 hover:bg-white"
                         />
                       </div>
@@ -233,10 +330,11 @@ export default function Contact() {
                         variant="primary"
                         size="lg"
                         fullWidth
-                        leftIcon={<Send className="w-5 h-5" />}
+                        disabled={isSubmitting}
+                        leftIcon={isSubmitting ? undefined : <Send className="w-5 h-5" />}
                         className="shadow-lg hover:shadow-xl"
                       >
-                        Send Message
+                        {isSubmitting ? 'Sending Message...' : 'Send Message'}
                       </Button>
                     </form>
                   </div>

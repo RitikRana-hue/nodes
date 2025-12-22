@@ -21,6 +21,7 @@
     "verify-imports": "node scripts/verify-imports.js"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.89.0",
     "autoprefixer": "^10.4.21",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.12",

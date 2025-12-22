@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface JobApplicationProps {
   isOpen: boolean;
@@ -11,6 +11,7 @@ interface JobApplicationProps {
 
 export default function JobApplication({ isOpen, onClose, jobTitle, isGeneralApplication = false }: JobApplicationProps) {
   const [formData, setFormData] = useState({
+    position: '',
     fullName: '',
     email: '',
     phone: '',
@@ -19,13 +20,65 @@ export default function JobApplication({ isOpen, onClose, jobTitle, isGeneralApp
     resume: null as File | null,
   });
 
+  // Update position when jobTitle changes
+  useEffect(() => {
+    setFormData(prev => ({
+      ...prev,
+      position: jobTitle || ''
+    }));
+  }, [jobTitle]);
+
+  // Reset form when modal opens/closes
+  useEffect(() => {
+    if (isOpen) {
+      setFormData({
+        position: jobTitle || '',
+        fullName: '',
+        email: '',
+        phone: '',
+        experience: '',
+        message: '',
+        resume: null,
+      });
+    }
+  }, [isOpen, jobTitle]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
-    console.log('Form submitted:', formData);
-    // Mock successful submission
-    alert('Application submitted successfully! We will contact you soon.');
-    onClose();
+
+    if (!formData.resume) {
+      alert('Please select a resume file');
+      return;
+    }
+
+    // Create FormData for file upload
+    const submitData = new FormData();
+    submitData.append('position', formData.position);
+    submitData.append('fullName', formData.fullName);
+    submitData.append('email', formData.email);
+    submitData.append('phone', formData.phone);
+    submitData.append('experience', formData.experience);
+    submitData.append('message', formData.message);
+    submitData.append('resume', formData.resume);
+
+    try {
+      const response = await fetch('/api/careers', {
+        method: 'POST',
+        body: submitData,
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        alert('Application submitted successfully! We will review your application and get back to you soon.');
+        onClose();
+      } else {
+        alert(result.error || 'Failed to submit application');
+      }
+    } catch (error) {
+      console.error('Application submission error:', error);
+      alert('Network error. Please check your connection and try again.');
+    }
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -55,6 +108,20 @@ export default function JobApplication({ isOpen, onClose, jobTitle, isGeneralApp
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Position Applied For
+              </label>
+              <input
+                type="text"
+                required
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-gray-50"
+                value={formData.position}
+                onChange={(e) => setFormData({ ...formData, position: e.target.value })}
+                placeholder={isGeneralApplication ? "Enter position of interest" : ""}
+              />
+            </div>
+
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Full Name
